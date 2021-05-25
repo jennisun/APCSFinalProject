@@ -1,6 +1,6 @@
 void setup(){
-  size(800, 800);
-  PImage car = loadImage("zombie3.png");
+  size(514, 827);
+  PImage car = loadImage("zombie1.png");
   PImage output = car.copy();
   
   int numpixels = 15;
