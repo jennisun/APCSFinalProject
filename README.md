@@ -10,3 +10,4 @@ Brief Project Description: Plants vs zombies (pvz), where the player plays on th
 
 5/24
 Xiaoshen: Drew the initial design for game and worked on proposal. Added variables, methods, and subclasses for zombies and plants! (more details in doc above)
+Jennifer: Wrote pixelate method to make pixelated icons for plants/zombies
