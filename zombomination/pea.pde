@@ -11,7 +11,7 @@ public class Pea{
   }
   
   void move() {
-    x += 10;
+    x += 3;
   }
   
   void display() {
@@ -19,5 +19,10 @@ public class Pea{
     pea.resize(25, 25);
     image(pea, x, y);
   }
+  
+  float getx() {
+    return x;
+  }
+ 
   
 }
