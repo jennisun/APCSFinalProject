@@ -6,7 +6,7 @@ public class zombie{
   float x, y;
   boolean beingHit;
   
-  zombie(){
+  zombie(float x, float y){
     this.x = x;
     this.y = y;
     isWalking = true;
@@ -22,7 +22,7 @@ public class zombie{
     zombieType = type;
   }
   void walk(){
-    x += 3;
+    x -= 3;
     if (beingHit){
       howAlive --;
     }
@@ -32,19 +32,12 @@ public class zombie{
     isWalking = false;
     
   }
-  void zombify(){
-    type = "original";
-    
-  }
+
   void display(){
-    PImage zombie = new PImage;
-    if (type.equals("cone"){
-    }
-    if (type.equals("stuykid"){
-    }
-    if (type.equals(original"){
-      zombie = loadImage("zombie.png");
-    }
+    PImage zombie = loadImage("zombie.png");
+    zombie.resize(25, 25);
+    image(zombie, x, y);
+    walk();
     
   }
   
