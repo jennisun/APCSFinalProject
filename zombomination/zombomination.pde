@@ -1,5 +1,6 @@
 int[][] xgrid;
 int[][] ygrid;
+int tick = 0;
 
 void setup(){
   size(800, 700);
@@ -16,24 +17,29 @@ void setup(){
   }
   
   //Peashooter stuff
-  PImage peashooter = loadImage("peashooter1.png");
-  peashooter.resize(80, 80);
-  image(peashooter, 110, 150);
   peas = new ArrayList<Pea>();
-  peas.add(new Pea(180, 20));
+  peashooters = new ArrayList<Peashooter>();
+  peashooters.add(new Peashooter(110, 150));
+  
+  peas.add(new Pea(190, 170));
 }
 
 
-//void draw() {
-//  background(200);
-//  PImage zombie = loadImage("peashooter1.png");
-//  zombie.resize(100, 100);
-//  image(zombie,100, 0);
-//  for (Pea p: peas) {
-//    p.move();
-//    p.display();
-//  }
-//  //fill(0);
-//  //textSize(20);
-//  //text("x: "+mouseX+"\ny: "+mouseY,0,20);
-//}
+void draw() {
+  //if (tick % 1000 == 0) {
+  //  for (Peashooter q : peashooters) {
+  //    q.attack();
+  //  }
+  //}
+  
+  if (tick % 5 == 0) {
+    for (Pea p: peas) {
+      p.move();
+      p.display();
+    }
+  }
+  tick += 1;
+  //fill(0);
+  //textSize(20);
+  //text("x: "+mouseX+"\ny: "+mouseY,0,20);
+}

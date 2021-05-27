@@ -11,7 +11,7 @@ public class Pea{
   }
   
   void move() {
-    x += 3;
+    x += 10;
   }
   
   void display() {
