@@ -23,15 +23,28 @@ public class zombie{
   }
   void walk(){
     x += 3;
+    if (beingHit){
+      howAlive --;
+    }
     
   }
   void die(){
+    isWalking = false;
     
   }
   void zombify(){
+    type = "original";
     
   }
   void display(){
+    PImage zombie = new PImage;
+    if (type.equals("cone"){
+    }
+    if (type.equals("stuykid"){
+    }
+    if (type.equals(original"){
+      zombie = loadImage("zombie.png");
+    }
     
   }
   
