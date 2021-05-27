@@ -21,4 +21,4 @@ Jennifer: Wrote pixelate method to make pixelated icons for plants/zombies <br>
 Jennifer: Made icons and wrote peashooter and pea classes, started making setup for game background <br>
 
 #### 5/26 <br>
-Xiaoshen: Started zombie class and realized a few more variables are needed in addition to the ones we have. Added variables String zombieType, float x, y (location), and boolean beingHit. 
+Xiaoshen: Started zombie class and realized a few more variables are needed in addition to the ones we have. Added variables String zombieType, float x, y (location), and boolean beingHit. Also figured out branching, and all the merge commands (whew). 
