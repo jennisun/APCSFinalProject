@@ -21,7 +21,10 @@ void setup(){
   image(peashooter, 110, 150);
   peas = new ArrayList<Pea>();
   peas.add(new Pea(180, 20));
-  ArrayList zombies = new ArrayList<zombie>();
+  zombies = new ArrayList<zombie>();
+  zombies.add(new zombie(300, 150));
+  
+  
   
 }
 
@@ -33,25 +36,25 @@ void draw() {
 
   //background(200);
   
-  //PImage zombie = loadImage("peashooter1.png");
-  //zombie.resize(100, 100);
-  //image(zombie,100, 0);
-  //for (Pea p: peas) {
-  //  p.move();
-  //  p.display();
-  //}
-  //fill(0);
-  //textSize(20);
-  //text("x: "+mouseX+"\ny: "+mouseY,0,20);
-    //First Zombie
-  PImage zombie = loadImage("zom1.png");
-  zombie.resize(80, 80);
-  image(zombie, 300, 150);
-  ArrayList <zombie> = new Arraylist<
-  for (zombie z: zombies){
-    
+  PImage zombie = loadImage("peashooter1.png");
+  zombie.resize(100, 100);
+  image(zombie,100, 0);
+  for (Pea p: peas) {
+    p.move();
+    p.display();
+  }
+  fill(0);
+  textSize(20);
+  text("x: "+mouseX+"\ny: "+mouseY,0,20);
+  //First Zombie
+
+  for (zombie z : zombies){
+    z.move();
+    z.display();
     
   }
+  
+  
   //ArrayList<zombie> zombies = new ArrayList<zombie>();
   //zombies.add(new zombie(300, 20));
   

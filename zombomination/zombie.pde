@@ -1,3 +1,5 @@
+ArrayList<zombie> zombies;
+
 public class zombie{
   boolean isWalking;
   int howAlive;
@@ -17,11 +19,11 @@ public class zombie{
   zombie(boolean walk, int health, String type){
     this.x = x;
     this.y = y;
-    isWalking = walk;
-    howAlive = health;
-    zombieType = type;
+    //isWalking = walk;
+    //howAlive = health;
+    //zombieType = type;
   }
-  void walk(){
+  void move(){
     x -= 3;
     if (beingHit){
       howAlive --;
@@ -32,12 +34,16 @@ public class zombie{
     isWalking = false;
     
   }
-
+  void zombify(){
+    zombieType = "original";
+    
+  }
   void display(){
-    PImage zombie = loadImage("zombie.png");
-    zombie.resize(25, 25);
-    image(zombie, x, y);
-    walk();
+    noStroke();
+    PImage zb = loadImage("zom1.png");
+    zb.resize(80, 80);
+    image(zb, x, y);
+    //move();
     
   }
   
