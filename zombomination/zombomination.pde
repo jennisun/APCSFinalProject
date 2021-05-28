@@ -34,7 +34,7 @@ void setup(){
 
 void draw() {
 
-  //background(200);
+  background(200);
   
   PImage zombie = loadImage("peashooter1.png");
   zombie.resize(100, 100);
@@ -49,15 +49,15 @@ void draw() {
   //First Zombie
 
   for (zombie z : zombies){
-    z.move();
+    
     z.display();
+    if (z.x == 200){
+      z.isWalking = false;
+    }
     
   }
-  
-  
-  //ArrayList<zombie> zombies = new ArrayList<zombie>();
-  //zombies.add(new zombie(300, 20));
-  
+
+
 
 
 
