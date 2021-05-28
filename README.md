@@ -25,3 +25,4 @@ Xiaoshen: Started zombie class and realized a few more variables are needed in a
 
 #### 5/27 <br>
 Jennifer: Filled in background squares and got peashooter to regularly shoot peas. Added methods to peashooter and pea and started working on buttons. Did all this on a remote branch so some commits were lost :( <br>
+Xiaoshen: Made zombie start to move, messed around with stopping and going again. Can't figure out why a trail of zombies show up without background and if that's a problem making it slower. <br>
