@@ -16,13 +16,11 @@ public class zombie{
     isZombie = true;
     zombieType = "original";
   }
-  zombie(boolean walk, int health, String type){
-    this.x = x;
-    this.y = y;
+  //zombie(boolean walk, int health, String type){
     //isWalking = walk;
     //howAlive = health;
     //zombieType = type;
-  }
+  //}
   void move(){
     x -= 3;
     if (beingHit){
