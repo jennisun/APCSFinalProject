@@ -41,10 +41,6 @@ void setup(){
 
 
 void draw() {
-<<<<<<< HEAD
-
-  background(200);
-=======
   //background
   background(200);
   for (int x = 0; x < 5; x += 1) {
@@ -80,7 +76,6 @@ void draw() {
     q.display();
     if (tick % 80 == 0) q.attack();
   }
->>>>>>> fca7ea2b46d8df54299fd7564087dc7b7c07fc65
   
   for (Pea p: peas) {
     p.move();
@@ -92,25 +87,8 @@ void draw() {
   tick += 1;
   fill(0);
   textSize(20);
-<<<<<<< HEAD
-  text("x: "+mouseX+"\ny: "+mouseY,0,20);
-  //First Zombie
-
-  for (zombie z : zombies){
-    
-    z.display();
-    if (z.x == 200){
-      z.isWalking = false;
-    }
-    
-  }
-
-
-
-=======
   text("peas: "+ peas.size() ,0,20);
 }
->>>>>>> fca7ea2b46d8df54299fd7564087dc7b7c07fc65
 
 
 void keyPressed() {

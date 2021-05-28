@@ -1,3 +1,3 @@
-ArrayList<cone> cones;
+//ArrayList<cone> cones;
 
-public class cone extends 
+//public class cone extends 

@@ -17,20 +17,12 @@ public class zombie{
     zombieType = "original";
   }
   //zombie(boolean walk, int health, String type){
-<<<<<<< HEAD
-  //  this.x = x;
-  //  this.y = y;
-  //  //isWalking = walk;
-  //  //howAlive = health;
-  //  //zombieType = type;
-=======
     //isWalking = walk;
     //howAlive = health;
     //zombieType = type;
->>>>>>> fca7ea2b46d8df54299fd7564087dc7b7c07fc65
   //}
   void move(){
-    x -=3;
+    x -= 3;
     if (beingHit){
       howAlive --;
     }
@@ -50,10 +42,6 @@ public class zombie{
     zb.resize(80, 80);
     image(zb, x, y);
     //move();
-    
-    if (isWalking = true){
-      move();
-    }
     
   }
   
