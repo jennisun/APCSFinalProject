@@ -6,7 +6,7 @@ ArrayList<Pea> removePeas;
 void setup(){
   size(800, 700);
   
-  //Square coordinates into grid, starts at 30, 150
+  //setup
   xgrid = new int[5][9];
   ygrid = new int[5][9];
   for (int x = 0; x < 5; x += 1) {
@@ -22,18 +22,22 @@ void setup(){
     }
   }
   
+  //brown button bar
+  fill(142, 80, 80);
+  rect(30, 570, 500, 100);
+  
   //Peashooter stuff
   peas = new ArrayList<Pea>();
   peashooters = new ArrayList<Peashooter>();
   removePeas = new ArrayList<Pea>();
+  buttons = new ArrayList<Button>();
   
-  peashooters.add(new Peashooter(110, 150));
-  
-  peas.add(new Pea(190, 170));
+  peashooters.add(new Peashooter(ygrid[1][0], xgrid[1][0]));
 }
 
 
 void draw() {
+  //background
   background(200);
   for (int x = 0; x < 5; x += 1) {
     for (int y = 0; y < 9; y += 1) {
@@ -45,7 +49,18 @@ void draw() {
     }
   }
   
+  //brown button bar
+  //fill(142, 80, 80);
+  //rect(30, 570, 500, 100);
+  //buttons.add(new Button(30, 570, 500, 100, 142, 80, 80));
   
+  //for (Button b : buttons) {
+  //  b.update();
+  //  b.display();
+  //}
+  
+  
+  //plants
   for (Peashooter q : peashooters) {
     q.display();
     if (tick % 80 == 0) q.attack();
