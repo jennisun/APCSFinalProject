@@ -27,7 +27,7 @@ void setup(){
   fill(142, 80, 80);
   rect(30, 570, 500, 100);
   buttons = new ArrayList<Button>();
-  buttons.add(new Button(30, 570, 500, 100, "zom1.png"));
+  buttons.add(new Button(30, 570, 100, 100, "zom1.png"));
   
   //Peashooter stuff
   peas = new ArrayList<Pea>();
@@ -65,6 +65,7 @@ void draw() {
   for (Button b : buttons) {
     b.update();
     b.display();
+    //b.mousePressed();
   }
   
   
@@ -94,14 +95,22 @@ void draw() {
   textSize(20);
   //text("peas: "+ peas.size() ,0,20);
   text("FPS: "+frameRate,0,20);
-}
-
-
-void keyPressed() {
- if (key == ' ') {
-   for (Peashooter q : peashooters) {
-     q.attack(false);
-   }
  }
- 
-}
+
+
+  void keyPressed() {
+   if (key == ' ') {
+     for (Peashooter q : peashooters) {
+       q.attack(false);
+     }
+   }
+  }
+
+  void mousePressed() {
+    for (Button b: buttons) {
+      if (b.hover() && !b.clickedOn()) b.clickedOn(true);
+      else if (b.hover() && b.clickedOn()) b.clickedOn(false);
+    }
+    //if (hover && !clickedOn) clickedOn = true;
+    //else if (hover && clickedOn) clickedOn = false;
+  }

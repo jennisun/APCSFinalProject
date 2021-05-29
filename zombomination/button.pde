@@ -1,7 +1,8 @@
 ArrayList<Button> buttons;
 
 public class Button{
-  boolean hover = false;
+  boolean hover;
+  boolean clickedOn;
   float x, y, w, h;
   PImage img;
   
@@ -11,6 +12,9 @@ public class Button{
     w = wt;
     h = ht;
     img = loadImage(name);
+    
+    hover = false;
+    clickedOn = false;
   }
   
   void update() {
@@ -26,10 +30,22 @@ public class Button{
       fill(255, 255, 255, 30);
       rect(x, y, w, h);
     }
+    if (clickedOn) {
+      fill(255, 255, 255, 60);
+      rect(x, y, w, h);
+    }
   }
   
+  boolean hover() {
+    return hover;
+  }
   
+  void clickedOn(boolean hold) {
+    clickedOn = hold;
+  }
   
-  
-  
+  boolean clickedOn() {
+    return clickedOn;
+  }
+
 }
