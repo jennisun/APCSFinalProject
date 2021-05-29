@@ -119,11 +119,18 @@ void mousePressed() {
   for (Button b: buttons) {
     if (b.hover() && !b.clickedOn()) b.clickedOn(true);
     else if (b.hover() && b.clickedOn()) b.clickedOn(false);
+    
+    //if (b.clickedOn) {
+    //  for (rowHighlight r: rowHighlights) {
+    //    if (r.hover()) {
+    //      r.clickedOn(true);
+    //      b.clickedOn(false);
+    //    }
+    //  }
+    //}
   }
   
   for (rowHighlight r: rowHighlights) {
     if (r.hover()) r.clickedOn(true);
   }
-  //if (hover && !clickedOn) clickedOn = true;
-  //else if (hover && clickedOn) clickedOn = false;
 }

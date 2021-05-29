@@ -29,6 +29,9 @@ public class rowHighlight{
       zombies.add(new Zombie(x + w - 100, y));
       clickedOn = false;
       hover = false;
+      for (Button b: buttons) {
+        b.clickedOn(false);
+      }
     }
   }
   
