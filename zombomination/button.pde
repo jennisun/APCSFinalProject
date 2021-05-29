@@ -17,6 +17,16 @@ public class Button{
     clickedOn = false;
   }
   
+  public Button(float xcor, float ycor, float wt, float ht) {
+    x = xcor;
+    y = ycor;
+    w = wt;
+    h = ht;
+    
+    hover = false;
+    clickedOn = false;
+  }
+  
   void update() {
     if (mouseX >= x && mouseX <= x+w && mouseY >= y && mouseY <= y+h) hover = true;
     else hover = false;
@@ -24,8 +34,11 @@ public class Button{
   
   
   void display() {
-    img.resize((int) w, (int) h);
-    image(img,x,y);
+    if (img != null) {
+      img.resize((int) w, (int) h);
+      image(img,x,y);
+    }
+    
     if (hover) {
       fill(255, 255, 255, 30);
       rect(x, y, w, h);

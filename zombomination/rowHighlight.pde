@@ -1,16 +1,23 @@
 ArrayList<rowHighlight> rowHighlights;
 
-public class rowHighlight extends Button{
+public class rowHighlight{
   boolean hover;
   boolean clickedOn;
   float x, y, w, h;
   
   public rowHighlight (float xcor, float ycor, float wt, float ht) {
-    super(xcor, ycor, wt, ht);
+    x = xcor;
+    y = ycor;
+    w = wt;
+    h = ht;
+    
+    hover = false;
+    clickedOn = false;
   }
   
   void update() {
-    super.update();
+    if (mouseX >= x && mouseX <= x+w && mouseY >= y && mouseY <= y+h) hover = true;
+    else hover = false;
   }
   
   void display() {
@@ -19,11 +26,22 @@ public class rowHighlight extends Button{
       rect(x, y, w, h);
     }
     if (clickedOn) {
-      zombies.add(new Zombie(600, 150));
+      zombies.add(new Zombie(x + w - 100, y));
+      clickedOn = false;
       hover = false;
     }
   }
   
+  boolean hover() {
+    return hover;
+  }
   
+  void clickedOn(boolean hold) {
+    clickedOn = hold;
+  }
+  
+  boolean clickedOn() {
+    return clickedOn;
+  }
   
 }
