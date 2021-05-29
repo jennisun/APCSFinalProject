@@ -31,3 +31,6 @@ Xiaoshen: Made zombie start to move, messed around with stopping and going again
 
 #### 5/28 <br>
 Jennifer: Changed constructors to load the image only once, which fixed slow FPS. Also fixed background issue, wrote button and rowHighlight classes, as well as made progress on adding zombies to a specified row after clicking the zombie button. <br>
+
+#### 5/29 <br>
+Jennifer: Implemented selecting zombie button and successfully creates new zombie in selected row. Found new icons to use. <br>
