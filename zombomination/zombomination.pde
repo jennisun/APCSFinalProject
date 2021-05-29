@@ -93,24 +93,24 @@ void draw() {
   tick += 1;
   fill(0);
   textSize(20);
-  //text("peas: "+ peas.size() ,0,20);
   text("FPS: "+frameRate,0,20);
  }
 
 
-  void keyPressed() {
-   if (key == ' ') {
-     for (Peashooter q : peashooters) {
-       q.attack(false);
-     }
-   }
-  }
 
-  void mousePressed() {
-    for (Button b: buttons) {
-      if (b.hover() && !b.clickedOn()) b.clickedOn(true);
-      else if (b.hover() && b.clickedOn()) b.clickedOn(false);
-    }
-    //if (hover && !clickedOn) clickedOn = true;
-    //else if (hover && clickedOn) clickedOn = false;
+void keyPressed() {
+ if (key == ' ') {
+   for (Peashooter q : peashooters) {
+     q.attack(false);
+   }
+ }
+}
+
+void mousePressed() {
+  for (Button b: buttons) {
+    if (b.hover() && !b.clickedOn()) b.clickedOn(true);
+    else if (b.hover() && b.clickedOn()) b.clickedOn(false);
   }
+  //if (hover && !clickedOn) clickedOn = true;
+  //else if (hover && clickedOn) clickedOn = false;
+}
