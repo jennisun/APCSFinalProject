@@ -1,14 +1,15 @@
-ArrayList<zombie> zombies;
+ArrayList<Zombie> zombies;
 
-public class zombie{
+public class Zombie{
   boolean isWalking;
   int howAlive;
   boolean isZombie;
   String zombieType;
   float x, y;
   boolean beingHit;
+  PImage zb = loadImage("zom1.png");
   
-  zombie(float x, float y){
+  Zombie(float x, float y){
     this.x = x;
     this.y = y;
     isWalking = true;
@@ -22,7 +23,7 @@ public class zombie{
     //zombieType = type;
   //}
   void move(){
-    x -= 3;
+    x -= 0.5;
     if (beingHit){
       howAlive --;
     }
@@ -38,7 +39,6 @@ public class zombie{
   }
   void display(){
     noStroke();
-    PImage zb = loadImage("zom1.png");
     zb.resize(80, 80);
     image(zb, x, y);
     //move();

@@ -26,6 +26,8 @@ void setup(){
   //brown button bar
   fill(142, 80, 80);
   rect(30, 570, 500, 100);
+  buttons = new ArrayList<Button>();
+  buttons.add(new Button(30, 570, 500, 100, "zom1.png"));
   
   //Peashooter stuff
   peas = new ArrayList<Pea>();
@@ -33,10 +35,12 @@ void setup(){
   removePeas = new ArrayList<Pea>();
   //buttons = new ArrayList<Button>();
   
-  //zombies = new ArrayList<zombie>();
-  //zombies.add(new zombie(300, 150));
+  zombies = new ArrayList<Zombie>();
+  zombies.add(new Zombie(600, 150));
   
   peashooters.add(new Peashooter(ygrid[1][0], xgrid[1][0]));
+  //peashooters.add(new Peashooter(ygrid[2][0], xgrid[2][0]));
+  //peashooters.add(new Peashooter(ygrid[1][1], xgrid[1][1]));
 }
 
 
@@ -54,27 +58,28 @@ void draw() {
   }
   
   //brown button bar
-  //fill(142, 80, 80);
-  //rect(30, 570, 500, 100);
-  //buttons.add(new Button(30, 570, 500, 100, 142, 80, 80));
-  
-  //for (Button b : buttons) {
-  //  b.update();
-  //  b.display();
-  //}
+  fill(142, 80, 80);
+  rect(30, 570, 500, 100);
   
   
-  //zombie
-  //for (zombie z : zombies){
-  //  z.move();
-  //  z.display();
-  //}
+  for (Button b : buttons) {
+    b.update();
+    b.display();
+  }
+  
+  
+  //Zombie
+  for (Zombie z : zombies){
+    //if (tick % 15 == 0) z.move();
+    z.move();
+    z.display();
+  }
   
   
   //plants
   for (Peashooter q : peashooters) {
     q.display();
-    if (tick % 80 == 0) q.attack();
+    if (tick % 100 == 0) q.attack();
   }
   
   for (Pea p: peas) {
@@ -87,7 +92,8 @@ void draw() {
   tick += 1;
   fill(0);
   textSize(20);
-  text("peas: "+ peas.size() ,0,20);
+  //text("peas: "+ peas.size() ,0,20);
+  text("FPS: "+frameRate,0,20);
 }
 
 
