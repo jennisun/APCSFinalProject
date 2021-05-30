@@ -17,7 +17,7 @@ public class Mushroom{
   }
   
   void attack() {
-    if (attack) mushrooms.add(new Mushroom(x + 80, y + 20));
+    if (attack) shrooms.add(new Shroom(x + 80, y + 20));
   }
   
   void attack(boolean hold) {
