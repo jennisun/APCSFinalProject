@@ -51,8 +51,8 @@ void setup(){
   zombies = new ArrayList<Zombie>();
   
   //Added Stuff
-  zombies.add(new Zombie(600, 150));
-  zombies.add(new Zombie(600, 225));
+  //zombies.add(new Zombie(600, 150));
+  //zombies.add(new Zombie(600, 225));
   peashooters.add(new Peashooter(ygrid[1][0], xgrid[1][0]));
   mushrooms.add(new Mushroom(ygrid[2][2], xgrid[2][2]));
   mushrooms.add(new Mushroom(ygrid[3][7], xgrid[3][7]));
@@ -93,17 +93,19 @@ void draw() {
   //Zombies
   for (Zombie z : zombies){
     //if (tick % 15 == 0) z.move();
+    z.move();
+    z.display();
     for (Pea p : peas){
-      if (dist(p.x, p.y, z.x, z.y) < 10 && z.howAlive>0){
+      if (dist(p.x, p.y, z.x, z.y) < 100 ){
         z.beingHit = true;
       }else{
         z.beingHit = false;
       }
+      //textSize(20);
+      //text("dist " + dist(p.x, p.y, z.x, z.y), 500, 20);
     }
-    z.move();
-    z.display();
-    //textSize(20);
-    //text("Health: "+z.howAlive,0,20);
+    textSize(20);
+    text("Health: "+z.howAlive ,0,20);
     //if (z.howAlive <0){
     //  zombies.remove(z);
     //}

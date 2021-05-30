@@ -25,14 +25,11 @@ public class Zombie{
   void move(){
     x -= 0.3;
     if (beingHit){
-      howAlive -= 10;
+      howAlive -= 50;
     }
     
   }
-  void die(){
-    isWalking = false;
-    
-  }
+
   void zombify(){
     zombieType = "original";
     
