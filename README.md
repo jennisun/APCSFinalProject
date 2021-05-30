@@ -34,3 +34,6 @@ Jennifer: Changed constructors to load the image only once, which fixed slow FPS
 
 #### 5/29 <br>
 Jennifer: Implemented selecting zombie button and successfully creates new zombie in selected row. Found new icons to use. <br>
+
+#### 5/30 <br>
+Jennifer: Added mushroom plant which shoots shrooms at a limited range. Changed plants to only shoot when a zombie comes within their range. Added a cone zombie and pail zombie, resized all zombies so they appear the same size and position on the screen. <br>
