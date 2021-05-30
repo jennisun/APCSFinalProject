@@ -97,19 +97,19 @@ void draw() {
     z.display();
     for (Pea p : peas){
       if (dist(p.x, p.y, z.x, z.y) < 100 ){
-        z.howAlive -= 20;
+        z.howAlive -= 11;
         z.hit ++;
-      }else{
-        z.beingHit = false;
       }
-      //textSize(20);
-      //text("dist " + dist(p.x, p.y, z.x, z.y), 500, 20);
+    }
+    for (Shroom s : shrooms){
+      if (dist(s.x, s.y, z.x, z.y) < 100 ){
+        z.howAlive -=5;
+        z.hit ++;
+      }
     }
     textSize(20);
     text("Health: "+z.howAlive + " " + z.hit,0,20);
-    //if (z.howAlive <0){
-    //  zombies.remove(z);
-    //}
+
   }
 
   

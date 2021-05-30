@@ -6,7 +6,6 @@ public class Zombie{
   boolean isZombie;
   String zombieType;
   float x, y;
-  boolean beingHit;
   PImage zb = loadImage("zom1.png");
   int hit;
   
@@ -25,10 +24,6 @@ public class Zombie{
   //}
   void move(){
     x -= 0.3;
-    if (beingHit){
-      howAlive -= 20;
-    }
-    
   }
 
   void zombify(){
