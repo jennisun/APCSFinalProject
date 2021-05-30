@@ -126,6 +126,11 @@ void draw() {
     p.move();
     p.display();
     if (p.getx() > 820) removePeas.add(p);
+    for (Zombie z : zombies){
+      if (z.x - p.x < 3 ){
+        p.alive = false;
+      }
+    }
   }
   peas.removeAll(removePeas);
   

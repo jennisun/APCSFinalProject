@@ -4,11 +4,13 @@ public class Pea{
   float x, y;
   boolean colliding;
   PImage pea = loadImage("pea.png");
+  boolean alive;
   
   Pea(float x, float y) {
     this.x = x;
     this.y = y;
     colliding = false;
+    alive = true;
   }
   
   void move() {
@@ -16,8 +18,10 @@ public class Pea{
   }
   
   void display() {
-    pea.resize(25, 25);
-    image(pea, x, y);
+    if (alive){
+      pea.resize(25, 25);
+      image(pea, x, y);
+    }
   }
   
   float getx() {
