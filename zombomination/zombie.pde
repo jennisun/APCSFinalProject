@@ -8,6 +8,7 @@ public class Zombie{
   float x, y;
   boolean beingHit;
   PImage zb = loadImage("zom1.png");
+  int hit;
   
   Zombie(float x, float y){
     this.x = x;
@@ -25,7 +26,7 @@ public class Zombie{
   void move(){
     x -= 0.3;
     if (beingHit){
-      howAlive -= 50;
+      howAlive -= 20;
     }
     
   }

@@ -97,7 +97,8 @@ void draw() {
     z.display();
     for (Pea p : peas){
       if (dist(p.x, p.y, z.x, z.y) < 100 ){
-        z.beingHit = true;
+        z.howAlive -= 20;
+        z.hit ++;
       }else{
         z.beingHit = false;
       }
@@ -105,7 +106,7 @@ void draw() {
       //text("dist " + dist(p.x, p.y, z.x, z.y), 500, 20);
     }
     textSize(20);
-    text("Health: "+z.howAlive ,0,20);
+    text("Health: "+z.howAlive + " " + z.hit,0,20);
     //if (z.howAlive <0){
     //  zombies.remove(z);
     //}
