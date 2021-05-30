@@ -25,7 +25,7 @@ public class Zombie{
   void move(){
     x -= 0.3;
     if (beingHit){
-      howAlive --;
+      howAlive -= 10;
     }
     
   }
@@ -38,10 +38,17 @@ public class Zombie{
     
   }
   void display(){
-    noStroke();
-    zb.resize(80, 80);
-    image(zb, x, y);
-    //move();
+    if (howAlive >0){
+      noStroke();
+      zb.resize(80, 80);
+      image(zb, x, y);
+      //move();
+    }
+    if (howAlive <=0){
+      
+    }
+    
+  
   }
   
   float getX() {
