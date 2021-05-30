@@ -3,6 +3,7 @@ int[][] ygrid;
 int tick = 0;
 ArrayList<Pea> removePeas;
 ArrayList<Shroom> removeShrooms;
+ArrayList<Zombie> removeZombies;
 
 void setup(){
   size(800, 700);
@@ -91,15 +92,20 @@ void draw() {
   
   
   //Zombies
+
   for (Zombie z : zombies){
     //if (tick % 15 == 0) z.move();
-    z.move();
+    //z.move();
     z.display();
     for (Pea p : peas){
       if (dist(p.x, p.y, z.x, z.y) < 100 ){
         z.howAlive -= 11;
         z.hit ++;
+        //ouch = recover;
+        //recover ++;
+        //z.isWalking = false;
       }
+  
     }
     for (Shroom s : shrooms){
       if (dist(s.x, s.y, z.x, z.y) < 100 ){
@@ -107,10 +113,24 @@ void draw() {
         z.hit ++;
       }
     }
+    //will implement mushroom health later
+    //for (Mushroom m : mushrooms){
+    //  if (dist(m.x, m.y, z.x, z.y) < 20 ){
+    //    m.howAlive -=10;
+    //    z.isWalking = false;
+    //  }
+    //  else{
+    //    z.isWalking = true;
+    //  }
+    //textSize(20);
+    //text("walk: "+ z.isWalking + " " + z.hit,0,50);
+    //}
+    
     textSize(20);
-    text("Health: "+z.howAlive + " " + z.hit,0,20);
+    text("Zombie#: "+zombies.size() + " " + z.hit + " " + z.howAlive,0,20);
 
   }
+
 
   
   
@@ -139,6 +159,8 @@ void draw() {
   for (Mushroom m : mushrooms) {
     m.display();
     if (tick % 150 == 0) m.attack();
+    //textSize(20);
+    //text("Health: "+m.howAlive ,0,20);
   }
   
   for (Shroom s: shrooms) {

@@ -4,11 +4,13 @@ public class Mushroom{
   float x, y;
   boolean attack;
   PImage mushroom = loadImage("mushroom.png");
+  int howAlive;
   
   Mushroom(float x, float y) {
     this.x = x;
     this.y = y;
     attack = false;
+    howAlive = 400;
   }
   
   void display() {
