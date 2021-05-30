@@ -1,13 +1,14 @@
 ArrayList<Shroom> shrooms;
 
 public class Shroom{
-  float x, y;
+  float x, y, originalX;
   boolean colliding;
   PImage shroom = loadImage("shroom.png");
   
   Shroom(float x, float y) {
     this.x = x;
     this.y = y;
+    originalX = x;
     colliding = false;
   }
   
@@ -22,6 +23,10 @@ public class Shroom{
   
   float getx() {
     return x;
+  }
+  
+  float getdist() {
+    return x - originalX;
   }
   
 }
