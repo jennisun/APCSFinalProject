@@ -8,12 +8,21 @@ public class Mushroom{
   Mushroom(float x, float y) {
     this.x = x;
     this.y = y;
-    attack = true;
+    attack = false;
   }
   
   void display() {
     mushroom.resize(80, 80);
     image(mushroom, x, y);
+    
+    boolean change = false;
+    for (Zombie z: zombies) {
+      if (z.getY() == y && z.getX() - x <= 300) {
+        attack = true;
+        change = true;
+      }
+    }
+    if (!change) attack = false;
   }
   
   void attack() {

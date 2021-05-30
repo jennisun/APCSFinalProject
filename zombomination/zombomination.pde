@@ -127,6 +127,8 @@ void draw() {
   }
   shrooms.removeAll(removeShrooms);
  
+ 
+ //stuff
   tick += 1;
   fill(0);
   textSize(20);

@@ -8,12 +8,21 @@ public class Peashooter{
   Peashooter(float x, float y) {
     this.x = x;
     this.y = y;
-    attack = true;
+    attack = false;
   }
   
   void display() {
     peashooter.resize(80, 80);
     image(peashooter, x, y);
+    
+    boolean change = false;
+    for (Zombie z: zombies) {
+      if (z.getY() == y) {
+        attack = true;
+        change = true;
+      }
+    }
+    if (!change) attack = false;
   }
   
   void attack() {

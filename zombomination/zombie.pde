@@ -42,7 +42,14 @@ public class Zombie{
     zb.resize(80, 80);
     image(zb, x, y);
     //move();
-    
+  }
+  
+  float getX() {
+    return x;
+  }
+  
+  float getY() {
+    return y;
   }
   
 }
