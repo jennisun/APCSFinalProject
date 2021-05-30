@@ -26,6 +26,7 @@ void setup(){
   //Buttons
   fill(142, 80, 80);
   rect(30, 570, 500, 100);
+  
   buttons = new ArrayList<Button>();
   rowHighlights = new ArrayList<rowHighlight>();
   
@@ -34,13 +35,13 @@ void setup(){
     rowHighlights.add(new rowHighlight(ygrid[i][0], xgrid[i][0], 720, 80));
   }
  
-  //Peashooter stuff
+  //Arraylists
   peas = new ArrayList<Pea>();
   peashooters = new ArrayList<Peashooter>();
   removePeas = new ArrayList<Pea>();
-  //buttons = new ArrayList<Button>();
-  
   zombies = new ArrayList<Zombie>();
+  
+  
   zombies.add(new Zombie(600, 150));
   
   peashooters.add(new Peashooter(ygrid[1][0], xgrid[1][0]));

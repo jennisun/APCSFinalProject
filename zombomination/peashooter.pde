@@ -3,6 +3,7 @@ ArrayList<Peashooter> peashooters;
 public class Peashooter{
   float x, y;
   boolean attack;
+  PImage peashooter = loadImage("peashooter1.png");
   
   Peashooter(float x, float y) {
     this.x = x;
@@ -11,7 +12,6 @@ public class Peashooter{
   }
   
   void display() {
-    PImage peashooter = loadImage("peashooter1.png");
     peashooter.resize(80, 80);
     image(peashooter, x, y);
   }
