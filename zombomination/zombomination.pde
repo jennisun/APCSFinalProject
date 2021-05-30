@@ -146,6 +146,11 @@ void draw() {
     s.display();
     if (s.getx() > 820) removeShrooms.add(s);
     else if (s.getdist() > 150) removeShrooms.add(s);
+    for (Zombie z : zombies){
+      if (z.x - s.x < 3 ){
+        s.alive = false;
+      }
+    }
   }
   shrooms.removeAll(removeShrooms);
  
