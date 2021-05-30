@@ -12,8 +12,8 @@ public class Mushroom{
   }
   
   void display() {
-    mushroom.resize(80, 80);
-    image(mushroom, x, y);
+    mushroom.resize(50, 50);
+    image(mushroom, x + 20, y + 20);
     
     boolean change = false;
     for (Zombie z: zombies) {

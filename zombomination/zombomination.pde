@@ -102,7 +102,7 @@ void draw() {
   //peashooter
   for (Peashooter q : peashooters) {
     q.display();
-    if (tick % 120 == 0) q.attack();
+    if (tick % 150 == 0) q.attack();
   }
   
   for (Pea p: peas) {
@@ -116,7 +116,7 @@ void draw() {
   //peashooter
   for (Mushroom m : mushrooms) {
     m.display();
-    if (tick % 120 == 0) m.attack();
+    if (tick % 150 == 0) m.attack();
   }
   
   for (Shroom s: shrooms) {
@@ -138,11 +138,11 @@ void draw() {
 
 
 void keyPressed() {
- if (key == ' ') {
-   for (Peashooter q : peashooters) {
-     q.attack(false);
-   }
- }
+ //if (key == ' ') {
+ //  for (Peashooter q : peashooters) {
+ //    q.attack(false);
+ //  }
+ //}
 }
 
 void mousePressed() {

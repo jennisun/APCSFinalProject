@@ -23,7 +23,7 @@ public class Zombie{
     //zombieType = type;
   //}
   void move(){
-    x -= 0.5;
+    x -= 0.3;
     if (beingHit){
       howAlive --;
     }
