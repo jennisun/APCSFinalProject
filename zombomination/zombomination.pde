@@ -92,8 +92,20 @@ void draw() {
   //Zombies
   for (Zombie z : zombies){
     //if (tick % 15 == 0) z.move();
+    for (Pea p : peas){
+      if (dist(p.x, p.y, z.x, z.y) < 10){
+        z.beingHit = true;
+      }else{
+        z.beingHit = false;
+      }
+    }
     z.move();
     z.display();
+      textSize(20);
+      text("Health: "+z.howAlive,0,20);
+  
+      //if (dist(z.x, z.y, p.z, p.y)<= 
+    
   }
   
   
@@ -131,8 +143,8 @@ void draw() {
  //stuff
   tick += 1;
   fill(0);
-  textSize(20);
-  text("FPS: "+frameRate,0,20);
+  //textSize(20);
+  //text("FPS: "+frameRate,0,20);
 }
 
 
