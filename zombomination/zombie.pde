@@ -27,6 +27,7 @@ public class Zombie{
     if (!isHit){
       x -= 0.3;
     }
+    if (isHit) isHit = false;
   }
 
   void zombify(){

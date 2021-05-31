@@ -99,9 +99,10 @@ void draw() {
     //z.move();
     if (!z.display()) removeZombies.add(z);
     for (Pea p : peas){
-      if (dist(p.x, p.y, z.x, z.y) < 100 ){
-        z.howAlive -= 11;
+      if (dist(p.x, p.y, z.x, z.y) < 30 ){
+        z.howAlive -= 50;
         z.hit ++;
+        z.isHit = true;
         //ouch = recover;
         //recover ++;
         //z.isWalking = false;
@@ -158,7 +159,7 @@ void draw() {
   //peashooter
   for (Mushroom m : mushrooms) {
     m.display();
-    if (tick % 150 == 0) m.attack();
+    if (tick % 120 == 0) m.attack();
     //textSize(20);
     //text("Health: "+m.howAlive ,0,20);
   }
