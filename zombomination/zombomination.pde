@@ -56,8 +56,8 @@ void setup(){
   //zombies.add(new Zombie(600, 150));
   //zombies.add(new Zombie(600, 225));
   peashooters.add(new Peashooter(ygrid[1][0], xgrid[1][0]));
-  mushrooms.add(new Mushroom(ygrid[2][2], xgrid[2][2]));
-  mushrooms.add(new Mushroom(ygrid[3][7], xgrid[3][7]));
+  mushrooms.add(new Mushroom(ygrid[3][5], xgrid[3][5]));
+  //mushrooms.add(new Mushroom(ygrid[3][2], xgrid[3][2]));
   //peashooters.add(new Peashooter(ygrid[2][0], xgrid[2][0]));
   //peashooters.add(new Peashooter(ygrid[1][1], xgrid[1][1]));
 }
@@ -98,23 +98,23 @@ void draw() {
     //if (tick % 15 == 0) z.move();
     //z.move();
     if (!z.display()) removeZombies.add(z);
-    for (Pea p : peas){
-      if (dist(p.x, p.y, z.x, z.y) < 30 ){
-        z.howAlive -= 50;
-        z.hit ++;
-        z.isHit = true;
-        //ouch = recover;
-        //recover ++;
-        //z.isWalking = false;
-      }
-  
-    }
-    for (Shroom s : shrooms){
-      if (dist(s.x, s.y, z.x, z.y) < 100 ){
-        z.howAlive -=5;
-        z.hit ++;
-      }
-    }
+    //for (Pea p : peas){
+    //  if (dist(p.x, p.y, z.x, z.y) < 30){
+    //    z.howAlive -= 50;
+    //    z.hit ++;
+    //    z.isHit = true;
+    //    //ouch = recover;
+    //    //recover ++;
+    //    //z.isWalking = false;
+    //  }
+    //}
+    //for (Shroom s : shrooms){
+    //  if (dist(s.x, s.y, z.x, z.y) < 30 ){
+    //    z.howAlive -= 25;
+    //    z.hit ++;
+    //    z.isHit = true;
+    //  }
+    //}
     //will implement mushroom health later
     //for (Mushroom m : mushrooms){
     //  if (dist(m.x, m.y, z.x, z.y) < 20 ){
@@ -148,8 +148,8 @@ void draw() {
     p.display();
     if (p.getx() > 820) removePeas.add(p);
     for (Zombie z : zombies){
-      if (z.x - p.x < 3 ){
-        p.alive = false;
+      if (z.x - p.x < 1){
+        removePeas.add(p);
       }
     }
   }
@@ -169,11 +169,6 @@ void draw() {
     s.display();
     if (s.getx() > 820) removeShrooms.add(s);
     else if (s.getdist() > 150) removeShrooms.add(s);
-    for (Zombie z : zombies){
-      if (z.x - s.x < 3 ){
-        s.alive = false;
-      }
-    }
   }
   shrooms.removeAll(removeShrooms);
  

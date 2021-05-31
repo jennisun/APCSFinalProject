@@ -8,7 +8,7 @@ public class Zombie{
   float x, y;
   PImage zb = loadImage("zom1.png");
   int hit;
-  boolean isHit;
+  boolean pause;
   
   Zombie(float x, float y){
     this.x = x;
@@ -24,10 +24,10 @@ public class Zombie{
     //zombieType = type;
   //}
   void move(){
-    if (!isHit){
+    if (!pause){
       x -= 0.3;
     }
-    if (isHit) isHit = false;
+    if (pause) pause = false;
   }
 
   void zombify(){
@@ -43,6 +43,10 @@ public class Zombie{
       if (isWalking){
         move();
       }
+      fill(0, 255, 48);
+      rect(x + 23, y - 20, 30, 10);
+      fill(255, 255, 255);
+      rect(x + 23, y - 20, (float) 30 * (10000 - howAlive) / 10000, 10);
       return true;
     }
     else {

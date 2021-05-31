@@ -4,13 +4,11 @@ public class Pea{
   float x, y;
   boolean colliding;
   PImage pea = loadImage("pea.png");
-  boolean alive;
   
   Pea(float x, float y) {
     this.x = x;
     this.y = y;
     colliding = false;
-    alive = true;
   }
   
   void move() {
@@ -18,7 +16,18 @@ public class Pea{
   }
   
   void display() {
-    if (alive){
+    boolean once = false;
+    for (Zombie z: zombies) {
+      if (!once && !z.pause && dist(x, y, z.getX(), z.getY()) < 30) {
+        colliding = true;
+        z.howAlive -= 100;
+        z.hit ++;
+        z.pause = true;
+        once = true;
+      }
+    }
+    
+    if (!colliding) {
       pea.resize(25, 25);
       image(pea, x, y);
     }

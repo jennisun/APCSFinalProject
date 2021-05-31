@@ -4,14 +4,12 @@ public class Shroom{
   float x, y, originalX;
   boolean colliding;
   PImage shroom = loadImage("shroom.png");
-  boolean alive;
   
   Shroom(float x, float y) {
     this.x = x;
     this.y = y;
     originalX = x;
     colliding = false;
-    alive = true;
   }
   
   void move() {
@@ -19,7 +17,17 @@ public class Shroom{
   }
   
   void display() {
-    if (alive){
+    boolean once = false;
+    for (Zombie z: zombies) {
+      if (!once && !z.pause && dist(x, y, z.getX(), z.getY()) < 30) {
+        colliding = true;
+        z.howAlive -= 50;
+        z.hit ++;
+        z.pause = true;
+        once = true;
+      }
+    }
+    if (!colliding) {
       shroom.resize(25, 25);
       image(shroom, x, y);
     }
