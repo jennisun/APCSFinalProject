@@ -39,3 +39,6 @@ Jennifer: Implemented selecting zombie button and successfully creates new zombi
 Jennifer: Added mushroom plant which shoots shrooms at a limited range. Changed plants to only shoot when a zombie comes within their range. Added a cone zombie and pail zombie, resized all zombies so they appear the same size and position on the screen. <br>
 
 Xiaoshen: Added health to zombies, so that they take damage from peas and shrooms, made peas and shrooms die after they hit zombies, and made zombies die when they run out of health. Need to figure out how to remove dead zombies from Arraylist without breaking loop, implement plant health, get zombies to eat plants, and get zombies to pause a little when hit. <br>
+
+#### 5/30 <br>
+Jennifer: Fixed killing zombies and added health bar for zombies to make sure code is working. Added health for plants and modified Pea and Shroom to add more methods.
