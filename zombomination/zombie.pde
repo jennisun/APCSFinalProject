@@ -1,14 +1,13 @@
 ArrayList<Zombie> zombies;
 
 public class Zombie{
-  boolean isWalking;
+  boolean isWalking, isZombie;
   int howAlive;
-  boolean isZombie;
   String zombieType;
   float x, y;
   PImage zb = loadImage("zom1.png");
-  int hit;
-  boolean pause;
+  //int hit;
+  boolean pause, eating;
   
   Zombie(float x, float y){
     this.x = x;
@@ -24,7 +23,7 @@ public class Zombie{
     //zombieType = type;
   //}
   void move(){
-    if (!pause){
+    if (!eating && !pause){
       x -= 0.3;
     }
     if (pause) pause = false;
@@ -36,22 +35,22 @@ public class Zombie{
   }
   
   boolean display(){
-    if (howAlive >0){
+    if (howAlive > 0){
       noStroke();
       zb.resize(80, 80);
       image(zb, x, y);
       if (isWalking){
         move();
       }
+      
+      //health bar
       fill(0, 255, 48);
       rect(x + 23, y - 20, 30, 10);
       fill(255, 255, 255);
       rect(x + 23, y - 20, (float) 30 * (10000 - howAlive) / 10000, 10);
       return true;
     }
-    else {
-      return false;
-    }
+    return false;
   }
   
   float getX() {
@@ -60,6 +59,11 @@ public class Zombie{
   
   float getY() {
     return y;
+  }
+  
+  void eating(boolean hold) {
+    if (hold) isWalking = false;
+    else isWalking = true;
   }
   
 }

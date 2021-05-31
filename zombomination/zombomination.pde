@@ -2,8 +2,11 @@ int[][] xgrid;
 int[][] ygrid;
 int tick = 0;
 ArrayList<Pea> removePeas;
+ArrayList<Peashooter> removePeashooters;
 ArrayList<Shroom> removeShrooms;
+ArrayList<Mushroom> removeMushrooms;
 ArrayList<Zombie> removeZombies;
+
 
 void setup(){
   size(800, 700);
@@ -36,16 +39,17 @@ void setup(){
   for (int i = 0; i < 5; i ++) {
     rowHighlights.add(new rowHighlight(ygrid[i][0], xgrid[i][0], 720, 80));
   }
- 
 
   //Pea + Peashooter
   peas = new ArrayList<Pea>();
   peashooters = new ArrayList<Peashooter>();
+  removePeashooters = new ArrayList<Peashooter>();
   removePeas = new ArrayList<Pea>();
   
   //Shroom + Mushroom
   shrooms = new ArrayList<Shroom>();
   mushrooms = new ArrayList<Mushroom>();
+  removeMushrooms = new ArrayList<Mushroom>();
   removeShrooms = new ArrayList<Shroom>();
   
   //Zombie
@@ -55,7 +59,7 @@ void setup(){
   //Added Stuff
   //zombies.add(new Zombie(600, 150));
   //zombies.add(new Zombie(600, 225));
-  peashooters.add(new Peashooter(ygrid[1][0], xgrid[1][0]));
+  peashooters.add(new Peashooter(ygrid[1][5], xgrid[1][5]));
   mushrooms.add(new Mushroom(ygrid[3][5], xgrid[3][5]));
   //mushrooms.add(new Mushroom(ygrid[3][2], xgrid[3][2]));
   //peashooters.add(new Peashooter(ygrid[2][0], xgrid[2][0]));
@@ -95,42 +99,33 @@ void draw() {
   //Zombies
 
   for (Zombie z : zombies){
-    //if (tick % 15 == 0) z.move();
-    //z.move();
     if (!z.display()) removeZombies.add(z);
-    //for (Pea p : peas){
-    //  if (dist(p.x, p.y, z.x, z.y) < 30){
-    //    z.howAlive -= 50;
-    //    z.hit ++;
-    //    z.isHit = true;
-    //    //ouch = recover;
-    //    //recover ++;
-    //    //z.isWalking = false;
-    //  }
-    //}
-    //for (Shroom s : shrooms){
-    //  if (dist(s.x, s.y, z.x, z.y) < 30 ){
-    //    z.howAlive -= 25;
-    //    z.hit ++;
-    //    z.isHit = true;
-    //  }
-    //}
-    //will implement mushroom health later
-    //for (Mushroom m : mushrooms){
-    //  if (dist(m.x, m.y, z.x, z.y) < 20 ){
-    //    m.howAlive -=10;
-    //    z.isWalking = false;
-    //  }
-    //  else{
-    //    z.isWalking = true;
-    //  }
-    //textSize(20);
-    //text("walk: "+ z.isWalking + " " + z.hit,0,50);
-    //}
+    
+    boolean eating = false;
+    for (Peashooter a : peashooters) {
+      if (a.getY() == z.getY() && dist(a.getX(), a.getY(), z.getX(), z.getY()) < 10) {
+        z.eating(true);
+        a.howAlive(25);
+        if (a.display()) removePeashooters.add(a);
+        eating = true;
+      }
+    }
+    for (Mushroom b : mushrooms) {
+      if (b.getY() == z.getY() && dist(b.getX(), b.getY(), z.getX(), z.getY()) < 10) {
+        z.eating(true);
+        b.howAlive(25);
+        if (b.display()) removeMushrooms.add(b);
+        eating = true;
+      }
+    }
+    if (!eating) z.eating(false);
     
     textSize(20);
-    text("Zombie#: "+zombies.size() + " " + z.hit + " " + z.howAlive,0,20);
+    //text("Zombie#: "+zombies.size() + " " + z.hit + " " + z.howAlive,0,20);
+    text("Zombie#: "+zombies.size() + " "+ z.howAlive,0,20);
   }
+  peashooters.removeAll(removePeashooters);
+  mushrooms.removeAll(removeMushrooms);
   zombies.removeAll(removeZombies);
 
 
@@ -172,7 +167,6 @@ void draw() {
   }
   shrooms.removeAll(removeShrooms);
  
- 
  //stuff
   tick += 1;
   fill(0);
@@ -183,11 +177,7 @@ void draw() {
 
 
 void keyPressed() {
- //if (key == ' ') {
- //  for (Peashooter q : peashooters) {
- //    q.attack(false);
- //  }
- //}
+
 }
 
 void mousePressed() {

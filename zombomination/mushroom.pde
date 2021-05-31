@@ -1,20 +1,21 @@
 ArrayList<Mushroom> mushrooms;
 
-public class Mushroom{
+public class Mushroom {
+  int howAlive;
   float x, y;
   boolean attack;
   PImage mushroom = loadImage("mushroom.png");
-  int howAlive;
   
   Mushroom(float x, float y) {
     this.x = x;
     this.y = y;
     attack = false;
-    howAlive = 400;
+    howAlive = 300;
   }
   
-  void display() {
-    mushroom.resize(50, 50);
+  boolean display() {
+    if (howAlive > 0) {
+      mushroom.resize(50, 50);
     image(mushroom, x + 20, y + 20);
     
     boolean change = false;
@@ -25,6 +26,9 @@ public class Mushroom{
       }
     }
     if (!change) attack = false;
+    return true;
+    }
+    return false;
   }
   
   void attack() {
@@ -35,4 +39,15 @@ public class Mushroom{
     attack = hold;
   }
   
+  float getX() {
+    return x;
+  }
+  
+  float getY() {
+    return y;
+  }
+  
+  void howAlive(int h) {
+    howAlive -= h;
+  }
 }

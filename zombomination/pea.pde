@@ -21,7 +21,6 @@ public class Pea{
       if (!once && !z.pause && dist(x, y, z.getX(), z.getY()) < 30) {
         colliding = true;
         z.howAlive -= 100;
-        z.hit ++;
         z.pause = true;
         once = true;
       }
