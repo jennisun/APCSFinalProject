@@ -50,6 +50,7 @@ void setup(){
   
   //Zombie
   zombies = new ArrayList<Zombie>();
+  removeZombies = new ArrayList<Zombie>();
   
   //Added Stuff
   //zombies.add(new Zombie(600, 150));
@@ -96,7 +97,7 @@ void draw() {
   for (Zombie z : zombies){
     //if (tick % 15 == 0) z.move();
     //z.move();
-    z.display();
+    if (!z.display()) removeZombies.add(z);
     for (Pea p : peas){
       if (dist(p.x, p.y, z.x, z.y) < 100 ){
         z.howAlive -= 11;
@@ -128,11 +129,10 @@ void draw() {
     
     textSize(20);
     text("Zombie#: "+zombies.size() + " " + z.hit + " " + z.howAlive,0,20);
-
   }
+  zombies.removeAll(removeZombies);
 
 
-  
   
   //Plants
   

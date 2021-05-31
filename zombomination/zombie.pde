@@ -33,7 +33,8 @@ public class Zombie{
     zombieType = "original";
     
   }
-  void display(){
+  
+  boolean display(){
     if (howAlive >0){
       noStroke();
       zb.resize(80, 80);
@@ -41,12 +42,11 @@ public class Zombie{
       if (isWalking){
         move();
       }
+      return true;
     }
-    if (howAlive <=0){
-      
+    else {
+      return false;
     }
-    
-  
   }
   
   float getX() {
