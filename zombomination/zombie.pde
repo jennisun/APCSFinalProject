@@ -6,8 +6,7 @@ public class Zombie{
   int howAlive;
   String zombieType;
   float x, y;
-  PImage zb = loadImage("zom1.png");
-  //int hit;
+  PImage zb = loadImage("zom.png");
   boolean pause, eating;
   
   Zombie(float x, float y){
@@ -18,11 +17,7 @@ public class Zombie{
     isZombie = true;
     zombieType = "original";
   }
-  //zombie(boolean walk, int health, String type){
-    //isWalking = walk;
-    //howAlive = health;
-    //zombieType = type;
-  //}
+
   void move(){
     if (!eating && !pause){
       x -= 0.3;

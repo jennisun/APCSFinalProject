@@ -17,16 +17,6 @@ public class Button{
     clickedOn = false;
   }
   
-  public Button(float xcor, float ycor, float wt, float ht) {
-    x = xcor;
-    y = ycor;
-    w = wt;
-    h = ht;
-    
-    hover = false;
-    clickedOn = false;
-  }
-  
   void update() {
     if (mouseX >= x && mouseX <= x+w && mouseY >= y && mouseY <= y+h) hover = true;
     else hover = false;
