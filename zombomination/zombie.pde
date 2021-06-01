@@ -62,9 +62,9 @@ public class Zombie{
     return y;
   }
   
-  //void eating(boolean hold) {
-  //  if (hold) isWalking = false;
-  //  else isWalking = true;
-  //}
+  void eating(boolean hold) {
+    if (hold) isWalking = false;
+    else isWalking = true;
+  }
   
 }

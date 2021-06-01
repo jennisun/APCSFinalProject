@@ -104,28 +104,29 @@ void draw() {
     
     boolean eating = false;
     for (Peashooter a : peashooters) {
-      if (a.getY() == z.getY() && dist(a.getX(), a.getY(), z.getX(), z.getY()) < 10) {
-        //z.eating(true);
-        z.eating = true;
+      if (a.getY() == z.getY() && dist(a.getX(), a.getY(), z.getX(), z.getY()) < 10 && a.display() == true) {
+        z.eating(true);
+        //z.eating = true;
         a.howAlive--;
         //if (a.display()) removePeashooters.add(a);
         eating = true;
       }
+      else z.eating(false);
           textSize(20);
     //text("Zombie#: "+zombies.size() + " " + z.hit + " " + z.howAlive,0,20);
     text("Zombie#: "+a.howAlive + " "+ z.howAlive + " " + eating,0,20);
     }
     for (Mushroom b : mushrooms) {
       if (b.getY() == z.getY() && dist(b.getX(), b.getY(), z.getX(), z.getY()) < 10) {
-        //z.eating(true);
-        z.eating = true;
+        z.eating(true);
+        //z.eating = true;
         b.howAlive(2);
         if (b.display()) removeMushrooms.add(b);
         eating = true;
       }
     }
-    //if (!eating) z.eating(false);
-    if (!eating) z.eating = false;
+    if (!eating) z.eating(false);
+    //if (!eating) z.eating = false;
     
     //textSize(20);
     ////text("Zombie#: "+zombies.size() + " " + z.hit + " " + z.howAlive,0,20);
