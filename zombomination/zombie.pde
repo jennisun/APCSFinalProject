@@ -14,7 +14,7 @@ public class Zombie{
     this.x = x;
     this.y = y;
     isWalking = true;
-    howAlive = 10000;
+    howAlive = 100000000;
     isZombie = true;
     zombieType = "original";
   }
@@ -25,7 +25,7 @@ public class Zombie{
   //}
   void move(){
     if (!eating && !pause){
-      x -= 0.3;
+      x -= 1;
     }
     if (pause) pause = false;
   }
@@ -40,7 +40,7 @@ public class Zombie{
       noStroke();
       zb.resize(80, 80);
       image(zb, x, y);
-      if (isWalking){
+      if (isWalking && !eating){
         move();
       }
       
@@ -62,9 +62,9 @@ public class Zombie{
     return y;
   }
   
-  void eating(boolean hold) {
-    if (hold) isWalking = false;
-    else isWalking = true;
-  }
+  //void eating(boolean hold) {
+  //  if (hold) isWalking = false;
+  //  else isWalking = true;
+  //}
   
 }
