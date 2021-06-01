@@ -55,6 +55,10 @@ void setup(){
   zombies = new ArrayList<Zombie>();
   removeZombies = new ArrayList<Zombie>();
   
+  
+  //Germ
+  germs = new ArrayList<Germ>();
+  
   //Added Stuff
   //zombies.add(new Zombie(600, 150));
   //zombies.add(new Zombie(600, 225));
@@ -64,6 +68,7 @@ void setup(){
   //mushrooms.add(new Mushroom(ygrid[3][2], xgrid[3][2]));
   //peashooters.add(new Peashooter(ygrid[2][0], xgrid[2][0]));
   peashooters.add(new Peashooter(ygrid[1][2], xgrid[1][2]));
+  germs.add(new Germ(ygrid[1][2], xgrid[1][2]));
 }
 
 
@@ -97,7 +102,7 @@ void draw() {
   }
   
   
-  //Zombies
+  //ZOMBIES
 
   for (Zombie z : zombies){
     if (!z.display()) removeZombies.add(z);
@@ -131,7 +136,7 @@ void draw() {
 
 
   
-  //Plants
+  //PLANTS
   
   //peashooter
   for (Peashooter q : peashooters) {
@@ -152,12 +157,10 @@ void draw() {
   peas.removeAll(removePeas);
   
   
-  //peashooter
+  //mushroom
   for (Mushroom m : mushrooms) {
     m.display();
     if (tick % 120 == 0) m.attack();
-    //textSize(20);
-    //text("Health: "+m.howAlive ,0,20);
   }
   
   for (Shroom s: shrooms) {
@@ -167,6 +170,13 @@ void draw() {
     else if (s.getdist() > 150) removeShrooms.add(s);
   }
   shrooms.removeAll(removeShrooms);
+ 
+ 
+ //GERMS
+   for (Germ g: germs) {
+     g.display();
+   }
+
  
  //stuff
   tick += 1;
