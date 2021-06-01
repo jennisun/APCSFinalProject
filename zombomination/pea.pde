@@ -1,4 +1,5 @@
 ArrayList<Pea> peas;
+ArrayList<Pea> removePeas;
 
 public class Pea{
   float x, y;

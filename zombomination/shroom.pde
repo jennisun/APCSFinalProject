@@ -1,4 +1,5 @@
 ArrayList<Shroom> shrooms;
+ArrayList<Shroom> removeShrooms;
 
 public class Shroom{
   float x, y, originalX;

@@ -1,4 +1,5 @@
 ArrayList<Mushroom> mushrooms;
+ArrayList<Mushroom> removeMushrooms;
 
 public class Mushroom {
   int howAlive;

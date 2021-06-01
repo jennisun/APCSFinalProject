@@ -1,4 +1,5 @@
 ArrayList<Peashooter> peashooters;
+ArrayList<Peashooter> removePeashooters;
 
 public class Peashooter{
   int howAlive;

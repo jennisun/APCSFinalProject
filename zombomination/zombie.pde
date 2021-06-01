@@ -1,4 +1,5 @@
 ArrayList<Zombie> zombies;
+ArrayList<Zombie> removeZombies;
 
 public class Zombie{
   boolean isWalking, isZombie;

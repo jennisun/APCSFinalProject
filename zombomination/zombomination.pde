@@ -1,16 +1,15 @@
 int[][] xgrid;
 int[][] ygrid;
 int tick = 0;
-ArrayList<Pea> removePeas;
-ArrayList<Peashooter> removePeashooters;
-ArrayList<Shroom> removeShrooms;
-ArrayList<Mushroom> removeMushrooms;
-ArrayList<Zombie> removeZombies;
+PImage bg;
 
 
 void setup(){
   size(800, 700);
-  frameRate(100);
+  bg = loadImage("tempbg.png");
+  bg.resize(800, 700);
+  image(bg, 0, 0);
+  //frameRate(100);
   
   //setup
   xgrid = new int[5][9];
@@ -59,17 +58,19 @@ void setup(){
   //Added Stuff
   //zombies.add(new Zombie(600, 150));
   //zombies.add(new Zombie(600, 225));
-  peashooters.add(new Peashooter(ygrid[1][5], xgrid[1][5]));
-  mushrooms.add(new Mushroom(ygrid[3][5], xgrid[3][5]));
+  peashooters.add(new Peashooter(ygrid[1][1], xgrid[1][1]));
+  //mushrooms.add(new Mushroom(ygrid[1][2], xgrid[1][2]));
+  //mushrooms.add(new Mushroom(ygrid[3][3], xgrid[3][3]));
   //mushrooms.add(new Mushroom(ygrid[3][2], xgrid[3][2]));
   //peashooters.add(new Peashooter(ygrid[2][0], xgrid[2][0]));
-  //peashooters.add(new Peashooter(ygrid[1][1], xgrid[1][1]));
+  peashooters.add(new Peashooter(ygrid[1][2], xgrid[1][2]));
 }
 
 
 void draw() {
   //background
-  background(200);
+  //background(200);
+  image(bg, 0, 0);
   for (int x = 0; x < 5; x += 1) {
     for (int y = 0; y < 9; y += 1) {
       if (x % 2 == 1 && y % 2 == 1) fill(180, 214, 69);
