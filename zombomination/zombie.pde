@@ -6,7 +6,7 @@ public class Zombie{
   int howAlive;
   String zombieType;
   float x, y;
-  PImage zb = loadImage("zom1.png");
+  PImage zb = loadImage("zom.png");
   //int hit;
   boolean pause, eating;
   

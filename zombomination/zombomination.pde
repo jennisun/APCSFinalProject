@@ -34,7 +34,7 @@ void setup(){
   buttons = new ArrayList<Button>();
   rowHighlights = new ArrayList<rowHighlight>();
   
-  buttons.add(new Button(30, 570, 100, 100, "zom1.png"));
+  buttons.add(new Button(30, 570, 100, 100, "zom.png"));
   for (int i = 0; i < 5; i ++) {
     rowHighlights.add(new rowHighlight(ygrid[i][0], xgrid[i][0], 720, 80));
   }
