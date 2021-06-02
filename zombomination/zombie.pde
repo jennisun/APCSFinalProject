@@ -3,7 +3,7 @@ ArrayList<Zombie> removeZombies;
 
 public class Zombie{
   boolean isWalking, isZombie;
-  int howAlive;
+  int howAlive, count;
   String zombieType;
   float x, y;
   PImage zb = loadImage("zom.png");
@@ -17,13 +17,23 @@ public class Zombie{
     howAlive = 10000;
     isZombie = true;
     zombieType = "original";
+    
+    count = 0;
   }
 
   void move(){
     if (!eating && !pause){
       x -= 0.3;
     }
-    if (pause) pause = false;
+    if (pause) {
+      if (count != 10) {
+        count ++;
+      }
+      else{
+        pause = false;
+        count = 0;
+      }
+    }
   }
 
   void zombify(){
@@ -33,7 +43,6 @@ public class Zombie{
   
   boolean display(){
     if (howAlive > 0){
-      noStroke();
       zb.resize(80, 80);
       image(zb, x, y);
       if (isWalking){
@@ -41,6 +50,7 @@ public class Zombie{
       }
       
       //health bar
+      noStroke();
       fill(0, 255, 48);
       rect(x + 23, y - 20, 30, 10);
       fill(255, 255, 255);
@@ -62,5 +72,5 @@ public class Zombie{
     if (hold) isWalking = false;
     else isWalking = true;
   }
-  
+
 }

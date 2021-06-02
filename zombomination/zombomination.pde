@@ -2,7 +2,7 @@ int[][] xgrid;
 int[][] ygrid;
 int tick = 0;
 PImage bg;
-int coronavirus = 0;
+int coronavirus = 1000 ;
 
 void setup(){
   size(800, 700);
@@ -65,8 +65,8 @@ void setup(){
   //Added Stuff
   //zombies.add(new Zombie(600, 150));
   peashooters.add(new Peashooter(ygrid[1][1], xgrid[1][1]));
-  //mushrooms.add(new Mushroom(ygrid[1][2], xgrid[1][2]));
-  peashooters.add(new Peashooter(ygrid[1][2], xgrid[1][2]));
+  mushrooms.add(new Mushroom(ygrid[4][1], xgrid[4][1]));
+  peashooters.add(new Peashooter(ygrid[2][1], xgrid[2][1]));
   germs.add(new Germ(ygrid[1][2], xgrid[1][2]));
 }
 
@@ -113,24 +113,24 @@ void draw() {
   for (Zombie z : zombies){
     if (!z.display()) removeZombies.add(z);
     
-    boolean eating = false;
-    for (Peashooter a : peashooters) {
-      if (a.getY() == z.getY() && dist(a.getX(), a.getY(), z.getX(), z.getY()) < 10) {
-        z.eating(true);
-        a.howAlive(25);
-        if (a.display()) removePeashooters.add(a);
-        eating = true;
-      }
-    }
-    for (Mushroom b : mushrooms) {
-      if (b.getY() == z.getY() && dist(b.getX(), b.getY(), z.getX(), z.getY()) < 10) {
-        z.eating(true);
-        b.howAlive(25);
-        if (b.display()) removeMushrooms.add(b);
-        eating = true;
-      }
-    }
-    if (!eating) z.eating(false);
+    //boolean eating = false;
+    //for (Peashooter a : peashooters) {
+    //  if (a.getY() == z.getY() && dist(a.getX(), a.getY(), z.getX(), z.getY()) < 10) {
+    //    z.eating(true);
+    //    a.howAlive(25);
+    //    if (a.display()) removePeashooters.add(a);
+    //    eating = true;
+    //  }
+    //}
+    //for (Mushroom b : mushrooms) {
+    //  if (b.getY() == z.getY() && dist(b.getX(), b.getY(), z.getX(), z.getY()) < 10) {
+    //    z.eating(true);
+    //    b.howAlive(25);
+    //    if (b.display()) removeMushrooms.add(b);
+    //    eating = true;
+    //  }
+    //}
+    //if (!eating) z.eating(false);
     
     textSize(20);
     //text("Zombie#: "+zombies.size() + " " + z.hit + " " + z.howAlive,0,20);
@@ -153,12 +153,7 @@ void draw() {
   for (Pea p: peas) {
     p.move();
     p.display();
-    if (p.getx() > 820) removePeas.add(p);
-    for (Zombie z : zombies){
-      if (z.x - p.x < 1){
-        removePeas.add(p);
-      }
-    }
+    if (p.getx() > 820 || !p.display()) removePeas.add(p);
   }
   peas.removeAll(removePeas);
   
@@ -190,6 +185,10 @@ void draw() {
   fill(0);
   textSize(20);
   //text("FPS: "+frameRate,0,20);
+  if (zombies.size() != 0) {
+    text("health" +zombies.get(0).howAlive ,0,20);
+    text("pause" + zombies.get(0).pause, 0, 40);
+  }
 }
 
 

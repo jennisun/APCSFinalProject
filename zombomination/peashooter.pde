@@ -34,7 +34,7 @@ public class Peashooter{
   }
   
   void attack() {
-    if (attack) peas.add(new Pea(x + 80, y + 20));
+    if (attack) peas.add(new Pea(x, y));
   }
   
   void attack(boolean hold) {
