@@ -32,7 +32,7 @@ public class rowHighlight{
       for (Button b: buttons) {
         if (b.clickedOn) {
           b.clickedOn(false);
-          //coronavirus -= b.cost();
+          coronavirus -= b.cost();
         }
       }
     }

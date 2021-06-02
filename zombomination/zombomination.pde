@@ -26,6 +26,8 @@ void setup(){
     }
   }
   
+  coronavirus = 0;
+  
   //Buttons
   fill(142, 80, 80);
   rect(30, 570, 100, 100);
@@ -37,7 +39,7 @@ void setup(){
   buttons = new ArrayList<Button>();
   rowHighlights = new ArrayList<rowHighlight>();
   
-  buttons.add(new Button(30, 570, 100, 100, "zom.png"));
+  buttons.add(new Button(30, 570, 100, 100, "zom.png", 50));
   for (int i = 0; i < 5; i ++) {
     rowHighlights.add(new rowHighlight(ygrid[i][0], xgrid[i][0], 720, 80));
   }
@@ -64,12 +66,8 @@ void setup(){
   
   //Added Stuff
   //zombies.add(new Zombie(600, 150));
-  //zombies.add(new Zombie(600, 225));
   peashooters.add(new Peashooter(ygrid[1][1], xgrid[1][1]));
   //mushrooms.add(new Mushroom(ygrid[1][2], xgrid[1][2]));
-  //mushrooms.add(new Mushroom(ygrid[3][3], xgrid[3][3]));
-  //mushrooms.add(new Mushroom(ygrid[3][2], xgrid[3][2]));
-  //peashooters.add(new Peashooter(ygrid[2][0], xgrid[2][0]));
   peashooters.add(new Peashooter(ygrid[1][2], xgrid[1][2]));
   germs.add(new Germ(ygrid[1][2], xgrid[1][2]));
 }
@@ -89,14 +87,14 @@ void draw() {
     }
   }
   
-  //Buttons
+  //BuUTTONS
   fill(85, 31, 31);
   rect(30, 570, 500, 100);
   fill(142, 80, 80);
   rect(40, 580, 80, 80);
   
+  //corona counter
   rect(550, 570, 50, 50);
-  
   fill(255);
   textSize(20);
   text(coronavirus, 570, 590);
@@ -193,7 +191,6 @@ void draw() {
   tick += 1;
   fill(0);
   textSize(20);
-  //text("hover: "+germs.get(0).hover(),0,20);
   //text("FPS: "+frameRate,0,20);
 }
 
