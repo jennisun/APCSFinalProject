@@ -42,3 +42,6 @@ Xiaoshen: Added health to zombies, so that they take damage from peas and shroom
 
 #### 5/30 <br>
 Jennifer: Fixed killing zombies and added health bar for zombies to make sure code is working. Added health for plants and modified Pea and Shroom to add more methods. Started writing falling coronavirus.
+
+#### 6/1 <br>
+Jennifer: Added germ icons and temporary background. Wrote germ class and implemented germ counter to go up every time player clicks on falling germs. 
