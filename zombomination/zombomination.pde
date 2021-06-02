@@ -2,6 +2,7 @@ int[][] xgrid;
 int[][] ygrid;
 int tick = 0;
 PImage bg;
+int coronavirus = 0;
 
 void setup(){
   size(800, 700);
@@ -27,7 +28,11 @@ void setup(){
   
   //Buttons
   fill(142, 80, 80);
+  rect(30, 570, 100, 100);
+  fill(85, 31, 31);
   rect(30, 570, 500, 100);
+  
+  rect(550, 570, 50, 50);
   
   buttons = new ArrayList<Button>();
   rowHighlights = new ArrayList<rowHighlight>();
@@ -84,9 +89,17 @@ void draw() {
     }
   }
   
-  //brown button bar
-  fill(142, 80, 80);
+  //Buttons
+  fill(85, 31, 31);
   rect(30, 570, 500, 100);
+  fill(142, 80, 80);
+  rect(40, 580, 80, 80);
+  
+  rect(550, 570, 50, 50);
+  
+  fill(255);
+  textSize(20);
+  text(coronavirus, 570, 590);
   
   for (Button b : buttons) {
     b.update();
@@ -125,7 +138,7 @@ void draw() {
     
     textSize(20);
     //text("Zombie#: "+zombies.size() + " " + z.hit + " " + z.howAlive,0,20);
-    text("Zombie#: "+zombies.size() + " "+ z.howAlive,0,20);
+    //text("Zombie#: "+zombies.size() + " "+ z.howAlive,0,20);
   }
   peashooters.removeAll(removePeashooters);
   mushrooms.removeAll(removeMushrooms);
@@ -203,5 +216,6 @@ void mousePressed() {
   
   for (Germ g: germs) {
     if (g.hover()) g.clickedOn(true);
+    coronavirus += 50;
   }
 }
