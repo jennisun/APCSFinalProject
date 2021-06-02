@@ -1,8 +1,8 @@
 ArrayList<Button> buttons;
 
 public class Button{
-  boolean hover;
-  boolean clickedOn;
+  boolean hover, clickedOn;
+  int cost;
   float x, y, w, h;
   PImage img;
   
@@ -12,6 +12,18 @@ public class Button{
     w = wt;
     h = ht;
     img = loadImage(name);
+    
+    hover = false;
+    clickedOn = false;
+  }
+  
+  public Button(float xcor, float ycor, float wt, float ht, String name, int money) {
+    x = xcor;
+    y = ycor;
+    w = wt;
+    h = ht;
+    img = loadImage(name);
+    cost = money;
     
     hover = false;
     clickedOn = false;
@@ -49,6 +61,10 @@ public class Button{
   
   boolean clickedOn() {
     return clickedOn;
+  }
+  
+  int cost() {
+    return cost;
   }
 
 }

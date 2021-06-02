@@ -42,7 +42,7 @@ public class Germ {
   }
   
   boolean hover() {
-    if (dist(mouseX, mouseY, x + 25, cy + 25) < 65) return true;
+    if (dist(mouseX, mouseY, x + 65, cy + 25) < 25) return true;
     else return false;
   }
   
@@ -53,5 +53,4 @@ public class Germ {
   boolean clickedOn() {
     return clickedOn;
   }
-  
 }

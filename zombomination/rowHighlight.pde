@@ -30,7 +30,10 @@ public class rowHighlight{
       clickedOn = false;
       hover = false;
       for (Button b: buttons) {
-        b.clickedOn(false);
+        if (b.clickedOn) {
+          b.clickedOn(false);
+          //coronavirus -= b.cost();
+        }
       }
     }
   }

@@ -188,16 +188,13 @@ void draw() {
      else removeGerms.add(g);
    }
   germs.removeAll(removeGerms);
- 
+  
  //stuff
   tick += 1;
   fill(0);
   textSize(20);
   //text("FPS: "+frameRate,0,20);
-  text("x: " + mouseX + " y: " + mouseY, 0, 20);
-  text("x: " + ygrid[1][2] + 25 + " y: " + xgrid[1][2] + 65, 0, 120);
 }
-
 
 
 void keyPressed() {
