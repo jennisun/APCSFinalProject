@@ -3,13 +3,11 @@ int[][] ygrid;
 int tick = 0;
 PImage bg;
 
-
 void setup(){
   size(800, 700);
   bg = loadImage("tempbg.png");
   bg.resize(800, 700);
   image(bg, 0, 0);
-  //frameRate(100);
   
   //setup
   xgrid = new int[5][9];
@@ -55,9 +53,9 @@ void setup(){
   zombies = new ArrayList<Zombie>();
   removeZombies = new ArrayList<Zombie>();
   
-  
   //Germ
   germs = new ArrayList<Germ>();
+  removeGerms = new ArrayList<Germ>();
   
   //Added Stuff
   //zombies.add(new Zombie(600, 150));
@@ -103,7 +101,6 @@ void draw() {
   
   
   //ZOMBIES
-
   for (Zombie z : zombies){
     if (!z.display()) removeZombies.add(z);
     
@@ -174,15 +171,18 @@ void draw() {
  
  //GERMS
    for (Germ g: germs) {
-     g.display();
+     if (!g.clickedOn()) g.display();
+     else removeGerms.add(g);
    }
-
+  germs.removeAll(removeGerms);
  
  //stuff
   tick += 1;
   fill(0);
-  //textSize(20);
+  textSize(20);
   //text("FPS: "+frameRate,0,20);
+  text("x: " + mouseX + " y: " + mouseY, 0, 20);
+  text("x: " + ygrid[1][2] + 25 + " y: " + xgrid[1][2] + 65, 0, 120);
 }
 
 
@@ -199,5 +199,9 @@ void mousePressed() {
   
   for (rowHighlight r: rowHighlights) {
     if (r.hover()) r.clickedOn(true);
+  }
+  
+  for (Germ g: germs) {
+    if (g.hover()) g.clickedOn(true);
   }
 }
