@@ -47,4 +47,4 @@ Jennifer: Fixed killing zombies and added health bar for zombies to make sure co
 Jennifer: Added germ icons and temporary background. Wrote germ class and implemented germ counter to go up every time player clicks on falling germs. 
 
 #### 6/2 <br>
-Jennifer: Fixed accuracy of detection for falling germs and glitch that made peas disappear prematurely.
+Jennifer: Fixed accuracy of detection for falling germs and glitch that made peas disappear prematurely. Made germ counter update and only spawn new zombies only if player can afford it (no negative germs)
