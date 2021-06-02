@@ -193,6 +193,7 @@ void draw() {
   tick += 1;
   fill(0);
   textSize(20);
+  //text("hover: "+germs.get(0).hover(),0,20);
   //text("FPS: "+frameRate,0,20);
 }
 
@@ -212,7 +213,9 @@ void mousePressed() {
   }
   
   for (Germ g: germs) {
-    if (g.hover()) g.clickedOn(true);
-    coronavirus += 50;
+    if (g.hover()) {
+      g.clickedOn(true);
+      coronavirus += 50;
+    }
   }
 }
