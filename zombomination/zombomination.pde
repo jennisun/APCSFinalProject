@@ -26,8 +26,6 @@ void setup(){
     }
   }
   
-  coronavirus = 0;
-  
   //Buttons
   fill(142, 80, 80);
   rect(30, 570, 100, 100);

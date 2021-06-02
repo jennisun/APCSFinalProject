@@ -26,13 +26,15 @@ public class rowHighlight{
       rect(x, y, w, h);
     }
     if (clickedOn) {
-      zombies.add(new Zombie(x + w - 100, y));
-      clickedOn = false;
-      hover = false;
       for (Button b: buttons) {
         if (b.clickedOn) {
+          if (coronavirus - b.cost() >= 0) {
+            coronavirus -= b.cost();
+            zombies.add(new Zombie(x + w - 100, y));
+          }
+          clickedOn = false;
+          hover = false;
           b.clickedOn(false);
-          coronavirus -= b.cost();
         }
       }
     }
