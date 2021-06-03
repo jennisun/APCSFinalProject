@@ -22,7 +22,7 @@ public class Shroom{
     for (Zombie z: zombies) {
       if (!once && !z.pause && dist(x, y, z.getX(), z.getY()) < 30) {
         colliding = true;
-        z.howAlive -= 50;
+        z.howAlive -= 300;
         z.pause = true;
         once = true;
       }
