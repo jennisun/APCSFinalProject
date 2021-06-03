@@ -12,7 +12,7 @@ void setup() {
   one = new MenuPage(0);
   two = new LevelOne();
   
-  a = new Button(30, 30, 30, 30, "Level One");
+  a = new Button(30, 30, 180, 50, "Level One");
 }
 
 void draw() {

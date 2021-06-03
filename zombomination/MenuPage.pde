@@ -17,7 +17,7 @@ public class MenuPage {
   public void draw() {
     textFont(font);
     fill(255);
-    text("zombomination", 12, 60);
+    text("zombomination", 300, 60);
 
     fill(23, 29, 72);
     rect(0, 550, 800, 150);

@@ -6,7 +6,7 @@ public class Button{
   float x, y, w, h;
   PImage img;
   String text;
-  PFont font = createFont("Minecraftia", 10);
+  PFont font = createFont("Minecraftia", 20);
   
   public Button(float xcor, float ycor, float wt, float ht, String name) {
     x = xcor;
@@ -46,7 +46,7 @@ public class Button{
     if (text != null) {
       textFont(font);
       fill(255);
-      text(text, 12, 60);
+      text(text, x + 30, y + 45);
     }
     
     if (hover) {
