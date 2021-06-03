@@ -5,14 +5,19 @@ public class MenuPage {
   public MenuPage(int page){
     pageNum = page;
     
-    hand.resize(300, 450);
-    image(hand, 240, 285);
+    //background
+    fill(23, 29, 72);
+    rect(0, 550, 800, 150);
+    
+    hand.resize(325, 500);
+    image(hand, 220, 235);
   }
   
   public void draw() {
-    image(hand, 240, 285);
+    fill(23, 29, 72);
+    rect(0, 550, 800, 150);
+    
+    image(hand, 220, 235);
   }
-  
-  
-  
+
 }

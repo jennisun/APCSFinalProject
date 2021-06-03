@@ -6,7 +6,7 @@ int coronavirus = 1000;
 
 public class LevelOne {
 
-  void setup(){
+  public LevelOne() {
     size(800, 700);
     bg = loadImage("tempbg.png");
     bg.resize(800, 700);
@@ -192,26 +192,27 @@ public class LevelOne {
       text("pause" + zombies.get(0).pause, 0, 40);
     }
   }
-}
 
 
-void keyPressed() {
-}
 
-void mousePressed() {
-  for (Button b: buttons) {
-    if (b.hover() && !b.clickedOn()) b.clickedOn(true);
-    else if (b.hover() && b.clickedOn()) b.clickedOn(false);
+  void keyPressed() {
   }
   
-  for (rowHighlight r: rowHighlights) {
-    if (r.hover()) r.clickedOn(true);
-  }
-  
-  for (Germ g: germs) {
-    if (g.hover()) {
-      g.clickedOn(true);
-      coronavirus += 50;
+  void mousePressed() {
+    for (Button b: buttons) {
+      if (b.hover() && !b.clickedOn()) b.clickedOn(true);
+      else if (b.hover() && b.clickedOn()) b.clickedOn(false);
+    }
+    
+    for (rowHighlight r: rowHighlights) {
+      if (r.hover()) r.clickedOn(true);
+    }
+    
+    for (Germ g: germs) {
+      if (g.hover()) {
+        g.clickedOn(true);
+        coronavirus += 50;
+      }
     }
   }
 }

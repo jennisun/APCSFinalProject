@@ -1,17 +1,37 @@
-public MenuPage menu;
-  MenuPage one;
+MenuPage one;
+LevelOne two;
+String currPage;
+
+void setup() {
+  size(800, 700);
+  background(16, 121, 99);
   
-  void setup() {
-    size(800, 700);
-    background(16, 121, 99);
-    one = new MenuPage(0);
-  }
-  
-  void draw() {
+  currPage = "one";
+  one = new MenuPage(0);
+  two = new LevelOne();
+}
+
+void draw() {
+  if (currPage.equals("one")) {
     background(16, 121, 99);
     one.draw();
-    
-    fill(0);
-    textSize(20);
-    text("x:  "+mouseX + " y: " + mouseY,0,20);
   }
+  else {
+    two.draw();
+  }
+  
+  //fill(0);
+  //textSize(20);
+  //text("x:  "+mouseX + " y: " + mouseY,0,20);
+}
+
+void mousePressed() {
+  if (currPage.equals("two")) two.mousePressed();
+}
+
+void keyPressed() {
+  if (key == 'a') {
+    if (currPage.equals("one")) currPage = "two";
+    else currPage = "one";
+  }
+}
