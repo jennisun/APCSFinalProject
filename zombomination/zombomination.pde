@@ -130,6 +130,11 @@ void draw() {
         eating = true;
       }
     }
+    //for (cone a: cones){
+    //  if (a.howAlive <=0){
+    //    zombies.add(new Zombie(a.x, a.y));
+    //  }
+    //}
     if (!eating) z.eating(false);
     //if (!eating) z.eating = false;
     
