@@ -22,7 +22,7 @@ public class cone extends Zombie{
       fill(0, 255, 48);
       rect(x + 23, y - 20, 30, 10);
       fill(255, 255, 255);
-      rect(x + 23, y - 20, (float) 30 * (10000 - howAlive) / 10000, 10);
+      rect(x + 23, y - 20, (float) 30 * (8000 - howAlive) / 10000, 10);
       return true;
     }
     return false;
