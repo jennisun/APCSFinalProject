@@ -3,7 +3,7 @@
 ### Group Doc: https://docs.google.com/document/d/1Z3B83kbJEeKq4yfjkFavvJ3XbL2CGRt2ESAv3gUvFXs/edit?usp=sharing
 
 ### UML Diagram: 
-<img width="1027" alt="193276953_4126700390723545_2176745659919650637_n" src="https://github.com/xiaopies/hi/blob/master/193276953_4126700390723545_2176745659919650637_n.png">
+<img width="1027" alt="193276953_4126700390723545_2176745659919650637_n" src="https://github.com/xiaopies/hi/blob/master/Screen%20Shot%202021-06-04%20at%207.21.46%20AM.png">
 <img width="1027" alt="Screen Shot 2021-05-25 at 9 35 02 PM" src="https://user-images.githubusercontent.com/72940402/119589836-a4f78000-bda1-11eb-8f5f-ef5a9bbf8c4b.png">
 
 ### Group Name: Zombomination
