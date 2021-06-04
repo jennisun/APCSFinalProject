@@ -14,10 +14,20 @@ public class Zombie{
     this.x = x;
     this.y = y;
     isWalking = true;
-    howAlive = 100000000;
+    howAlive = 10000;
     isZombie = true;
     zombieType = "original";
   }
+  
+  Zombie(){
+    this.x = 0;
+    this.y = 0;
+    isWalking = true;
+    howAlive = 10000;
+    isZombie = true;
+    zombieType = "original";
+  }
+  
   //zombie(boolean walk, int health, String type){
     //isWalking = walk;
     //howAlive = health;
