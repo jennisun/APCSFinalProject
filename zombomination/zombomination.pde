@@ -36,8 +36,13 @@ void setup(){
   
   buttons.add(new Button(30, 570, 100, 100, "zom.png"));
   for (int i = 0; i < 5; i ++) {
-    rowHighlights.add(new rowHighlight(ygrid[i][0], xgrid[i][0], 720, 80));
+    rowHighlights.add(new rowHighlight(ygrid[i][0], xgrid[i][0], 720, 80, "zom"));
   }
+    buttons.add(new Button(130, 570, 100, 100, "conezom.png"));
+  for (int i = 0; i < 5; i ++) {
+    rowHighlights.add(new rowHighlight(ygrid[i][0], xgrid[i][0], 720, 80, "cone"));
+  }
+
 
   //Pea + Peashooter
   peas = new ArrayList<Pea>();
@@ -56,7 +61,7 @@ void setup(){
   removeZombies = new ArrayList<Zombie>();
   
   //Added Stuff
-  //zombies.add(new Zombie(600, 150));
+  zombies.add(new cone(600, 150));
   //zombies.add(new Zombie(600, 225));
   peashooters.add(new Peashooter(ygrid[1][1], xgrid[1][1]));
   //mushrooms.add(new Mushroom(ygrid[1][2], xgrid[1][2]));

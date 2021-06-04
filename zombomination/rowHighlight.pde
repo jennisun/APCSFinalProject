@@ -4,12 +4,14 @@ public class rowHighlight{
   boolean hover;
   boolean clickedOn;
   float x, y, w, h;
+  String add;
   
-  public rowHighlight (float xcor, float ycor, float wt, float ht) {
+  public rowHighlight (float xcor, float ycor, float wt, float ht, String z) {
     x = xcor;
     y = ycor;
     w = wt;
     h = ht;
+    add = z;
     
     hover = false;
     clickedOn = false;
@@ -26,7 +28,12 @@ public class rowHighlight{
       rect(x, y, w, h);
     }
     if (clickedOn) {
-      zombies.add(new Zombie(x + w - 100, y));
+      if (add.equals("zom")){
+        zombies.add(new Zombie(x + w - 100, y));
+      }
+      if (add.equals("cone")){
+        zombies.add(new cone(x + w - 100, y));
+      }
       clickedOn = false;
       hover = false;
       for (Button b: buttons) {
