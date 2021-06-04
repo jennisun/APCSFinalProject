@@ -57,5 +57,5 @@ Jennifer: Fixed accuracy of detection for falling germs and glitch that made pea
 #### 6/3 <br>
 Jennifer: Imported new font and wrote basic structure for menu page and level one. Added level one button and zombiehand.png to menu page, and fixed bugs that occured from switching between pages. <br>
 
-Xiaoshen: Created new branch and pasted in new UML diagram. Currently working on cone zombie on local branch.<br>![193276953_4126700390723545_2176745659919650637_n](https://user-images.githubusercontent.com/62773063/120792912-36829280-c504-11eb-88cf-b20603e16f56.png)
+Xiaoshen: Created new branch and pasted in new UML diagram. Currently working on cone zombie on local branch.<br>
 
