@@ -12,7 +12,6 @@ void setup() {
   zero = new MenuPage(0);
   one = new LevelOne();
   
-  //if (currPage.equals("one")) lvl0 = new Button(100, 130, 180, 50, "Level One");
   lvl0 = new Button(100, 130, 180, 50, "Level One");
 }
 
@@ -20,7 +19,6 @@ void draw() {
   if (currPage.equals("zero")) {
     background(16, 121, 99);
     zero.draw();
-    
     
     lvl0.update();
     lvl0.display();
@@ -42,7 +40,6 @@ void draw() {
 void mousePressed() {
   if (lvl0.hover() && !lvl0.clickedOn()) lvl0.clickedOn(true);
   if (currPage.equals("one")) one.mousePressed();
-  
 }
 
 void keyPressed() {

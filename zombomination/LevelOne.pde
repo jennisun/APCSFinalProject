@@ -2,7 +2,7 @@ int[][] xgrid;
 int[][] ygrid;
 int tick = 0;
 PImage bg;
-int coronavirus = 1000;
+int coronavirus = 500;
 Button menu;
 
 public class LevelOne {
@@ -67,12 +67,16 @@ public class LevelOne {
     germs = new ArrayList<Germ>();
     removeGerms = new ArrayList<Germ>();
     
-    //Added Stuff
+    //Level One
     //zombies.add(new Zombie(600, 150));
     peashooters.add(new Peashooter(ygrid[1][1], xgrid[1][1]));
-    mushrooms.add(new Mushroom(ygrid[4][1], xgrid[4][1]));
-    mushrooms.add(new Mushroom(ygrid[4][3], xgrid[4][3]));
+    peashooters.add(new Peashooter(ygrid[3][2], xgrid[3][2]));
     peashooters.add(new Peashooter(ygrid[2][1], xgrid[2][1]));
+    peashooters.add(new Peashooter(ygrid[0][0], xgrid[0][0]));
+    mushrooms.add(new Mushroom(ygrid[4][1], xgrid[4][1]));
+    mushrooms.add(new Mushroom(ygrid[4][5], xgrid[4][5]));
+    mushrooms.add(new Mushroom(ygrid[4][3], xgrid[4][3]));
+    
     germs.add(new Germ(ygrid[1][2], xgrid[1][2]));
   }
   
@@ -91,17 +95,17 @@ public class LevelOne {
       }
     }
     
-    //BuUTTONS
+    //BUTTONS
     fill(85, 31, 31);
     rect(30, 570, 500, 100);
     fill(142, 80, 80);
     rect(40, 580, 80, 80);
     
     //corona counter
-    rect(550, 570, 50, 50);
+    rect(550, 570, 80, 50);
     fill(255);
-    textSize(20);
-    text(coronavirus, 570, 590);
+    textSize(15);
+    text(coronavirus, 570, 610);
     
     for (Button b : buttons) {
       b.update();
@@ -113,7 +117,6 @@ public class LevelOne {
         }
       }
     }
-    
     menu.update();
     menu.display();
     
