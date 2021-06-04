@@ -3,6 +3,7 @@ int[][] ygrid;
 int tick = 0;
 PImage bg;
 int coronavirus = 1000;
+Button menu;
 
 public class LevelOne {
 
@@ -11,7 +12,7 @@ public class LevelOne {
     bg = loadImage("tempbg.png");
     bg.resize(800, 700);
     image(bg, 0, 0);
-    
+
     //setup
     xgrid = new int[5][9];
     ygrid = new int[5][9];
@@ -29,6 +30,8 @@ public class LevelOne {
     }
     
     //Buttons
+    menu = new Button(10, 10, 120, 50, "Menu");
+    
     fill(142, 80, 80);
     rect(30, 570, 100, 100);
     fill(85, 31, 31);
@@ -111,6 +114,9 @@ public class LevelOne {
       }
     }
     
+    menu.update();
+    menu.display();
+    
     
     //ZOMBIES
     for (Zombie z : zombies){
@@ -187,10 +193,6 @@ public class LevelOne {
     fill(0);
     textSize(20);
     //text("FPS: "+frameRate,0,20);
-    if (zombies.size() != 0) {
-      text("health" +zombies.get(0).howAlive ,0,20);
-      text("pause" + zombies.get(0).pause, 0, 40);
-    }
   }
 
 
@@ -203,6 +205,8 @@ public class LevelOne {
       if (b.hover() && !b.clickedOn()) b.clickedOn(true);
       else if (b.hover() && b.clickedOn()) b.clickedOn(false);
     }
+    
+    if (menu.hover() && menu.clickedOn()) currPage = "zero";
     
     for (rowHighlight r: rowHighlights) {
       if (r.hover()) r.clickedOn(true);

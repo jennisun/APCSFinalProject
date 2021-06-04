@@ -1,47 +1,49 @@
-MenuPage one;
-LevelOne two;
+MenuPage zero;
+LevelOne one;
 String currPage;
 PFont font;
-Button a;
+Button lvl0;
 
 void setup() {
   size(800, 700);
   background(16, 121, 99);
   
-  currPage = "one";
-  one = new MenuPage(0);
-  two = new LevelOne();
+  currPage = "zero";
+  zero = new MenuPage(0);
+  one = new LevelOne();
   
-  a = new Button(30, 30, 180, 50, "Level One");
+  //if (currPage.equals("one")) lvl0 = new Button(100, 130, 180, 50, "Level One");
+  lvl0 = new Button(100, 130, 180, 50, "Level One");
 }
 
 void draw() {
-  if (currPage.equals("one")) {
+  if (currPage.equals("zero")) {
     background(16, 121, 99);
-    one.draw();
+    zero.draw();
     
     
-    a.update();
-    a.display();
-    if (a.clickedOn) {
-      currPage = "two";
+    lvl0.update();
+    lvl0.display();
+    if (lvl0.clickedOn) {
+      currPage = "one";
     }
   }
   
   else {
-    two.draw();
+    one.draw();
   }
  
+  fill(0);
+  textSize(20);
+  //text("FPS: "+frameRate,0,40);
+
 }
 
 void mousePressed() {
-  if (currPage.equals("two")) two.mousePressed();
-  if (a.hover() && !a.clickedOn()) a.clickedOn(true);
+  if (lvl0.hover() && !lvl0.clickedOn()) lvl0.clickedOn(true);
+  if (currPage.equals("one")) one.mousePressed();
+  
 }
 
 void keyPressed() {
-  if (key == 'a') {
-    if (currPage.equals("one")) currPage = "two";
-    else currPage = "one";
-  }
 }
