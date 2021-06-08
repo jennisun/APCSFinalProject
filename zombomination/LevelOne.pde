@@ -3,6 +3,7 @@ int[][] ygrid;
 int tick = 0;
 PImage bg;
 int coronavirus = 500;
+String curr = "levelone";
 Button menu;
 
 public class LevelOne {
@@ -195,10 +196,8 @@ public class LevelOne {
     tick += 1;
     fill(0);
     textSize(20);
-    //text("FPS: "+frameRate,0,20);
+    text("FPS: "+frameRate,0,20);
   }
-
-
 
   void keyPressed() {
   }
@@ -209,7 +208,7 @@ public class LevelOne {
       else if (b.hover() && b.clickedOn()) b.clickedOn(false);
     }
     
-    if (menu.hover() && menu.clickedOn()) currPage = "zero";
+    if (menu.hover() && menu.clickedOn()) curr = "zero";
     
     for (rowHighlight r: rowHighlights) {
       if (r.hover()) r.clickedOn(true);
@@ -221,5 +220,9 @@ public class LevelOne {
         coronavirus += 50;
       }
     }
+  }
+
+  public String currPage() {
+    return curr;
   }
 }
