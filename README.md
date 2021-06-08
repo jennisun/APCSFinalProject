@@ -59,3 +59,6 @@ Jennifer: Imported new font and wrote basic structure for menu page and level on
 
 Xiaoshen: Created new branch and pasted in new UML diagram. Currently working on cone zombie on local branch.<br>
 
+#### 6/7 <br>
+Jennifer: Made variables in zombomination consistent and worked on fixing the menu button from inside level one. Started making Level.pde to reduce amount of copy pasted code in each of the levels. <br>
+
