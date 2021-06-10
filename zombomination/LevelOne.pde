@@ -32,8 +32,6 @@ public class LevelOne {
     }
     
     //Buttons
-    //menu = new Button(10, 10, 120, 50, "Menu");
-    
     fill(142, 80, 80);
     rect(30, 570, 100, 100);
     
@@ -43,6 +41,7 @@ public class LevelOne {
     rowHighlights = new ArrayList<rowHighlight>();
     
     buttons.add(new Button(30, 570, 100, 100, "zom.png", 50));
+    buttons.add(new Button(130, 570, 100, 100, "zom.png", 50));
     for (int i = 0; i < 5; i ++) {
       rowHighlights.add(new rowHighlight(ygrid[i][0], xgrid[i][0], 720, 80));
     }
