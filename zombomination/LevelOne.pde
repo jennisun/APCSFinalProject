@@ -138,17 +138,12 @@ public class LevelOne {
       for (Mushroom b : mushrooms) {
         if (b.getY() == z.getY() && dist(b.getX(), b.getY(), z.getX(), z.getY()) < 10) {
           z.eating(true);
-          b.eating(true);
-          if (tick % 50 == 0) b.eaten();
+          //if (tick % 10000 == 0) b.eaten();
           if (b.display()) removeMushrooms.add(b);
           eating = true;
         }
       }
       if (!eating) z.eating(false);
-      
-      textSize(20);
-      //text("Zombie#: "+zombies.size() + " " + z.hit + " " + z.howAlive,0,20);
-      //text("Zombie#: "+zombies.size() + " "+ z.howAlive,0,20);
     }
     peashooters.removeAll(removePeashooters);
     mushrooms.removeAll(removeMushrooms);
@@ -197,7 +192,7 @@ public class LevelOne {
     tick += 1;
     fill(0);
     textSize(20);
-    text("FPS: "+frameRate,0,50);
+    if (mushrooms.size() != 0) text("FPS: "+mushrooms.get(0).health(),0,50);
   }
 
   void keyPressed() {

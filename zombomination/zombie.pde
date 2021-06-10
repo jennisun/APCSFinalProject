@@ -26,11 +26,17 @@ public class Zombie{
       x -= 0.3;
     }
     if (pause) {
-      if (count != 10) {
-        count ++;
-      }
+      if (count != 10) count ++;
       else{
         pause = false;
+        count = 0;
+      }
+    }
+    
+    if (eating) {
+      if (count != 10) count ++;
+      else{
+        eating = false;
         count = 0;
       }
     }
@@ -45,9 +51,8 @@ public class Zombie{
     if (howAlive > 0){
       zb.resize(80, 80);
       image(zb, x, y);
-      if (isWalking){
-        move();
-      }
+      
+      if (isWalking) move();
       
       //health bar
       noStroke();
@@ -55,6 +60,7 @@ public class Zombie{
       rect(x + 23, y - 20, 30, 10);
       fill(255, 255, 255);
       rect(x + 23, y - 20, (float) 30 * (10000 - howAlive) / 10000, 10);
+      
       return true;
     }
     return false;
@@ -69,8 +75,8 @@ public class Zombie{
   }
   
   void eating(boolean hold) {
-    if (hold) isWalking = false;
-    else isWalking = true;
+    if (hold) eating = true;
+    //else isWalking = true;
   }
 
 }

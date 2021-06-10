@@ -4,7 +4,7 @@ ArrayList<Mushroom> removeMushrooms;
 public class Mushroom {
   int howAlive;
   float x, y;
-  boolean attack, eating;
+  boolean attack;
   PImage mushroom = loadImage("mushroom.png");
   
   Mushroom(float x, float y) {
@@ -48,15 +48,16 @@ public class Mushroom {
     return y;
   }
   
-  void eating(boolean hold) {
-    eating = hold;
-  }
   
   void eaten() {
     boolean once = false;
-    if (!once && eating) {
-      howAlive -= 25;
+    if (!once) {
+      howAlive -= 1;
       once = true;
     }
+  }
+  
+  float health() {
+    return howAlive;
   }
 }
