@@ -1,6 +1,6 @@
 MenuPage zero;
 LevelOne one;
-LevelOne two;
+LevelTwo two;
 String currPage;
 PFont font;
 Button lvl1, lvl2;
@@ -22,7 +22,7 @@ void setup() {
   currPage = "zero";
   zero = new MenuPage(0);
   one = new LevelOne();
-  two = new LevelOne();
+  two = new LevelTwo();
   
   lvl1 = new Button(100, 130, 180, 50, "Level One");
   lvl2 = new Button(520, 130, 180, 50, "Level Two");
