@@ -83,6 +83,10 @@ public class Zombie{
     if (hold) pause1 = true;
   }
   
+  void eatingPotatos(boolean hold) {
+    if (hold) pause1 = true;
+  }
+  
   boolean eating() {
     return eating;
   }

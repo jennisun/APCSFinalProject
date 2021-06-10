@@ -60,6 +60,10 @@ public class LevelOne {
     removeMushrooms = new ArrayList<Mushroom>();
     removeShrooms = new ArrayList<Shroom>();
     
+    //Potato
+    potatos = new ArrayList<Potato>();
+    removePotatos = new ArrayList<Potato>();
+    
     //Zombie
     zombies = new ArrayList<Zombie>();
     removeZombies = new ArrayList<Zombie>();
@@ -77,6 +81,7 @@ public class LevelOne {
     //mushrooms.add(new Mushroom(ygrid[4][1], xgrid[4][1]));
     mushrooms.add(new Mushroom(ygrid[4][7], xgrid[4][7]));
     //mushrooms.add(new Mushroom(ygrid[4][3], xgrid[4][3]));
+    potatos.add(new Potato(ygrid[3][7], xgrid[3][7]));
     
     germs.add(new Germ(ygrid[1][2], xgrid[1][2]));
   }
@@ -138,9 +143,16 @@ public class LevelOne {
           if (!z.eating()) removeMushrooms.add(b);
         }
       }
+      for (Potato c : potatos) {
+        if (c.getY() == z.getY() && dist(c.getX(), c.getY(), z.getX(), z.getY()) < 10) {
+          z.eatingPotatos(true);
+          if (!z.eating()) removePotatos.add(c);
+        }
+      }
     }
     peashooters.removeAll(removePeashooters);
     mushrooms.removeAll(removeMushrooms);
+    potatos.removeAll(removePotatos);
     zombies.removeAll(removeZombies);
   
   
@@ -174,6 +186,11 @@ public class LevelOne {
     }
     shrooms.removeAll(removeShrooms);
    
+   //potato
+   
+   for (Potato p: potatos) {
+     p.display();
+   }
    
    //GERMS
      for (Germ g: germs) {
