@@ -182,7 +182,7 @@ public class LevelOne {
       }
       for (Potato c : potatos) {
         if (c.getY() == z.getY() && dist(c.getX(), c.getY(), z.getX(), z.getY()) < 10) {
-          z.eatingPotatos(true);
+          z.eatingPotato(true);
           if (!z.eating()) removePotatos.add(c);
         }
       }

@@ -8,7 +8,8 @@ public class Zombie{
   float x, y;
   PImage zb = loadImage("zom.png");
   //int hit;
-  boolean pause, pause1, eating;
+  boolean pause, pause1, pause2, eating;
+  //pause = hit by shroom/pea, pause1 = eating mushroom/peashooter, pause2 = eating potato
   
   Zombie(float x, float y){
     this.x = x;
@@ -22,7 +23,7 @@ public class Zombie{
   }
 
   void move(){
-    if (!eating && !pause && !pause1){
+    if (!eating && !pause && !pause1 && !pause2){
       x -= 0.3;
     }
     if (pause) {
@@ -35,6 +36,14 @@ public class Zombie{
     
     if (pause1) {
       if (count != 50) count ++;
+      else{
+        pause1 = false;
+        count = 0;
+      }
+    }
+    
+     if (pause2) {
+      if (count != 200) count ++;
       else{
         pause1 = false;
         count = 0;
@@ -53,7 +62,7 @@ public class Zombie{
       image(zb, x, y);
       
       if (isWalking) move();
-      if (!pause && !pause1) eating = false;
+      if (!pause && !pause1 && !pause2) eating = false;
       
       //health bar
       noStroke();
@@ -83,8 +92,8 @@ public class Zombie{
     if (hold) pause1 = true;
   }
   
-  void eatingPotatos(boolean hold) {
-    if (hold) pause1 = true;
+  void eatingPotato(boolean hold) {
+    if (hold) pause2 = true;
   }
   
   boolean eating() {
