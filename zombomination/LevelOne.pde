@@ -205,7 +205,7 @@ public class LevelOne {
     tick += 1;
     fill(0);
     textSize(20);
-    if (mushrooms.size() != 0) text("FPS: "+mushrooms.get(0).health(),0,50);
+    if (zombies.size() != 0) text("FPS: " + zombies.get(0).pause + " " + zombies.get(0).pause1 + " " + zombies.get(0).pause2 + " ",0,50);
   }
 
   void keyPressed() {

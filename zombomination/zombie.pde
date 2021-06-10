@@ -3,12 +3,14 @@ ArrayList<Zombie> removeZombies;
 
 public class Zombie{
   boolean isWalking, isZombie;
-  int howAlive, count;
+  int howAlive;
   String zombieType;
   float x, y;
   PImage zb = loadImage("zom.png");
-  //int hit;
   boolean pause, pause1, pause2, eating;
+  int count = 0;
+  int count1 = 0;
+  int count2 = 0;
   //pause = hit by shroom/pea, pause1 = eating mushroom/peashooter, pause2 = eating potato
   
   Zombie(float x, float y){
@@ -18,14 +20,13 @@ public class Zombie{
     howAlive = 10000;
     isZombie = true;
     zombieType = "original";
-    
-    count = 0;
   }
 
   void move(){
     if (!eating && !pause && !pause1 && !pause2){
       x -= 0.3;
     }
+    
     if (pause) {
       if (count != 10) count ++;
       else{
@@ -35,18 +36,18 @@ public class Zombie{
     }
     
     if (pause1) {
-      if (count != 50) count ++;
+      if (count1 != 50) count1 ++;
       else{
         pause1 = false;
-        count = 0;
+        count1 = 0;
       }
     }
     
      if (pause2) {
-      if (count != 200) count ++;
+      if (count2 != 500) count2 ++;
       else{
-        pause1 = false;
-        count = 0;
+        pause2 = false;
+        count2 = 0;
       }
     }
   }
