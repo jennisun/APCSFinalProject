@@ -34,7 +34,7 @@ public class Zombie{
     }
     
     if (eating) {
-      if (count != 10) count ++;
+      if (count != 15) count ++;
       else{
         eating = false;
         count = 0;
@@ -53,6 +53,7 @@ public class Zombie{
       image(zb, x, y);
       
       if (isWalking) move();
+      if (!pause) eating = false;
       
       //health bar
       noStroke();
@@ -75,8 +76,12 @@ public class Zombie{
   }
   
   void eating(boolean hold) {
-    if (hold) eating = true;
+    if (hold) pause = true;
     //else isWalking = true;
+  }
+  
+  boolean eating() {
+    return eating;
   }
 
 }

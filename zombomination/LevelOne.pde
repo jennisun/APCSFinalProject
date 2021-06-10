@@ -139,7 +139,8 @@ public class LevelOne {
         if (b.getY() == z.getY() && dist(b.getX(), b.getY(), z.getX(), z.getY()) < 10) {
           z.eating(true);
           //if (tick % 10000 == 0) b.eaten();
-          if (b.display()) removeMushrooms.add(b);
+          //if (b.display()) removeMushrooms.add(b);
+          if (!z.eating()) removeMushrooms.add(b);
           eating = true;
         }
       }
