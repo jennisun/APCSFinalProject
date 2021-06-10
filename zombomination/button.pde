@@ -58,7 +58,6 @@ public class Button{
       for (Button b: buttons) {
         if (b.x != x && b.clickedOn()) {
           b.clickedOn(false);
-          b.hover(false);
         }
       }
       fill(255, 255, 255, 60);

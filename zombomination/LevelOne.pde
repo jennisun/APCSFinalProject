@@ -1,12 +1,3 @@
-int[][] xgrid;
-int[][] ygrid;
-int tick = 0;
-PImage bg;
-int coronavirus = 500;
-int pointer = 0;
-//String curr = "levelone";
-//Button menu;
-
 public class LevelOne {
 
   public LevelOne() {
@@ -41,7 +32,7 @@ public class LevelOne {
     rowHighlights = new ArrayList<rowHighlight>();
     
     buttons.add(new Button(30, 570, 100, 100, "zom.png", 50));
-    buttons.add(new Button(130, 570, 100, 100, "zom.png", 50));
+    buttons.add(new Button(130, 570, 100, 100, "conezom.png", 50));
     for (int i = 0; i < 5; i ++) {
       rowHighlights.add(new rowHighlight(ygrid[i][0], xgrid[i][0], 720, 80));
     }
