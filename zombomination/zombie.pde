@@ -74,10 +74,13 @@ public class Zombie{
   float getY() {
     return y;
   }
-  
-  void eating(boolean hold) {
+
+  void eatingPeashooter(boolean hold) {
     if (hold) pause1 = true;
-    //else isWalking = true;
+  }
+  
+  void eatingMushroom(boolean hold) {
+    if (hold) pause1 = true;
   }
   
   boolean eating() {

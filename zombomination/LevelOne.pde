@@ -126,25 +126,19 @@ public class LevelOne {
     for (Zombie z : zombies){
       if (!z.display()) removeZombies.add(z);
       
-      boolean eating = false;
       for (Peashooter a : peashooters) {
         if (a.getY() == z.getY() && dist(a.getX(), a.getY(), z.getX(), z.getY()) < 10) {
-          z.eating(true);
+          z.eatingPeashooter(true);
           a.howAlive(25);
           if (a.display()) removePeashooters.add(a);
-          eating = true;
         }
       }
       for (Mushroom b : mushrooms) {
         if (b.getY() == z.getY() && dist(b.getX(), b.getY(), z.getX(), z.getY()) < 10) {
-          z.eating(true);
-          //if (tick % 10000 == 0) b.eaten();
-          //if (b.display()) removeMushrooms.add(b);
+          z.eatingMushroom(true);
           if (!z.eating()) removeMushrooms.add(b);
-          eating = true;
         }
       }
-      if (!eating) z.eating(false);
     }
     peashooters.removeAll(removePeashooters);
     mushrooms.removeAll(removeMushrooms);
