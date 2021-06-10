@@ -1,5 +1,5 @@
 public class LevelOne {
-
+ 
   public LevelOne() {
     size(800, 700);
     bg = loadImage("tempbg.png");
