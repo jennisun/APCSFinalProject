@@ -129,7 +129,6 @@ public class LevelOne {
       for (Peashooter a : peashooters) {
         if (a.getY() == z.getY() && dist(a.getX(), a.getY(), z.getX(), z.getY()) < 10) {
           z.eatingPeashooter(true);
-          a.howAlive(25);
           if (a.display()) removePeashooters.add(a);
         }
       }

@@ -16,6 +16,9 @@ public class Peashooter{
   
   boolean display() {
     if (howAlive > 0) {
+      peashooter.resize(80, 80);
+      image(peashooter, x, y);
+    
       boolean change = false;
       for (Zombie z: zombies) {
         if (z.getY() == y) {
@@ -24,13 +27,9 @@ public class Peashooter{
         }
       }
       if (!change) attack = false;
-      
-      peashooter.resize(80, 80);
-      image(peashooter, x, y);
-      
       return true;
     }
-   return false;
+    return false;
   }
   
   void attack() {
@@ -48,8 +47,5 @@ public class Peashooter{
   float getY() {
     return y;
   }
-  
-  void howAlive(int h) {
-    howAlive -= h;
-  }
+
 }

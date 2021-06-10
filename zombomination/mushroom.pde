@@ -48,15 +48,6 @@ public class Mushroom {
     return y;
   }
   
-  
-  void eaten() {
-    boolean once = false;
-    if (!once) {
-      howAlive -= 1;
-      once = true;
-    }
-  }
-  
   float health() {
     return howAlive;
   }
