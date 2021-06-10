@@ -5,7 +5,7 @@ public class Button{
   int cost;
   float x, y, w, h;
   PImage img;
-  String text;
+  String text, type;
   PFont font = createFont("Minecraftia", 20);
   
   public Button(float xcor, float ycor, float wt, float ht, String name) {
@@ -24,6 +24,7 @@ public class Button{
     y = ycor;
     w = wt;
     h = ht;
+    type = name;
     img = loadImage(name);
     cost = money;
     
@@ -55,6 +56,13 @@ public class Button{
     }
     
     if (clickedOn) {
+      
+      //for (Button b: buttons) {
+      //  if (b.x != x && b.clickedOn()) {
+      //    b.clickedOn(false);
+      //    b.hover(false);
+      //  }
+      //}
       fill(255, 255, 255, 60);
       rect(x, y, w, h);
     }
@@ -62,6 +70,10 @@ public class Button{
   
   boolean hover() {
     return hover;
+  }
+  
+  void hover(boolean hold){
+    hover = hold;
   }
   
   void clickedOn(boolean hold) {

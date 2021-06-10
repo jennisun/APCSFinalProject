@@ -6,18 +6,30 @@ public class Zombie{
   int howAlive;
   String zombieType;
   float x, y;
-  PImage zb = loadImage("zom.png");
+  //PImage zb = loadImage("zom.png");
+  PImage zb;
   boolean pause, pause1, pause2, eating;
   int count = 0;
   int count1 = 0;
   int count2 = 0;
   //pause = hit by shroom/pea, pause1 = eating mushroom/peashooter, pause2 = eating potato
   
-  Zombie(float x, float y){
+  Zombie(float x, float y, String type){
+    zb = loadImage(type);
+    
     this.x = x;
     this.y = y;
     isWalking = true;
-    howAlive = 10000;
+    if (type.equals("zom.png")){
+      howAlive = 10000;
+    }
+    if (type.equals("conezom.png")){
+      howAlive = 10500;
+    }
+    if (type.equals("pailzom.png")){
+      howAlive = 11000;
+    }
+    
     isZombie = true;
     zombieType = "original";
   }
@@ -59,8 +71,8 @@ public class Zombie{
   
   boolean display(){
     if (howAlive > 0){
-      zb.resize(80, 80);
-      image(zb, x, y);
+      zb.resize(100, 100);
+      image(zb, x, y-15);
       
       if (isWalking) move();
       if (!pause && !pause1 && !pause2) eating = false;

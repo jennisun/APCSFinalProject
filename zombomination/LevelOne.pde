@@ -44,9 +44,12 @@ public class LevelOne {
     rowHighlights = new ArrayList<rowHighlight>();
     
     buttons.add(new Button(30, 570, 100, 100, "zom.png", 50));
+    buttons.add(new Button(130, 570, 100, 100, "conezom.png", 75));
+    buttons.add(new Button(230, 570, 100, 100, "pailzom.png", 100));
     for (int i = 0; i < 5; i ++) {
-      rowHighlights.add(new rowHighlight(ygrid[i][0], xgrid[i][0], 720, 80));
+      rowHighlights.add(new rowHighlight(ygrid[i][0], xgrid[i][0], 720, 80, "zom.png"));
     }
+
   
     //Pea + Peashooter
     peas = new ArrayList<Pea>();

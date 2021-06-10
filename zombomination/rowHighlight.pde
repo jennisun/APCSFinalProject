@@ -4,8 +4,10 @@ public class rowHighlight{
   boolean hover;
   boolean clickedOn;
   float x, y, w, h;
+  String type;
   
-  public rowHighlight (float xcor, float ycor, float wt, float ht) {
+  public rowHighlight (float xcor, float ycor, float wt, float ht, String t) {
+    type = t;
     x = xcor;
     y = ycor;
     w = wt;
@@ -30,7 +32,7 @@ public class rowHighlight{
         if (b.clickedOn) {
           if (coronavirus - b.cost() >= 0) {
             coronavirus -= b.cost();
-            zombies.add(new Zombie(x + w - 100, y));
+            zombies.add(new Zombie(x + w - 100, y, b.type));
           }
           clickedOn = false;
           hover = false;
