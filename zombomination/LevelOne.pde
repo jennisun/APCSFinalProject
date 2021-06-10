@@ -126,37 +126,8 @@ public class LevelOne {
     menu.update();
     menu.display();
     
-    
-    //ZOMBIES
-    for (Zombie z : zombies){
-      if (!z.display()) removeZombies.add(z);
-      
-      for (Peashooter a : peashooters) {
-        if (a.getY() == z.getY() && dist(a.getX(), a.getY(), z.getX(), z.getY()) < 10) {
-          z.eatingPeashooter(true);
-          if (a.display()) removePeashooters.add(a);
-        }
-      }
-      for (Mushroom b : mushrooms) {
-        if (b.getY() == z.getY() && dist(b.getX(), b.getY(), z.getX(), z.getY()) < 10) {
-          z.eatingMushroom(true);
-          if (!z.eating()) removeMushrooms.add(b);
-        }
-      }
-      for (Potato c : potatos) {
-        if (c.getY() == z.getY() && dist(c.getX(), c.getY(), z.getX(), z.getY()) < 10) {
-          z.eatingPotatos(true);
-          if (!z.eating()) removePotatos.add(c);
-        }
-      }
-    }
-    peashooters.removeAll(removePeashooters);
-    mushrooms.removeAll(removeMushrooms);
-    potatos.removeAll(removePotatos);
-    zombies.removeAll(removeZombies);
   
-  
-    //PLANTS
+    //PLANTS-------
    
     //peashooter
     for (Peashooter q : peashooters) {
@@ -192,7 +163,38 @@ public class LevelOne {
      p.display();
    }
    
-   //GERMS
+   
+   //ZOMBIES-------
+    for (Zombie z : zombies){
+      if (!z.display()) removeZombies.add(z);
+      
+      for (Peashooter a : peashooters) {
+        if (a.getY() == z.getY() && dist(a.getX(), a.getY(), z.getX(), z.getY()) < 10) {
+          z.eatingPeashooter(true);
+          if (a.display()) removePeashooters.add(a);
+        }
+      }
+      for (Mushroom b : mushrooms) {
+        if (b.getY() == z.getY() && dist(b.getX(), b.getY(), z.getX(), z.getY()) < 10) {
+          z.eatingMushroom(true);
+          if (!z.eating()) removeMushrooms.add(b);
+        }
+      }
+      for (Potato c : potatos) {
+        if (c.getY() == z.getY() && dist(c.getX(), c.getY(), z.getX(), z.getY()) < 10) {
+          z.eatingPotatos(true);
+          if (!z.eating()) removePotatos.add(c);
+        }
+      }
+    }
+    peashooters.removeAll(removePeashooters);
+    mushrooms.removeAll(removeMushrooms);
+    potatos.removeAll(removePotatos);
+    zombies.removeAll(removeZombies);
+    
+    
+   
+   //GERMS-------
      for (Germ g: germs) {
        if (!g.clickedOn()) g.display();
        else removeGerms.add(g);

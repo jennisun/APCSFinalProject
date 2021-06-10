@@ -14,8 +14,8 @@ public class Potato {
   
   boolean display() {
     if (howAlive > 0) {
-      potato.resize(50, 50);
-      image(potato, x + 20, y + 20);
+      potato.resize(80, 80);
+      image(potato, x, y);
     
       return true;
     }
