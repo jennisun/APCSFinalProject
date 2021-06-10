@@ -101,7 +101,7 @@ public class LevelOne {
       }
     }
     
-    //BUTTONS
+    //BUTTONS-------
     fill(85, 31, 31);
     rect(30, 570, 500, 100);
     fill(142, 80, 80);

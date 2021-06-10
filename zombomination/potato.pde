@@ -9,7 +9,7 @@ public class Potato {
   Potato(float x, float y) {
     this.x = x;
     this.y = y;
-    howAlive = 600;
+    howAlive = 500;
   }
   
   boolean display() {
