@@ -56,6 +56,7 @@ public class Button{
     }
     
     if (clickedOn) {
+
       
       //for (Button b: buttons) {
       //  if (b.x != x && b.clickedOn()) {
@@ -63,6 +64,8 @@ public class Button{
       //    b.hover(false);
       //  }
       //}
+
+
       fill(255, 255, 255, 60);
       rect(x, y, w, h);
     }
@@ -72,7 +75,9 @@ public class Button{
     return hover;
   }
   
-  void hover(boolean hold){
+
+  void hover(boolean hold) {
+
     hover = hold;
   }
   

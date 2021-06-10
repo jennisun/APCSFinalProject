@@ -1,18 +1,32 @@
 MenuPage zero;
 LevelOne one;
+LevelOne two;
 String currPage;
 PFont font;
-Button lvl1;
+Button lvl1, lvl2;
+Button menu;
+
+//Level stuff
+int[][] xgrid;
+int[][] ygrid;
+int tick = 0;
+PImage bg;
+int coronavirus = 500;
+int pointer = 0;
+
 
 void setup() {
   size(800, 700);
   background(16, 121, 99);
   
-  currPage = "one";
+  currPage = "zero";
   zero = new MenuPage(0);
   one = new LevelOne();
+  two = new LevelOne();
   
   lvl1 = new Button(100, 130, 180, 50, "Level One");
+  lvl2 = new Button(520, 130, 180, 50, "Level Two");
+  menu = new Button(10, 10, 120, 50, "Menu");
 }
 
 void draw() {
@@ -22,26 +36,49 @@ void draw() {
     
     lvl1.update();
     lvl1.display();
+    lvl2.update();
+    lvl2.display();
+    
     if (lvl1.clickedOn) {
       currPage = "one";
     }
+    if (lvl2.clickedOn) {
+      currPage = "two";
+    }
   }
   
-  else {
+  if (currPage.equals("one")) {
     one.draw();
-    if (one.currPage().equals("menu")) currPage = "zero";
+    menu.update();
+    menu.display();
   }
  
-  fill(0);
-  textSize(20);
-  //text("FPS: "+frameRate,0,40);
+  if (currPage.equals("two")) {
+    one.draw();
+    menu.update();
+    menu.display();
+  }
 
 }
 
 void mousePressed() {
   if (lvl1.hover() && !lvl1.clickedOn()) lvl1.clickedOn(true);
-  if (currPage.equals("one")) one.mousePressed();
+  if (lvl2.hover() && !lvl2.clickedOn()) lvl2.clickedOn(true);
+  
+  if (currPage.equals("one")) {
+    one.mousePressed();
+    if (menu.hover() && menu.clickedOn()) currPage = "zero";
+  }
+  if (currPage.equals("two")) {
+    one.mousePressed();
+    if (menu.hover() && menu.clickedOn()) currPage = "zero";
+  }
 }
 
 void keyPressed() {
 }
+
+
+//void currPage(String hold) {
+//  currPage = hold;
+//}

@@ -1,11 +1,3 @@
-int[][] xgrid;
-int[][] ygrid;
-int tick = 0;
-PImage bg;
-int coronavirus = 500;
-String curr = "levelone";
-Button menu;
-
 public class LevelOne {
 
   public LevelOne() {
@@ -31,12 +23,8 @@ public class LevelOne {
     }
     
     //Buttons
-    menu = new Button(10, 10, 120, 50, "Menu");
-    
     fill(142, 80, 80);
     rect(30, 570, 100, 100);
-    fill(85, 31, 31);
-    rect(30, 570, 500, 100);
     
     rect(550, 570, 50, 50);
     
@@ -46,6 +34,7 @@ public class LevelOne {
     buttons.add(new Button(30, 570, 100, 100, "zom.png", 50));
     buttons.add(new Button(130, 570, 100, 100, "conezom.png", 75));
     buttons.add(new Button(230, 570, 100, 100, "pailzom.png", 100));
+
     for (int i = 0; i < 5; i ++) {
       rowHighlights.add(new rowHighlight(ygrid[i][0], xgrid[i][0], 720, 80, "zom.png"));
     }
@@ -87,6 +76,8 @@ public class LevelOne {
     potatos.add(new Potato(ygrid[3][7], xgrid[3][7]));
     
     germs.add(new Germ(ygrid[1][2], xgrid[1][2]));
+    germs.add(new Germ(ygrid[1][2], xgrid[1][2]));
+    germs.add(new Germ(ygrid[1][2], xgrid[1][2]));
   }
   
   
@@ -107,8 +98,6 @@ public class LevelOne {
     //BUTTONS-------
     fill(85, 31, 31);
     rect(30, 570, 500, 100);
-    fill(142, 80, 80);
-    rect(40, 580, 80, 80);
     
     //corona counter
     rect(550, 570, 80, 50);
@@ -126,8 +115,8 @@ public class LevelOne {
         }
       }
     }
-    menu.update();
-    menu.display();
+    //menu.update();
+    //menu.display();
     
   
     //PLANTS-------
@@ -199,16 +188,24 @@ public class LevelOne {
    
    //GERMS-------
      for (Germ g: germs) {
-       if (!g.clickedOn()) g.display();
-       else removeGerms.add(g);
+       if (germs.indexOf(g) <= pointer) {
+         if (!g.clickedOn()) g.display();
+         else {
+           removeGerms.add(g);
+           pointer -= 1;
+         }
+       }
      }
     germs.removeAll(removeGerms);
+    
+    if (tick == 200) pointer ++;
+    if (tick == 500) pointer ++;
     
    //stuff
     tick += 1;
     fill(0);
     textSize(20);
-    if (zombies.size() != 0) text("FPS: " + zombies.get(0).pause + " " + zombies.get(0).pause1 + " " + zombies.get(0).pause2 + " ",0,50);
+    text("FPS: " + pointer + " ",0,50);
   }
 
   void keyPressed() {
@@ -220,7 +217,7 @@ public class LevelOne {
       else if (b.hover() && b.clickedOn()) b.clickedOn(false);
     }
     
-    if (menu.hover() && menu.clickedOn()) curr = "zero";
+    //if (menu.hover() && menu.clickedOn()) currPage("zero");
     
     for (rowHighlight r: rowHighlights) {
       if (r.hover()) r.clickedOn(true);
@@ -234,7 +231,7 @@ public class LevelOne {
     }
   }
 
-  public String currPage() {
-    return curr;
-  }
+  //public String currPage() {
+  //  return curr;
+  //}
 }
