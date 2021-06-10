@@ -20,7 +20,7 @@ public class Shroom{
   void display() {
     boolean once = false;
     for (Zombie z: zombies) {
-      if (!once && !z.pause && dist(x, y, z.getX(), z.getY()) < 30) {
+      if (!once && !z.pause && dist(x, y, z.getX(), z.getY()) < 25) {
         colliding = true;
         z.howAlive -= 300;
         z.pause = true;
@@ -29,7 +29,7 @@ public class Shroom{
     }
     if (!colliding) {
       shroom.resize(25, 25);
-      image(shroom, x, y);
+      image(shroom, x, y + 20);
     }
   }
   

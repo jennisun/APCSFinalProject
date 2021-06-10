@@ -8,7 +8,7 @@ void setup() {
   size(800, 700);
   background(16, 121, 99);
   
-  currPage = "zero";
+  currPage = "one";
   zero = new MenuPage(0);
   one = new LevelOne();
   

@@ -74,9 +74,9 @@ public class LevelOne {
     peashooters.add(new Peashooter(ygrid[3][2], xgrid[3][2]));
     peashooters.add(new Peashooter(ygrid[2][1], xgrid[2][1]));
     peashooters.add(new Peashooter(ygrid[0][0], xgrid[0][0]));
-    mushrooms.add(new Mushroom(ygrid[4][1], xgrid[4][1]));
-    mushrooms.add(new Mushroom(ygrid[4][5], xgrid[4][5]));
-    mushrooms.add(new Mushroom(ygrid[4][3], xgrid[4][3]));
+    //mushrooms.add(new Mushroom(ygrid[4][1], xgrid[4][1]));
+    mushrooms.add(new Mushroom(ygrid[4][7], xgrid[4][7]));
+    //mushrooms.add(new Mushroom(ygrid[4][3], xgrid[4][3]));
     
     germs.add(new Germ(ygrid[1][2], xgrid[1][2]));
   }
@@ -138,7 +138,8 @@ public class LevelOne {
       for (Mushroom b : mushrooms) {
         if (b.getY() == z.getY() && dist(b.getX(), b.getY(), z.getX(), z.getY()) < 10) {
           z.eating(true);
-          b.howAlive(25);
+          b.eating(true);
+          if (tick % 50 == 0) b.eaten();
           if (b.display()) removeMushrooms.add(b);
           eating = true;
         }
@@ -196,7 +197,7 @@ public class LevelOne {
     tick += 1;
     fill(0);
     textSize(20);
-    text("FPS: "+frameRate,0,20);
+    text("FPS: "+frameRate,0,50);
   }
 
   void keyPressed() {
