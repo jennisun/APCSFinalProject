@@ -3,6 +3,7 @@ LevelOne one;
 String currPage;
 PFont font;
 Button lvl1;
+Button menu;
 
 void setup() {
   size(800, 700);
@@ -13,6 +14,7 @@ void setup() {
   one = new LevelOne();
   
   lvl1 = new Button(100, 130, 180, 50, "Level One");
+  menu = new Button(10, 10, 120, 50, "Menu");
 }
 
 void draw() {
@@ -29,7 +31,8 @@ void draw() {
   
   else {
     one.draw();
-    if (one.currPage().equals("menu")) currPage = "zero";
+    menu.update();
+    menu.display();
   }
  
   fill(0);
@@ -40,8 +43,16 @@ void draw() {
 
 void mousePressed() {
   if (lvl1.hover() && !lvl1.clickedOn()) lvl1.clickedOn(true);
-  if (currPage.equals("one")) one.mousePressed();
+  if (currPage.equals("one")) {
+    one.mousePressed();
+    if (menu.hover() && menu.clickedOn()) currPage = "zero";
+  }
 }
 
 void keyPressed() {
 }
+
+
+//void currPage(String hold) {
+//  currPage = hold;
+//}

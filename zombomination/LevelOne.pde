@@ -3,8 +3,8 @@ int[][] ygrid;
 int tick = 0;
 PImage bg;
 int coronavirus = 500;
-String curr = "levelone";
-Button menu;
+//String curr = "levelone";
+//Button menu;
 
 public class LevelOne {
 
@@ -31,7 +31,7 @@ public class LevelOne {
     }
     
     //Buttons
-    menu = new Button(10, 10, 120, 50, "Menu");
+    //menu = new Button(10, 10, 120, 50, "Menu");
     
     fill(142, 80, 80);
     rect(30, 570, 100, 100);
@@ -123,8 +123,8 @@ public class LevelOne {
         }
       }
     }
-    menu.update();
-    menu.display();
+    //menu.update();
+    //menu.display();
     
   
     //PLANTS-------
@@ -217,7 +217,7 @@ public class LevelOne {
       else if (b.hover() && b.clickedOn()) b.clickedOn(false);
     }
     
-    if (menu.hover() && menu.clickedOn()) curr = "zero";
+    //if (menu.hover() && menu.clickedOn()) currPage("zero");
     
     for (rowHighlight r: rowHighlights) {
       if (r.hover()) r.clickedOn(true);
@@ -231,7 +231,7 @@ public class LevelOne {
     }
   }
 
-  public String currPage() {
-    return curr;
-  }
+  //public String currPage() {
+  //  return curr;
+  //}
 }
