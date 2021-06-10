@@ -1,39 +1,30 @@
+MenuPage zero;
+LevelOne one;
+LevelOne two;
+String currPage;
+PFont font;
+Button lvl1, lvl2;
+Button menu;
+
+//Level stuff
 int[][] xgrid;
 int[][] ygrid;
 int tick = 0;
 PImage bg;
+int coronavirus = 500;
+int pointer = 0;
 
 
-void setup(){
+void setup() {
   size(800, 700);
-  bg = loadImage("tempbg.png");
-  bg.resize(800, 700);
-  image(bg, 0, 0);
-  //frameRate(100);
+  background(16, 121, 99);
   
-  //setup
-  xgrid = new int[5][9];
-  ygrid = new int[5][9];
-  for (int x = 0; x < 5; x += 1) {
-    for (int y = 0; y < 9; y += 1) {
-      xgrid[x][y] = 150 + x * 80;
-      ygrid[x][y] = 30 + y * 80;
-      
-      if (x % 2 == 1 && y % 2 == 1) fill(180, 214, 69);
-      else if (x % 2 == 0 && y % 2 == 0) fill(48, 156, 99);
-      else fill(108, 190, 86);
-      noStroke();
-      rect(ygrid[x][y], xgrid[x][y], 80, 80);
-    }
-  }
+  currPage = "zero";
+  zero = new MenuPage(0);
+  one = new LevelOne();
+  two = new LevelOne();
   
-  //Buttons
-  fill(142, 80, 80);
-  rect(30, 570, 500, 100);
-  
-  buttons = new ArrayList<Button>();
-  rowHighlights = new ArrayList<rowHighlight>();
-  
+<<<<<<< HEAD
   buttons.add(new Button(30, 570, 100, 100, "zom.png"));
   for (int i = 0; i < 5; i ++) {
     rowHighlights.add(new rowHighlight(ygrid[i][0], xgrid[i][0], 720, 80, "zom"));
@@ -69,44 +60,19 @@ void setup(){
   //mushrooms.add(new Mushroom(ygrid[3][2], xgrid[3][2]));
   //peashooters.add(new Peashooter(ygrid[2][0], xgrid[2][0]));
   peashooters.add(new Peashooter(ygrid[1][2], xgrid[1][2]));
+=======
+  lvl1 = new Button(100, 130, 180, 50, "Level One");
+  lvl2 = new Button(520, 130, 180, 50, "Level Two");
+  menu = new Button(10, 10, 120, 50, "Menu");
+>>>>>>> main
 }
 
-
 void draw() {
-  //background
-  //background(200);
-  image(bg, 0, 0);
-  for (int x = 0; x < 5; x += 1) {
-    for (int y = 0; y < 9; y += 1) {
-      if (x % 2 == 1 && y % 2 == 1) fill(180, 214, 69);
-      else if (x % 2 == 0 && y % 2 == 0) fill(48, 156, 99);
-      else fill(108, 190, 86);
-      noStroke();
-      rect(ygrid[x][y], xgrid[x][y], 80, 80);
-    }
-  }
-  
-  //brown button bar
-  fill(142, 80, 80);
-  rect(30, 570, 500, 100);
-  
-  for (Button b : buttons) {
-    b.update();
-    b.display();
-    if (b.clickedOn) {
-      for (rowHighlight r : rowHighlights) {
-        r.update();
-        r.display();
-      }
-    }
-  }
-  
-  
-  //Zombies
-
-  for (Zombie z : zombies){
-    if (!z.display()) removeZombies.add(z);
+  if (currPage.equals("zero")) {
+    background(16, 121, 99);
+    zero.draw();
     
+<<<<<<< HEAD
     boolean eating = false;
     for (Peashooter a : peashooters) {
       if (a.getY() == z.getY() && dist(a.getX(), a.getY(), z.getX(), z.getY()) < 10 && a.display() == true) {
@@ -141,70 +107,53 @@ void draw() {
     //textSize(20);
     ////text("Zombie#: "+zombies.size() + " " + z.hit + " " + z.howAlive,0,20);
     //text("Zombie#: "+b.howAlive + " "+ z.howAlive + " " + eating,0,20);
-  }
-  peashooters.removeAll(removePeashooters);
-  mushrooms.removeAll(removeMushrooms);
-  zombies.removeAll(removeZombies);
-
-
-  
-  //Plants
-  
-  //peashooter
-  for (Peashooter q : peashooters) {
-    q.display();
-    if (tick % 150 == 0) q.attack();
-  }
-  
-  for (Pea p: peas) {
-    p.move();
-    p.display();
-    if (p.getx() > 820) removePeas.add(p);
-    for (Zombie z : zombies){
-      if (z.x - p.x < 1){
-        removePeas.add(p);
-      }
+=======
+    lvl1.update();
+    lvl1.display();
+    lvl2.update();
+    lvl2.display();
+    
+    if (lvl1.clickedOn) {
+      currPage = "one";
     }
-  }
-  peas.removeAll(removePeas);
-  
-  
-  //peashooter
-  for (Mushroom m : mushrooms) {
-    m.display();
-    if (tick % 120 == 0) m.attack();
-    //textSize(20);
-    //text("Health: "+m.howAlive ,0,20);
+    if (lvl2.clickedOn) {
+      currPage = "two";
+    }
+>>>>>>> main
   }
   
-  for (Shroom s: shrooms) {
-    s.move();
-    s.display();
-    if (s.getx() > 820) removeShrooms.add(s);
-    else if (s.getdist() > 150) removeShrooms.add(s);
+  if (currPage.equals("one")) {
+    one.draw();
+    menu.update();
+    menu.display();
   }
-  shrooms.removeAll(removeShrooms);
  
- //stuff
-  tick += 1;
-  fill(0);
-  //textSize(20);
-  //text("FPS: "+frameRate,0,20);
-}
-
-
-
-void keyPressed() {
+  if (currPage.equals("two")) {
+    one.draw();
+    menu.update();
+    menu.display();
+  }
 
 }
 
 void mousePressed() {
-  for (Button b: buttons) {
-    if (b.hover() && !b.clickedOn()) b.clickedOn(true);
-    else if (b.hover() && b.clickedOn()) b.clickedOn(false);
-  }
+  if (lvl1.hover() && !lvl1.clickedOn()) lvl1.clickedOn(true);
+  if (lvl2.hover() && !lvl2.clickedOn()) lvl2.clickedOn(true);
   
-  for (rowHighlight r: rowHighlights) {
-    if (r.hover()) r.clickedOn(true);
+  if (currPage.equals("one")) {
+    one.mousePressed();
+    if (menu.hover() && menu.clickedOn()) currPage = "zero";
+  }
+  if (currPage.equals("two")) {
+    one.mousePressed();
+    if (menu.hover() && menu.clickedOn()) currPage = "zero";
   }
 }
+
+void keyPressed() {
+}
+
+
+//void currPage(String hold) {
+//  currPage = hold;
+//}

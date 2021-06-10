@@ -18,6 +18,9 @@ public class Peashooter{
   boolean display() {
     //void display(){
     if (howAlive > 0) {
+      peashooter.resize(80, 80);
+      image(peashooter, x, y);
+    
       boolean change = false;
       for (Zombie z: zombies) {
         if (z.getY() == y) {
@@ -26,17 +29,13 @@ public class Peashooter{
         }
       }
       if (!change) attack = false;
-      
-      peashooter.resize(80, 80);
-      image(peashooter, x, y);
-      
       return true;
     }
-   return false;
+    return false;
   }
   
   void attack() {
-    if (attack) peas.add(new Pea(x + 80, y + 20));
+    if (attack) peas.add(new Pea(x, y));
   }
   
   void attack(boolean hold) {
@@ -50,8 +49,5 @@ public class Peashooter{
   float getY() {
     return y;
   }
-  
-  void howAlive(int h) {
-    howAlive -= h;
-  }
+
 }

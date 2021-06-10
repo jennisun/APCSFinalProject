@@ -11,23 +11,23 @@ public class Mushroom {
     this.x = x;
     this.y = y;
     attack = false;
-    howAlive = 300;
+    howAlive = 600;
   }
   
   boolean display() {
     if (howAlive > 0) {
       mushroom.resize(50, 50);
-    image(mushroom, x + 20, y + 20);
+      image(mushroom, x + 20, y + 20);
     
-    boolean change = false;
-    for (Zombie z: zombies) {
-      if (z.getY() == y && z.getX() - x <= 300) {
-        attack = true;
-        change = true;
+      boolean change = false;
+      for (Zombie z: zombies) {
+        if (z.getY() == y && z.getX() - x <= 300) {
+          attack = true;
+          change = true;
+        }
       }
-    }
-    if (!change) attack = false;
-    return true;
+      if (!change) attack = false;
+      return true;
     }
     return false;
   }
@@ -48,7 +48,7 @@ public class Mushroom {
     return y;
   }
   
-  void howAlive(int h) {
-    howAlive -= h;
+  float health() {
+    return howAlive;
   }
 }

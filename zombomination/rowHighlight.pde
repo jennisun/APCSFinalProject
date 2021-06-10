@@ -4,9 +4,16 @@ public class rowHighlight{
   boolean hover;
   boolean clickedOn;
   float x, y, w, h;
+<<<<<<< HEAD
   String add;
   
   public rowHighlight (float xcor, float ycor, float wt, float ht, String z) {
+=======
+  String type;
+  
+  public rowHighlight (float xcor, float ycor, float wt, float ht, String t) {
+    type = t;
+>>>>>>> main
     x = xcor;
     y = ycor;
     w = wt;
@@ -28,6 +35,7 @@ public class rowHighlight{
       rect(x, y, w, h);
     }
     if (clickedOn) {
+<<<<<<< HEAD
       if (add.equals("zom")){
         zombies.add(new Zombie(x + w - 100, y));
       }
@@ -36,8 +44,18 @@ public class rowHighlight{
       }
       clickedOn = false;
       hover = false;
+=======
+>>>>>>> main
       for (Button b: buttons) {
-        b.clickedOn(false);
+        if (b.clickedOn) {
+          if (coronavirus - b.cost() >= 0) {
+            coronavirus -= b.cost();
+            zombies.add(new Zombie(x + w - 100, y, b.type));
+          }
+          clickedOn = false;
+          hover = false;
+          b.clickedOn(false);
+        }
       }
     }
   }
