@@ -78,7 +78,7 @@ textFont(font);
       text("There are three levels in our game. To go back to the menu, use the left arrow key.", 30, 495);
       text("In order to win and reach the victory page, make sure to clear  ", 30, 525);
       text("ALL plants on the board before time runs up! ", 30, 555);
-   
+
     }
   }
 
