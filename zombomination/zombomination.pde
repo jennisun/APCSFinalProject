@@ -21,7 +21,7 @@ void setup() {
   size(800, 700);
   background(16, 121, 99);
   
-  currPage = "instruc";
+  currPage = "zero";
   instruc = new MenuPage(1);
   zero = new MenuPage(0);
   three = new LevelThree();
@@ -52,6 +52,13 @@ void draw() {
     lvl2.display();
     lvl3.update();
     lvl3.display();
+    
+    PImage left = loadImage("whiteleft.png");
+    left.resize(80, 80);
+    image(left, 30, 600);
+    
+    fill(225);
+    text("INSTRUCTIONS (left arrow key)", 120, 657);
   }
   
   if (currPage.equals("one")) {
@@ -99,6 +106,10 @@ void keyPressed() {
     
     if (currPage.equals("instruc")) {
       if (keyCode == RIGHT) currPage = "zero";
+    }
+    
+    if (currPage.equals("zero")) {
+      if (keyCode == LEFT) currPage = "instruc";
     }
     
     if (currPage.equals("one")) {
