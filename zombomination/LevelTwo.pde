@@ -77,6 +77,10 @@ public class LevelTwo {
     peashooters.add(new Peashooter(ygrid[1][1], xgrid[1][1]));
     peashooters.add(new Peashooter(ygrid[3][2], xgrid[3][2]));
     peashooters.add(new Peashooter(ygrid[2][1], xgrid[2][1]));
+    peashooters.add(new Peashooter(ygrid[2][2], xgrid[0][0]));
+    peashooters.add(new Peashooter(ygrid[2][2], xgrid[1][1]));
+    peashooters.add(new Peashooter(ygrid[2][2], xgrid[3][3]));
+    peashooters.add(new Peashooter(ygrid[2][2], xgrid[4][4]));
     peashooters.add(new Peashooter(ygrid[0][0], xgrid[0][0]));
     //mushrooms.add(new Mushroom(ygrid[4][1], xgrid[4][1]));
     mushrooms.add(new Mushroom(ygrid[4][7], xgrid[4][7]));
