@@ -5,6 +5,7 @@ public class LevelOne {
     bg = loadImage("tempbg.png");
     bg.resize(800, 700);
     image(bg, 0, 0);
+    coronavirus = 200;
 
     //setup
     xgrid = new int[5][9];
@@ -72,13 +73,8 @@ public class LevelOne {
     //Level One
     //zombies.add(new Zombie(600, 150));
     peashooters.add(new Peashooter(ygrid[1][1], xgrid[1][1]));
-    peashooters.add(new Peashooter(ygrid[3][2], xgrid[3][2]));
-    peashooters.add(new Peashooter(ygrid[2][1], xgrid[2][1]));
     peashooters.add(new Peashooter(ygrid[0][0], xgrid[0][0]));
-    //mushrooms.add(new Mushroom(ygrid[4][1], xgrid[4][1]));
     mushrooms.add(new Mushroom(ygrid[4][7], xgrid[4][7]));
-    //mushrooms.add(new Mushroom(ygrid[4][3], xgrid[4][3]));
-    potatos.add(new Potato(ygrid[3][7], xgrid[3][7]));
     
     germs.add(new Germ(ygrid[1][2], xgrid[1][2]));
     germs.add(new Germ(ygrid[1][2], xgrid[1][2]));
@@ -271,8 +267,7 @@ public class LevelOne {
      }
     germs.removeAll(removeGerms);
     
-    if (tick == 200) pointer ++;
-    if (tick == 500) pointer ++;
+    if (tick % 1000 == 0) pointer ++;
     
    //stuff
     tick += 1;
@@ -321,7 +316,7 @@ public class LevelOne {
     for (Germ g: germs) {
       if (g.hover()) {
         g.clickedOn(true);
-        coronavirus += 50;
+        coronavirus += 25;
       }
     }
   }

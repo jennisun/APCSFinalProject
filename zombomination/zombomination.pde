@@ -10,7 +10,7 @@ int[][] xgrid;
 int[][] ygrid;
 PImage bg;
 int tick = 0;
-int coronavirus = 500;
+int coronavirus;
 int pointer = 0;
 
 
