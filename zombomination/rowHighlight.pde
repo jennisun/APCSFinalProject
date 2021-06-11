@@ -32,7 +32,11 @@ public class rowHighlight{
         if (b.clickedOn) {
           if (coronavirus - b.cost() >= 0) {
             coronavirus -= b.cost();
-            zombies.add(new Zombie(x + w - 100, y, b.type));
+            if (b.x == 330 || b.x ==430){
+              stuyKids.add(new stuyKid(x + w - 100, y, b.type));
+            }else{
+              zombies.add(new Zombie(x + w - 100, y, b.type));
+            }
           }
           clickedOn = false;
           hover = false;

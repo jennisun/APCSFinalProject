@@ -16,7 +16,7 @@ public class Zombie{
   
   Zombie(float x, float y, String type){
     zb = loadImage(type);
-    
+    zombieType = type;
     this.x = x;
     this.y = y;
     isWalking = true;
@@ -24,14 +24,21 @@ public class Zombie{
       howAlive = 10000;
     }
     if (type.equals("conezom.png")){
-      howAlive = 10500;
+      howAlive = 15000;
     }
     if (type.equals("pailzom.png")){
+      howAlive = 20000;
+    }
+    if (type.equals("SK1.PNG")){
+      howAlive = 11000;
+    }
+    if (type.equals("SK2.PNG")){
       howAlive = 11000;
     }
     
-    isZombie = true;
-    zombieType = "original";
+    
+    //isZombie = true;
+    //zombieType = "original";
   }
 
   void move(){
@@ -71,6 +78,14 @@ public class Zombie{
   
   boolean display(){
     if (howAlive > 0){
+      if (zombieType.equals("pailzom.png") && howAlive<10000){
+        zb = loadImage("zom.png");
+        zombieType = "zom.png";
+      }
+      if (zombieType.equals("conezom.png") && howAlive<10000){
+        zb = loadImage("zom.png");
+        zombieType = "zom.png";
+      }
       zb.resize(100, 100);
       image(zb, x, y-15);
       

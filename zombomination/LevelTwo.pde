@@ -34,6 +34,8 @@ public class LevelTwo {
     buttons.add(new Button(30, 570, 100, 100, "zom.png", 50));
     buttons.add(new Button(130, 570, 100, 100, "conezom.png", 75));
     buttons.add(new Button(230, 570, 100, 100, "pailzom.png", 100));
+    buttons.add(new Button(330, 570, 100, 100, "SK1.PNG", 100));
+    buttons.add(new Button(430, 570, 100, 100, "SK2.PNG", 100));
 
     for (int i = 0; i < 5; i ++) {
       rowHighlights.add(new rowHighlight(ygrid[i][0], xgrid[i][0], 720, 80, "zom.png"));
@@ -163,19 +165,34 @@ public class LevelTwo {
       for (Peashooter a : peashooters) {
         if (a.getY() == z.getY() && dist(a.getX(), a.getY(), z.getX(), z.getY()) < 10) {
           z.eatingPeashooter(true);
-          if (a.display()) removePeashooters.add(a);
+          if (a.howAlive<=0) {
+            removePeashooters.add(a);
+          }
+          else{
+            a.howAlive-=5;
+          }
         }
       }
       for (Mushroom b : mushrooms) {
         if (b.getY() == z.getY() && dist(b.getX(), b.getY(), z.getX(), z.getY()) < 10) {
           z.eatingMushroom(true);
-          if (!z.eating()) removeMushrooms.add(b);
+          if (b.howAlive<=0) {
+            removeMushrooms.add(b);
+          }
+          else{
+            b.howAlive-=5;
+          }
         }
       }
       for (Potato c : potatos) {
         if (c.getY() == z.getY() && dist(c.getX(), c.getY(), z.getX(), z.getY()) < 10) {
           z.eatingPotato(true);
-          if (!z.eating()) removePotatos.add(c);
+          if (c.howAlive<=0) {
+            removePotatos.add(c);
+          }
+          else{
+            c.howAlive-=1;
+          }
         }
       }
     }
