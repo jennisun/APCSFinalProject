@@ -86,18 +86,35 @@ public class Zombie{
         zb = loadImage("zom.png");
         zombieType = "zom.png";
       }
+      
+      //health bar
+      if (zombieType.equals("zom.png")) {
+        noStroke();
+        fill(0, 255, 48);
+        rect(x + 23, y - 20, 30, 10);
+        fill(255, 255, 255);
+        rect(x + 23, y - 20, (float) 30 * (10000 - howAlive) / 10000, 10);
+      }
+      if (zombieType.equals("conezom.png")) {
+        noStroke();
+        fill(0, 255, 48);
+        rect(x + 23, y - 20, 30, 10);
+        fill(255, 255, 255);
+        rect(x + 23, y - 20, (float) 30 * (15000 - howAlive) / 15000, 10);
+      }
+      if (zombieType.equals("pailzom.png")) {
+        noStroke();
+        fill(0, 255, 48);
+        rect(x + 23, y - 20, 30, 10);
+        fill(255, 255, 255);
+        rect(x + 23, y - 20, (float) 30 * (20000 - howAlive) / 20000, 10);
+      }
+      
       zb.resize(100, 100);
       image(zb, x, y-15);
       
       if (isWalking) move();
       if (!pause && !pause1 && !pause2) eating = false;
-      
-      //health bar
-      noStroke();
-      fill(0, 255, 48);
-      rect(x + 23, y - 20, 30, 10);
-      fill(255, 255, 255);
-      rect(x + 23, y - 20, (float) 30 * (10000 - howAlive) / 10000, 10);
       
       return true;
     }
