@@ -95,8 +95,6 @@ public class LevelOne {
     germs.add(new Germ(ygrid[1][2], xgrid[1][2]));
     germs.add(new Germ(ygrid[1][2], xgrid[1][2]));
     germs.add(new Germ(ygrid[1][2], xgrid[1][2]));
-    
-    
   }
   
   
@@ -115,6 +113,15 @@ public class LevelOne {
     }
     
     //BUTTONS-------
+      noStroke();
+     fill(0, 255, 48);
+     rect(100, 50, 430, 15);
+     fill(255, 255, 255);
+     rect(100, 50, (float) 430 * (totalTime - tick) / totalTime, 15);
+
+     textSize(15);
+     text("TIME", 50, 73);
+     
      fill(85, 31, 31);
      rect(30, 570, 500, 100);
 
@@ -260,10 +267,6 @@ public class LevelOne {
    
    //GERMS-------
      for (Germ g: germs) {
-       if (!g.display()){
-         removeGerms.add(g);
-       }
-     
        if (germs.indexOf(g) < pointer) {
          if (!g.clickedOn()) g.display();
          else {
