@@ -23,8 +23,8 @@ void setup() {
   one = new LevelOne();
   two = new LevelTwo();
   
-  lvl1 = new Button(100, 130, 180, 50, "Level One");
-  lvl2 = new Button(520, 130, 180, 50, "Level Two");
+  lvl1 = new Button(100, 130, 180, 50, "LEVEL ONE");
+  lvl2 = new Button(520, 130, 180, 50, "LEVEL TWO");
 }
 
 void draw() {
