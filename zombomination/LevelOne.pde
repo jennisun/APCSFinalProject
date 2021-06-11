@@ -6,7 +6,7 @@ public class LevelOne {
     bg.resize(800, 700);
     image(bg, 0, 0);
     coronavirus = 1000;
-    totalTime = 7000;
+    totalTime = 500;
 
     //setup
     xgrid = new int[5][9];
@@ -283,10 +283,10 @@ public class LevelOne {
     tick += 1;
     fill(0);
     textSize(20);
-    //text("FPS: " + pointer + " ",0,50);
+    //text(totalTime + pointer + " ",0,70);
   }
   
-  void gameOver() {
+  void win() {
     bg = loadImage("tempbg.png");
     bg.resize(800, 700);
     image(bg, 0, 0);
@@ -309,6 +309,24 @@ public class LevelOne {
     image(trophy, 230, 370);
     image(trophy, 450, 370);
   }
+  
+  
+  void lose() {
+    bg = loadImage("tempbg.png");
+    bg.resize(800, 700);
+    image(bg, 0, 0);
+    
+    PImage left = loadImage("left.png");
+    image(left, 30, 560);
+    
+    fill(0);
+    textSize(25);
+    text("MENU",160,650);
+    
+    textSize(70);
+    text("DEFEAT", 232, 370);
+  }
+  
 
   void keyPressed() {
   }
@@ -331,9 +349,10 @@ public class LevelOne {
     }
   }
   
-  boolean update() {
-    if (peashooters.size() == 0 && mushrooms.size() == 0 && potatos.size()== 0 && tick > 10) return true;
-    return false;
+  String update() {
+    if (peashooters.size() == 0 && mushrooms.size() == 0 && potatos.size()== 0 && tick > 10) return "win";
+    else if (totalTime < tick) return "lose";
+    else return "false";
   }
 
 }

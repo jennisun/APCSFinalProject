@@ -2,10 +2,11 @@ public class LevelTwo {
  
   public LevelTwo() {
     size(800, 700);
-    bg = loadImage("red.jpg");
+    bg = loadImage("tempbg.png");
     bg.resize(800, 700);
     image(bg, 0, 0);
-    coronavirus = 10000;
+    coronavirus = 1000;
+    totalTime = 7000;
 
     //setup
     xgrid = new int[5][9];
@@ -44,6 +45,7 @@ public class LevelTwo {
 
     //Stuy Kids
    
+  
     //Pea + Peashooter
     peas = new ArrayList<Pea>();
     peashooters = new ArrayList<Peashooter>();
@@ -70,6 +72,7 @@ public class LevelTwo {
     
     //Level One
     //zombies.add(new Zombie(600, 150));
+   
     peashooters.add(new Peashooter(ygrid[1][1], xgrid[1][1]));
     peashooters.add(new Peashooter(ygrid[3][2], xgrid[3][2]));
     peashooters.add(new Peashooter(ygrid[2][1], xgrid[2][1]));
@@ -88,7 +91,6 @@ public class LevelTwo {
     germs.add(new Germ(ygrid[1][2], xgrid[1][2]));
     germs.add(new Germ(ygrid[1][2], xgrid[1][2]));
     germs.add(new Germ(ygrid[1][2], xgrid[1][2]));
-
   }
   
   
@@ -107,14 +109,23 @@ public class LevelTwo {
     }
     
     //BUTTONS-------
-    fill(85, 31, 31);
-    rect(30, 570, 500, 100);
-    
-    //corona counter
-    rect(550, 570, 80, 50);
-    fill(255);
-    textSize(15);
-    text(coronavirus, 570, 610);
+      noStroke();
+     fill(0, 255, 48);
+     rect(100, 50, 430, 15);
+     fill(255, 255, 255);
+     rect(100, 50, (float) 430 * (totalTime - tick) / totalTime, 15);
+
+     textSize(15);
+     text("TIME", 50, 73);
+     
+     fill(85, 31, 31);
+     rect(30, 570, 500, 100);
+
+     //corona counter
+     rect(550, 570, 80, 50);
+     fill(255);
+     textSize(15);
+     text(coronavirus, 570, 610);
     
     for (Button b : buttons) {
       b.update();
@@ -162,46 +173,81 @@ public class LevelTwo {
    for (Potato p: potatos) {
      p.display();
    }
-   
-
-
 
    
     //ZOMBIES-------
-
+    for (Zombie z : zombies){
+      z.display();
+      if (tick % 300 == 0) {
+        germs.add(new Germ(z.x, z.y));
+      
+        for (Germ g : germs){
+          if (g.clickedOn()){
+            removeGerms.add(g);
+          }
+        }
+      }
+    }
     for (Zombie z : zombies){
       if (!z.display()) removeZombies.add(z);
+      if (z.zombieType.equals("SK1.PNG") || z.zombieType.equals("SK2.PNG")){
+        
+        //if (tick % 100 == 0) z.cough();
+     
+        for (Peashooter a : peashooters) {
+          if (a.getY() == z.getY() && z.getX() - a.getX() <= -50) {
+            //boolean distancing = true;
+            z.eating(true);
       
-      for (Peashooter a : peashooters) {
-        if (a.getY() == z.getY() && dist(a.getX(), a.getY(), z.getX(), z.getY()) < 10) {
-          z.eatingPeashooter(true);
-          if (a.howAlive<=0) {
-            removePeashooters.add(a);
           }
-          else{
-            a.howAlive-=5;
+        }
+        for (Mushroom a : mushrooms) {
+          if (a.getY() == z.getY() && z.getX() - a.getX() <= -50) {
+         
+            z.eating(true);
+   
+          }
+        }
+        for (Potato a : potatos) {
+          if (a.getY() == z.getY() && z.getX() - a.getX() <= -50) {
+          
+            z.eating(true);
+        
           }
         }
       }
-      for (Mushroom b : mushrooms) {
-        if (b.getY() == z.getY() && dist(b.getX(), b.getY(), z.getX(), z.getY()) < 10) {
-          z.eatingMushroom(true);
-          if (b.howAlive<=0) {
-            removeMushrooms.add(b);
-          }
-          else{
-            b.howAlive-=5;
+      else{
+        for (Peashooter a : peashooters) {
+          if (a.getY() == z.getY() && dist(a.getX(), a.getY(), z.getX(), z.getY()) < 10) {
+            z.eatingPeashooter(true);
+            if (a.howAlive<=0) {
+              removePeashooters.add(a);
+            }
+            else{
+              a.howAlive-=5;
+            }
           }
         }
-      }
-      for (Potato c : potatos) {
-        if (c.getY() == z.getY() && dist(c.getX(), c.getY(), z.getX(), z.getY()) < 10) {
-          z.eatingPotato(true);
-          if (c.howAlive<=0) {
-            removePotatos.add(c);
+        for (Mushroom b : mushrooms) {
+          if (b.getY() == z.getY() && dist(b.getX(), b.getY(), z.getX(), z.getY()) < 10) {
+            z.eatingMushroom(true);
+            if (b.howAlive<=0) {
+              removeMushrooms.add(b);
+            }
+            else{
+              b.howAlive-=5;
+            }
           }
-          else{
-            c.howAlive-=1;
+        }
+        for (Potato c : potatos) {
+          if (c.getY() == z.getY() && dist(c.getX(), c.getY(), z.getX(), z.getY()) < 10) {
+            z.eatingPotato(true);
+            if (c.howAlive<=0) {
+              removePotatos.add(c);
+            }
+            else{
+              c.howAlive-=1;
+            }
           }
         }
       }
@@ -217,7 +263,7 @@ public class LevelTwo {
    
    //GERMS-------
      for (Germ g: germs) {
-       if (germs.indexOf(g) <= pointer) {
+       if (germs.indexOf(g) < pointer) {
          if (!g.clickedOn()) g.display();
          else {
            removeGerms.add(g);
@@ -227,8 +273,7 @@ public class LevelTwo {
      }
     germs.removeAll(removeGerms);
     
-    if (tick == 200) pointer ++;
-    if (tick == 500) pointer ++;
+    if (tick % 1000 == 0) pointer ++;
     
    //stuff
     tick += 1;
@@ -237,7 +282,7 @@ public class LevelTwo {
     //text("FPS: " + pointer + " ",0,50);
   }
   
-  void gameOver() {
+  void win() {
     bg = loadImage("tempbg.png");
     bg.resize(800, 700);
     image(bg, 0, 0);
@@ -260,6 +305,25 @@ public class LevelTwo {
     image(trophy, 230, 370);
     image(trophy, 450, 370);
   }
+  
+  
+  void lose() {
+    bg = loadImage("tempbg.png");
+    bg.resize(800, 700);
+    image(bg, 0, 0);
+    
+    PImage left = loadImage("left.png");
+    image(left, 30, 560);
+    
+    fill(0);
+    textSize(25);
+    text("MENU",160,650);
+    text("LEVEL TWO",487,652);
+    
+    textSize(70);
+    text("DEFEAT", 232, 370);
+  }
+  
 
   void keyPressed() {
   }
@@ -277,14 +341,15 @@ public class LevelTwo {
     for (Germ g: germs) {
       if (g.hover()) {
         g.clickedOn(true);
-        coronavirus += 50;
+        coronavirus += 25;
       }
     }
   }
   
-  boolean update() {
-    if (peashooters.size() == 0 && mushrooms.size() == 0 && potatos.size()== 0)return true;
-    return false;
+  String update() {
+    if (peashooters.size() == 0 && mushrooms.size() == 0 && potatos.size()== 0 && tick > 10) return "win";
+    else if (totalTime < 0) return "lose";
+    else return "false";
   }
 
 }

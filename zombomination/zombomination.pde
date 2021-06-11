@@ -47,18 +47,21 @@ void draw() {
   }
   
   if (currPage.equals("one")) {
-    if (!one.update()) one.draw();
-    else one.gameOver();
+    if (one.update().equals("lose")) one.lose();
+    else if (one.update().equals("win")) one.win();
+    else one.draw();
   }
  
   if (currPage.equals("two")) {
-    if (!two.update()) two.draw();
-    else two.gameOver();
+    if (two.update().equals("false")) two.draw();
+    else if (two.update().equals("win")) two.win();
+    else two.lose();
   }
   
   if (currPage.equals("three")) {
-    if (!three.update()) three.draw();
-    else two.gameOver();
+    if (three.update().equals("false")) three.draw();
+    else if (three.update().equals("win")) three.win();
+    else three.lose();
   }
 }
 
@@ -87,19 +90,26 @@ void keyPressed() {
   if (key == CODED) {
     
     if (currPage.equals("one")) {
-      if (!one.update()) {
+      if (one.update().equals("false")) {
         if (keyCode == LEFT) currPage = "zero";
+      }
+      else if (one.update().equals("win")) {
+        if (keyCode == LEFT) currPage = "zero";
+        if (keyCode == RIGHT) currPage = "two";
       }
       else {
         if (keyCode == LEFT) currPage = "zero";
-        if (keyCode == RIGHT) currPage = "two";
       }
       one = new LevelOne();
     }
     
     if (currPage.equals("two")) {
-      if (!two.update()) {
+      if (two.update().equals("false")) {
         if (keyCode == LEFT) currPage = "zero";
+      }
+      else if (two.update().equals("win")) {
+        if (keyCode == LEFT) currPage = "zero";
+        if (keyCode == RIGHT) currPage = "three";
       }
       else {
         if (keyCode == LEFT) currPage = "zero";
@@ -108,7 +118,10 @@ void keyPressed() {
     }
     
     if (currPage.equals("three")) {
-      if (!three.update()) {
+      if (three.update().equals("false")) {
+        if (keyCode == LEFT) currPage = "zero";
+      }
+      else if (three.update().equals("win")) {
         if (keyCode == LEFT) currPage = "zero";
       }
       else {
