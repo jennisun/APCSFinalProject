@@ -5,7 +5,7 @@ public class LevelOne {
     bg = loadImage("tempbg.png");
     bg.resize(800, 700);
     image(bg, 0, 0);
-    coronavirus = 200;
+    coronavirus = 1000;
     totalTime = 7000;
 
     //setup
@@ -72,14 +72,30 @@ public class LevelOne {
     
     //Level One
     //zombies.add(new Zombie(600, 150));
-    peashooters.add(new Peashooter(ygrid[1][1], xgrid[1][1]));
+   
     peashooters.add(new Peashooter(ygrid[0][0], xgrid[0][0]));
+ 
+    peashooters.add(new Peashooter(ygrid[0][0], xgrid[2][2]));
+    
+    peashooters.add(new Peashooter(ygrid[0][0], xgrid[4][4]));
+  
+    peashooters.add(new Peashooter(ygrid[1][1], xgrid[2][2]));
+
+    peashooters.add(new Peashooter(ygrid[1][1], xgrid[4][4]));
+    mushrooms.add(new Mushroom(ygrid[1][1], xgrid[0][0]));
+    mushrooms.add(new Mushroom(ygrid[2][2], xgrid[0][0]));
+    mushrooms.add(new Mushroom(ygrid[2][2], xgrid[1][1]));
+    mushrooms.add(new Mushroom(ygrid[2][2], xgrid[2][2]));
+    mushrooms.add(new Mushroom(ygrid[2][2], xgrid[3][3]));
+    mushrooms.add(new Mushroom(ygrid[4][4], xgrid[0][0]));
+    mushrooms.add(new Mushroom(ygrid[4][7], xgrid[4][7]));
+    mushrooms.add(new Mushroom(ygrid[4][7], xgrid[4][7]));
     mushrooms.add(new Mushroom(ygrid[4][7], xgrid[4][7]));
     
     germs.add(new Germ(ygrid[1][2], xgrid[1][2]));
     germs.add(new Germ(ygrid[1][2], xgrid[1][2]));
     germs.add(new Germ(ygrid[1][2], xgrid[1][2]));
-    germs.add(new Germ(ygrid[1][2], xgrid[1][2]));
+    
     
   }
   
@@ -157,64 +173,35 @@ public class LevelOne {
 
    
     //ZOMBIES-------
-
+    for (Zombie z : zombies){
+      z.display();
+      if (tick % 50 == 0) z.cough();
+    }
     for (Zombie z : zombies){
       if (!z.display()) removeZombies.add(z);
       if (z.zombieType.equals("SK1.PNG") || z.zombieType.equals("SK2.PNG")){
         
-        if (tick % 400 == 0) z.cough();
+        //if (tick % 100 == 0) z.cough();
      
-        for (Zombie jenpen: zombies){
-          if (z.x != jenpen.x){
-         
-            if (z.y == jenpen.y && jenpen.x-z.x <=30){
-              z.zombieType = "zom.png";
-            }
-          }
-        }
         for (Peashooter a : peashooters) {
           if (a.getY() == z.getY() && z.getX() - a.getX() <= -50) {
-            boolean distancing = true;
+            //boolean distancing = true;
             z.eating(true);
-            for (Zombie xiaoshen : zombies){
-              if ((xiaoshen.zombieType.equals("SK1.PNG") || xiaoshen.zombieType.equals("SK2.PNG")) && z != xiaoshen && z.x == xiaoshen.x && z.y == xiaoshen.y){
-                distancing = false;
-              }
-  
-            }
-            if (!distancing){
-               z.eating(false);
-            }
+      
           }
         }
         for (Mushroom a : mushrooms) {
           if (a.getY() == z.getY() && z.getX() - a.getX() <= -50) {
-            boolean distancing = true;
+         
             z.eating(true);
-            for (Zombie xiaoshen : zombies){
-              if ((xiaoshen.zombieType.equals("SK1.PNG") || xiaoshen.zombieType.equals("SK2.PNG")) && z != xiaoshen && z.x == xiaoshen.x && z.y == xiaoshen.y){
-                distancing = false;
-              }
-  
-            }
-            if (!distancing){
-               z.eating(false);
-            }
+   
           }
         }
         for (Potato a : potatos) {
           if (a.getY() == z.getY() && z.getX() - a.getX() <= -50) {
-            boolean distancing = true;
+          
             z.eating(true);
-            for (Zombie xiaoshen : zombies){
-              if ((xiaoshen.zombieType.equals("SK1.PNG") || xiaoshen.zombieType.equals("SK2.PNG")) && z != xiaoshen && z.x == xiaoshen.x && z.y == xiaoshen.y){
-                distancing = false;
-              }
-  
-            }
-            if (!distancing){
-               z.eating(false);
-            }
+        
           }
         }
       }

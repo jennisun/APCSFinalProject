@@ -34,7 +34,7 @@ public class Germ {
   
   boolean display() {
     if (!clickedOn) {
-      //if (kid){
+      
         if (y > cy) cy += 0.7;
         wait += 1;
         
@@ -48,10 +48,7 @@ public class Germ {
           if (pic == 1) image(img1, y, cy);
           else image(img2, y, cy);
         }
-      //}
-      //else{
         
-      //}
       return true;
     }
     else return false;

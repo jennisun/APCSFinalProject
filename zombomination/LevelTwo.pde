@@ -70,13 +70,18 @@ public class LevelTwo {
     //Level One
     //zombies.add(new Zombie(600, 150));
     peashooters.add(new Peashooter(ygrid[1][1], xgrid[1][1]));
-    //peashooters.add(new Peashooter(ygrid[3][2], xgrid[3][2]));
-    //peashooters.add(new Peashooter(ygrid[2][1], xgrid[2][1]));
-    //peashooters.add(new Peashooter(ygrid[0][0], xgrid[0][0]));
-    ////mushrooms.add(new Mushroom(ygrid[4][1], xgrid[4][1]));
-    //mushrooms.add(new Mushroom(ygrid[4][7], xgrid[4][7]));
-    ////mushrooms.add(new Mushroom(ygrid[4][3], xgrid[4][3]));
-    //potatos.add(new Potato(ygrid[3][7], xgrid[3][7]));
+    peashooters.add(new Peashooter(ygrid[3][2], xgrid[3][2]));
+    peashooters.add(new Peashooter(ygrid[2][1], xgrid[2][1]));
+    peashooters.add(new Peashooter(ygrid[0][0], xgrid[0][0]));
+    //mushrooms.add(new Mushroom(ygrid[4][1], xgrid[4][1]));
+    mushrooms.add(new Mushroom(ygrid[4][7], xgrid[4][7]));
+    //mushrooms.add(new Mushroom(ygrid[4][3], xgrid[4][3]));
+    potatos.add(new Potato(ygrid[3][3], xgrid[0][0]));
+    potatos.add(new Potato(ygrid[3][3], xgrid[1][1]));
+    potatos.add(new Potato(ygrid[3][3], xgrid[2][2]));
+    potatos.add(new Potato(ygrid[3][3], xgrid[3][3]));
+    potatos.add(new Potato(ygrid[3][3], xgrid[4][4]));
+    
     
 
     germs.add(new Germ(ygrid[1][2], xgrid[1][2]));
