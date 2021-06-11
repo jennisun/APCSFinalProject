@@ -80,9 +80,9 @@ public class LevelOne {
     //mushrooms.add(new Mushroom(ygrid[4][3], xgrid[4][3]));
     potatos.add(new Potato(ygrid[3][7], xgrid[3][7]));
     
-    germs.add(new Germ(ygrid[1][2], xgrid[1][2]));
-    germs.add(new Germ(ygrid[1][2], xgrid[1][2]));
-    germs.add(new Germ(ygrid[1][2], xgrid[1][2]));
+    germs.add(new Germ(ygrid[1][2], xgrid[1][2], true));
+    germs.add(new Germ(ygrid[1][2], xgrid[1][2], true));
+    germs.add(new Germ(ygrid[1][2], xgrid[1][2], true));
     stuyKids.add(new stuyKid(ygrid[1][4], xgrid[1][4], "SK1.PNG"));
   }
   
@@ -157,95 +157,103 @@ public class LevelOne {
    for (Potato p: potatos) {
      p.display();
    }
-   
-
-   for (stuyKid jennifer: stuyKids){
-     jennifer.display();
-     for (Peashooter a : peashooters) {
-        if (a.getY() == jennifer.getY() && jennifer.getX() - a.getX() <= -30) {
-          boolean distancing = true;
-          jennifer.eating(true);
-          for (stuyKid xiaoshen : stuyKids){
-            if (jennifer != xiaoshen && jennifer.x == xiaoshen.x && jennifer.y == xiaoshen.y){
-              distancing = false;
-            }
-
-          }
-          if (!distancing){
-             jennifer.eating(false);
-          }
-        }
-      }
-      for (Mushroom b : mushrooms) {
-        if (b.getY() == jennifer.getY() && jennifer.getX() - b.getX() <= -30) {
-          jennifer.eating(true);
-
-          boolean distancing = true;
-          for (stuyKid xiaoshen : stuyKids){
-            if (jennifer != xiaoshen && jennifer.x == xiaoshen.x && jennifer.y == xiaoshen.y){
-              distancing = false;
-            }
-          }
-          if (!distancing){
-             jennifer.eating(false);
-          }
-        }
-      }
-      for (Potato c : potatos) {
-        if (c.getY() == jennifer.getY() && jennifer.getX() - c.getX() <= -30) {
-          jennifer.eating(true);
-
-          boolean distancing = true;
-          for (stuyKid xiaoshen : stuyKids){
-            if (jennifer != xiaoshen && jennifer.x == xiaoshen.x && jennifer.y == xiaoshen.y){
-              distancing = false;
-            }
-          }
-          if (!distancing){
-             jennifer.eating(false);
-          }
-
-        }
-      }
-     
-   }
 
    
     //ZOMBIES-------
 
     for (Zombie z : zombies){
       if (!z.display()) removeZombies.add(z);
-      
-      for (Peashooter a : peashooters) {
-        if (a.getY() == z.getY() && dist(a.getX(), a.getY(), z.getX(), z.getY()) < 10) {
-          z.eatingPeashooter(true);
-          if (a.howAlive<=0) {
-            removePeashooters.add(a);
+      if (z.zombieType.equals("SK1.PNG") || z.zombieType.equals("SK2.PNG")){
+     
+        for (Zombie jenpen: zombies){
+          //textSize(20);
+          //text("hi: " + (jenpen.x - z.x), 0, 50);
+          if (z.x != jenpen.x){
+            textSize(20);
+            text("hi: " + (jenpen.x - z.x), 0, 50);
+            if (z.y == jenpen.y && jenpen.x-z.x <=30){
+              z.zombieType = "zom.png";
+            }
           }
-          else{
-            a.howAlive-=5;
+        }
+        for (Peashooter a : peashooters) {
+          if (a.getY() == z.getY() && z.getX() - a.getX() <= -50) {
+            boolean distancing = true;
+            z.eating(true);
+            for (Zombie xiaoshen : zombies){
+              if ((xiaoshen.zombieType.equals("SK1.PNG") || xiaoshen.zombieType.equals("SK2.PNG")) && z != xiaoshen && z.x == xiaoshen.x && z.y == xiaoshen.y){
+                distancing = false;
+              }
+  
+            }
+            if (!distancing){
+               z.eating(false);
+            }
+          }
+        }
+        for (Mushroom a : mushrooms) {
+          if (a.getY() == z.getY() && z.getX() - a.getX() <= -50) {
+            boolean distancing = true;
+            z.eating(true);
+            for (Zombie xiaoshen : zombies){
+              if ((xiaoshen.zombieType.equals("SK1.PNG") || xiaoshen.zombieType.equals("SK2.PNG")) && z != xiaoshen && z.x == xiaoshen.x && z.y == xiaoshen.y){
+                distancing = false;
+              }
+  
+            }
+            if (!distancing){
+               z.eating(false);
+            }
+          }
+        }
+        for (Potato a : potatos) {
+          if (a.getY() == z.getY() && z.getX() - a.getX() <= -50) {
+            boolean distancing = true;
+            z.eating(true);
+            for (Zombie xiaoshen : zombies){
+              if ((xiaoshen.zombieType.equals("SK1.PNG") || xiaoshen.zombieType.equals("SK2.PNG")) && z != xiaoshen && z.x == xiaoshen.x && z.y == xiaoshen.y){
+                distancing = false;
+              }
+  
+            }
+            if (!distancing){
+               z.eating(false);
+            }
           }
         }
       }
-      for (Mushroom b : mushrooms) {
-        if (b.getY() == z.getY() && dist(b.getX(), b.getY(), z.getX(), z.getY()) < 10) {
-          z.eatingMushroom(true);
-          if (b.howAlive<=0) {
-            removeMushrooms.add(b);
-          }
-          else{
-            b.howAlive-=5;
+      else{
+        for (Peashooter a : peashooters) {
+          if (a.getY() == z.getY() && dist(a.getX(), a.getY(), z.getX(), z.getY()) < 10) {
+            z.eatingPeashooter(true);
+            if (a.howAlive<=0) {
+              removePeashooters.add(a);
+            }
+            else{
+              a.howAlive-=5;
+            }
           }
         }
-      }
-      for (Potato c : potatos) {
-        if (c.getY() == z.getY() && dist(c.getX(), c.getY(), z.getX(), z.getY()) < 10) {
-          z.eatingPotato(true);
-          if (c.howAlive<=0) {
-            removePotatos.add(c);
+        for (Mushroom b : mushrooms) {
+          if (b.getY() == z.getY() && dist(b.getX(), b.getY(), z.getX(), z.getY()) < 10) {
+            z.eatingMushroom(true);
+            if (b.howAlive<=0) {
+              removeMushrooms.add(b);
+            }
+            else{
+              b.howAlive-=5;
+            }
           }
-          else{
-            c.howAlive-=1;
+        }
+        for (Potato c : potatos) {
+          if (c.getY() == z.getY() && dist(c.getX(), c.getY(), z.getX(), z.getY()) < 10) {
+            z.eatingPotato(true);
+            if (c.howAlive<=0) {
+              removePotatos.add(c);
+            }
+            else{
+              c.howAlive-=1;
+            }
           }
         }
       }

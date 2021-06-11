@@ -77,8 +77,8 @@ public class LevelTwo {
     //mushrooms.add(new Mushroom(ygrid[4][3], xgrid[4][3]));
     potatos.add(new Potato(ygrid[3][7], xgrid[3][7]));
     
-    germs.add(new Germ(ygrid[1][2], xgrid[1][2]));
-    germs.add(new Germ(ygrid[1][2], xgrid[1][2]));
+    germs.add(new Germ(ygrid[1][2], xgrid[1][2], true));
+    germs.add(new Germ(ygrid[1][2], xgrid[1][2], true));
     germs.add(new Germ(ygrid[1][2], xgrid[1][2]));
   }
   
