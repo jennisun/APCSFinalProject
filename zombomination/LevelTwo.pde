@@ -1,9 +1,4 @@
 public class LevelTwo {
-  int[][] xgrid;
-  int[][] ygrid;
-  PImage bg;
-  int tick = 0;
-  int pointer = 0;
  
   public LevelTwo() {
     size(800, 700);

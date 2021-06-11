@@ -6,12 +6,12 @@ PFont font;
 Button lvl1, lvl2;
 
 //Level stuff
-//int[][] xgrid;
-//int[][] ygrid;
-//PImage bg;
-//int tick = 0;
+int[][] xgrid;
+int[][] ygrid;
+PImage bg;
+int tick = 0;
 int coronavirus = 500;
-//int pointer = 0;
+int pointer = 0;
 
 
 void setup() {
