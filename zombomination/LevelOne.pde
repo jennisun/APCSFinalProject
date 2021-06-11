@@ -175,7 +175,15 @@ public class LevelOne {
     //ZOMBIES-------
     for (Zombie z : zombies){
       z.display();
-      if (tick % 50 == 0) z.cough();
+      if (tick % 300 == 0) {
+        germs.add(new Germ(z.x, z.y));
+      
+        for (Germ g : germs){
+          if (g.clickedOn()){
+            removeGerms.add(g);
+          }
+        }
+      }
     }
     for (Zombie z : zombies){
       if (!z.display()) removeZombies.add(z);
@@ -252,6 +260,10 @@ public class LevelOne {
    
    //GERMS-------
      for (Germ g: germs) {
+       if (!g.display()){
+         removeGerms.add(g);
+       }
+     
        if (germs.indexOf(g) < pointer) {
          if (!g.clickedOn()) g.display();
          else {

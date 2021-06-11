@@ -5,7 +5,7 @@ public class LevelThree {
     bg = loadImage("tempbg.png");
     bg.resize(800, 700);
     image(bg, 0, 0);
-    coronavirus = 200;
+    coronavirus = 1000;
 
     //setup
     xgrid = new int[5][9];
@@ -75,11 +75,24 @@ public class LevelThree {
     peashooters.add(new Peashooter(ygrid[1][1], xgrid[1][1]));
     peashooters.add(new Peashooter(ygrid[0][0], xgrid[0][0]));
     mushrooms.add(new Mushroom(ygrid[4][7], xgrid[4][7]));
-    
+    potatos.add(new Potato(ygrid[3][3], xgrid[0][0]));
+
+    potatos.add(new Potato(ygrid[3][3], xgrid[3][3]));
+    potatos.add(new Potato(ygrid[3][3], xgrid[4][4]));
+        mushrooms.add(new Mushroom(ygrid[1][1], xgrid[0][0]));
+    mushrooms.add(new Mushroom(ygrid[2][2], xgrid[0][0]));
+    mushrooms.add(new Mushroom(ygrid[2][2], xgrid[1][1]));
+    mushrooms.add(new Mushroom(ygrid[2][2], xgrid[2][2]));
+    mushrooms.add(new Mushroom(ygrid[2][2], xgrid[3][3]));
+    mushrooms.add(new Mushroom(ygrid[4][4], xgrid[0][0]));
+    mushrooms.add(new Mushroom(ygrid[4][7], xgrid[4][7]));
+    mushrooms.add(new Mushroom(ygrid[4][7], xgrid[2][7]));
+    mushrooms.add(new Mushroom(ygrid[4][7], xgrid[3][7]));
     germs.add(new Germ(ygrid[1][2], xgrid[1][2]));
     germs.add(new Germ(ygrid[1][2], xgrid[1][2]));
     germs.add(new Germ(ygrid[1][2], xgrid[1][2]));
     germs.add(new Germ(ygrid[1][2], xgrid[1][2]));
+
    
   }
   

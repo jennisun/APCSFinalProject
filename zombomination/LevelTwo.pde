@@ -5,6 +5,7 @@ public class LevelTwo {
     bg = loadImage("red.jpg");
     bg.resize(800, 700);
     image(bg, 0, 0);
+    coronavirus = 10000;
 
     //setup
     xgrid = new int[5][9];
