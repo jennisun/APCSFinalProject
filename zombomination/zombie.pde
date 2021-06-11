@@ -12,6 +12,7 @@ public class Zombie{
   int count = 0;
   int count1 = 0;
   int count2 = 0;
+  float speed = 0.3;
   //pause = hit by shroom/pea, pause1 = eating mushroom/peashooter, pause2 = eating potato
   
   Zombie(float x, float y, String type){
@@ -30,10 +31,12 @@ public class Zombie{
       howAlive = 20000;
     }
     if (type.equals("SK1.PNG")){
-      howAlive = 11000;
+      howAlive = 50000;
+      speed = 1;
     }
     if (type.equals("SK2.PNG")){
-      howAlive = 11000;
+      howAlive = 50000;
+      speed = 1;
     }
     
     
@@ -43,7 +46,7 @@ public class Zombie{
 
   void move(){
     if (!eating && !pause && !pause1 && !pause2){
-      x -= 0.3;
+      x -= speed;
     }
     
     if (pause) {
@@ -143,6 +146,14 @@ public class Zombie{
   
   boolean eating() {
     return eating;
+  }
+  void eating(boolean hold) {
+    if (hold){
+      isWalking = false;
+    }
+    if (!hold){
+      isWalking = true;
+    }
   }
 
 }
