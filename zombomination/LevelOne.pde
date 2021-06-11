@@ -1,5 +1,9 @@
 public class LevelOne {
+  int[][] xgrid;
+  int[][] ygrid;
   PImage bg;
+  int tick = 0;
+  int pointer = 0;
  
   public LevelOne() {
     size(800, 700);
