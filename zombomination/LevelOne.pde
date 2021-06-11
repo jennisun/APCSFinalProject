@@ -205,7 +205,7 @@ public class LevelOne {
     tick += 1;
     fill(0);
     textSize(20);
-    text("FPS: " + pointer + " ",0,50);
+    //text("FPS: " + pointer + " ",0,50);
   }
 
   void keyPressed() {

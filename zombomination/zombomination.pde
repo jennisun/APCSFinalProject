@@ -19,7 +19,7 @@ void setup() {
   size(800, 700);
   background(16, 121, 99);
   
-  currPage = "zero";
+  currPage = "one";
   zero = new MenuPage(0);
   one = new LevelOne();
   two = new LevelTwo();
@@ -51,6 +51,10 @@ void draw() {
     one.draw();
     menu.update();
     menu.display();
+    
+    fill(255);
+    textSize(15);
+    text(currPage, 20, 610);
   }
  
   if (currPage.equals("two")) {
@@ -67,11 +71,14 @@ void mousePressed() {
   
   if (currPage.equals("one")) {
     one.mousePressed();
-    if (menu.hover() && menu.clickedOn()) currPage = "zero";
+    if (menu.hover() && !menu.clickedOn()) {
+      currPage = "zero";
+      menu.clickedOn(false);
+    }
   }
   if (currPage.equals("two")) {
     one.mousePressed();
-    if (menu.hover() && menu.clickedOn()) currPage = "zero";
+    if (menu.hover() && !menu.clickedOn()) currPage = "zero";
   }
 }
 
