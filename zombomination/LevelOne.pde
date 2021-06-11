@@ -1,4 +1,5 @@
 public class LevelOne {
+  PImage bg;
  
   public LevelOne() {
     size(800, 700);

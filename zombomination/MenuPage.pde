@@ -19,16 +19,15 @@ public class MenuPage {
   }
   
   public void draw() {
+    image(moon, 0, 0);
+    image(soil, 0, 550);
+    image(soil, 350, 550);
+    image(hand, 220, 235);
+    
     textFont(font);
     fill(255);
     textSize(40);
     text("zombomination", 220, 80);
-    
-    image(moon, 0, 0);
-    image(soil, 0, 550);
-    image(soil, 350, 550);
-    
-    image(hand, 220, 235);
   }
 
 }

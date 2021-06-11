@@ -9,7 +9,7 @@ Button lvl1, lvl2;
 int[][] xgrid;
 int[][] ygrid;
 int tick = 0;
-PImage bg;
+
 int coronavirus = 500;
 int pointer = 0;
 

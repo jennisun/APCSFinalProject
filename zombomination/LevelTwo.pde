@@ -1,9 +1,10 @@
 public class LevelTwo {
+  PImage bg;
  
   public LevelTwo() {
     size(800, 700);
-    bg = loadImage("tempbg.png");
-    bg.resize(800, 700);
+    bg = loadImage("red.jpg");
+    bg.resize(1250, 700);
     image(bg, 0, 0);
 
     //setup
