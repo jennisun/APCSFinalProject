@@ -42,9 +42,7 @@ public class LevelTwo {
     }
 
     //Stuy Kids
-    stuyKids = new ArrayList<stuyKid>();
-    removeStuyKid = new ArrayList<stuyKid>();
-  
+   
     //Pea + Peashooter
     peas = new ArrayList<Pea>();
     peashooters = new ArrayList<Peashooter>();
@@ -83,7 +81,7 @@ public class LevelTwo {
 
     germs.add(new Germ(ygrid[1][2], xgrid[1][2], true));
     germs.add(new Germ(ygrid[1][2], xgrid[1][2], true));
-    germs.add(new Germ(ygrid[1][2], xgrid[1][2]));
+    germs.add(new Germ(ygrid[1][2], xgrid[1][2], true));
 
   }
   
@@ -160,56 +158,7 @@ public class LevelTwo {
    }
    
 
-   for (stuyKid jennifer: stuyKids){
-     jennifer.display();
-     for (Peashooter a : peashooters) {
-        if (a.getY() == jennifer.getY() && jennifer.getX() - a.getX() <= -30) {
-          boolean distancing = true;
-          jennifer.eating(true);
-          for (stuyKid xiaoshen : stuyKids){
-            if (jennifer != xiaoshen && jennifer.x == xiaoshen.x && jennifer.y == xiaoshen.y){
-              distancing = false;
-            }
 
-          }
-          if (!distancing){
-             jennifer.eating(false);
-          }
-        }
-      }
-      for (Mushroom b : mushrooms) {
-        if (b.getY() == jennifer.getY() && jennifer.getX() - b.getX() <= -30) {
-          jennifer.eating(true);
-
-          boolean distancing = true;
-          for (stuyKid xiaoshen : stuyKids){
-            if (jennifer != xiaoshen && jennifer.x == xiaoshen.x && jennifer.y == xiaoshen.y){
-              distancing = false;
-            }
-          }
-          if (!distancing){
-             jennifer.eating(false);
-          }
-        }
-      }
-      for (Potato c : potatos) {
-        if (c.getY() == jennifer.getY() && jennifer.getX() - c.getX() <= -30) {
-          jennifer.eating(true);
-
-          boolean distancing = true;
-          for (stuyKid xiaoshen : stuyKids){
-            if (jennifer != xiaoshen && jennifer.x == xiaoshen.x && jennifer.y == xiaoshen.y){
-              distancing = false;
-            }
-          }
-          if (!distancing){
-             jennifer.eating(false);
-          }
-
-        }
-      }
-     
-   }
 
    
     //ZOMBIES-------
