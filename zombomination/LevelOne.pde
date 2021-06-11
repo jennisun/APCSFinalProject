@@ -1,6 +1,7 @@
 public class LevelOne {
  
   public LevelOne() {
+    tick = 0;
     size(800, 700);
     bg = loadImage("tempbg.png");
     bg.resize(800, 700);

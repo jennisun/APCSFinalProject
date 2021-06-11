@@ -1,6 +1,7 @@
 public class LevelTwo {
  
   public LevelTwo() {
+    tick = 0;
     size(800, 700);
     bg = loadImage("tempbg.png");
     bg.resize(800, 700);
@@ -318,7 +319,6 @@ public class LevelTwo {
     fill(0);
     textSize(25);
     text("MENU",160,650);
-    text("LEVEL TWO",487,652);
     
     textSize(70);
     text("DEFEAT", 232, 370);
