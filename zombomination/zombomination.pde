@@ -65,18 +65,36 @@ void draw() {
     if (one.update().equals("lose")) one.lose();
     else if (one.update().equals("win")) one.win();
     else one.draw();
+    PImage left = loadImage("whiteleft.png");
+    left.resize(80, 80);
+    image(left, 680, 30);
+    
+    fill(225);
+    text("MENU", 690, 40);
   }
  
   if (currPage.equals("two")) {
     if (two.update().equals("false")) two.draw();
     else if (two.update().equals("win")) two.win();
     else two.lose();
+    PImage left = loadImage("whiteleft.png");
+    left.resize(80, 80);
+    image(left, 680, 30);
+    
+    fill(225);
+    text("MENU", 690, 40);
   }
   
   if (currPage.equals("three")) {
     if (three.update().equals("false")) three.draw();
     else if (three.update().equals("win")) three.win();
     else three.lose();
+    PImage left = loadImage("whiteleft.png");
+    left.resize(80, 80);
+    image(left, 680, 30);
+    
+    fill(225);
+    text("MENU", 690, 40);
   }
 }
 

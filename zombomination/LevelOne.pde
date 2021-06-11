@@ -7,7 +7,7 @@ public class LevelOne {
     bg.resize(800, 700);
     image(bg, 0, 0);
     coronavirus = 1000;
-    totalTime = 3500;
+    totalTime = 7500;
 
     //setup
     xgrid = new int[5][9];
@@ -100,6 +100,8 @@ public class LevelOne {
   
   
   void draw() {
+
+    
     //background
     //background(200);
     image(bg, 0, 0);
