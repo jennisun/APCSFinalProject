@@ -80,7 +80,7 @@ public class LevelThree {
     germs.add(new Germ(ygrid[1][2], xgrid[1][2]));
     germs.add(new Germ(ygrid[1][2], xgrid[1][2]));
     germs.add(new Germ(ygrid[1][2], xgrid[1][2]));
-    stuyKids.add(new stuyKid(ygrid[1][4], xgrid[1][4], "SK1.PNG"));
+   
   }
   
   

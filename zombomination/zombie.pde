@@ -12,7 +12,7 @@ public class Zombie{
   int count = 0;
   int count1 = 0;
   int count2 = 0;
-  float speed = 0.3;
+  float speed = 1;
   //pause = hit by shroom/pea, pause1 = eating mushroom/peashooter, pause2 = eating potato
   
   Zombie(float x, float y, String type){
@@ -32,7 +32,7 @@ public class Zombie{
     }
     if (type.equals("SK1.PNG")){
       howAlive = 50000;
-      speed = 1;
+      speed = 2;
     }
     if (type.equals("SK2.PNG")){
       howAlive = 50000;
@@ -77,6 +77,12 @@ public class Zombie{
   void zombify(){
     zombieType = "original";
     
+  }
+  
+  void cough(){
+    if (!isWalking){
+      germs.add(new Germ(x, y));
+    }
   }
   
   boolean display(){

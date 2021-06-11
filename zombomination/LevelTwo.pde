@@ -2,7 +2,7 @@ public class LevelTwo {
  
   public LevelTwo() {
     size(800, 700);
-    bg = loadImage("tempbg.png");
+    bg = loadImage("red.jpg");
     bg.resize(800, 700);
     image(bg, 0, 0);
 
@@ -79,9 +79,9 @@ public class LevelTwo {
     //potatos.add(new Potato(ygrid[3][7], xgrid[3][7]));
     
 
-    germs.add(new Germ(ygrid[1][2], xgrid[1][2], true));
-    germs.add(new Germ(ygrid[1][2], xgrid[1][2], true));
-    germs.add(new Germ(ygrid[1][2], xgrid[1][2], true));
+    germs.add(new Germ(ygrid[1][2], xgrid[1][2]));
+    germs.add(new Germ(ygrid[1][2], xgrid[1][2]));
+    germs.add(new Germ(ygrid[1][2], xgrid[1][2]));
 
   }
   

@@ -11,6 +11,7 @@ public class Germ {
   boolean kid;
   
   Germ(float x, float y) {
+    kid = true;
     this.x = x;
     this.y = y;
     cy = 0;
@@ -20,11 +21,10 @@ public class Germ {
     img1.resize(50, 50);
     img2.resize(50, 50);
   }
-  Germ(float x, float y, boolean k) {
-    kid = k;
+  Germ(float x, float y, float cur) {
     this.x = x;
     this.y = y;
-    cy = 0;
+    cy = cur;
     pic = 1;
     wait = 0;
     

@@ -44,8 +44,7 @@ public class LevelOne {
     }
 
     //Stuy Kids
-    stuyKids = new ArrayList<stuyKid>();
-    removeStuyKid = new ArrayList<stuyKid>();
+   
   
     //Pea + Peashooter
     peas = new ArrayList<Pea>();
@@ -77,11 +76,11 @@ public class LevelOne {
     peashooters.add(new Peashooter(ygrid[0][0], xgrid[0][0]));
     mushrooms.add(new Mushroom(ygrid[4][7], xgrid[4][7]));
     
-    germs.add(new Germ(ygrid[1][2], xgrid[1][2], true));
-    germs.add(new Germ(ygrid[1][2], xgrid[1][2], true));
-    germs.add(new Germ(ygrid[1][2], xgrid[1][2], true));
-    germs.add(new Germ(ygrid[1][2], xgrid[1][2], true));
-    stuyKids.add(new stuyKid(ygrid[1][4], xgrid[1][4], "SK1.PNG"));
+    germs.add(new Germ(ygrid[1][2], xgrid[1][2]));
+    germs.add(new Germ(ygrid[1][2], xgrid[1][2]));
+    germs.add(new Germ(ygrid[1][2], xgrid[1][2]));
+    germs.add(new Germ(ygrid[1][2], xgrid[1][2]));
+    
   }
   
   
@@ -162,13 +161,12 @@ public class LevelOne {
     for (Zombie z : zombies){
       if (!z.display()) removeZombies.add(z);
       if (z.zombieType.equals("SK1.PNG") || z.zombieType.equals("SK2.PNG")){
+        
+        if (tick % 400 == 0) z.cough();
      
         for (Zombie jenpen: zombies){
-          //textSize(20);
-          //text("hi: " + (jenpen.x - z.x), 0, 50);
           if (z.x != jenpen.x){
-            textSize(20);
-            text("hi: " + (jenpen.x - z.x), 0, 50);
+         
             if (z.y == jenpen.y && jenpen.x-z.x <=30){
               z.zombieType = "zom.png";
             }
