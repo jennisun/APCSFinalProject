@@ -43,10 +43,35 @@ public class Zombie{
     //isZombie = true;
     //zombieType = "original";
   }
+<<<<<<< HEAD
+  
+  Zombie(){
+    this.x = 0;
+    this.y = 0;
+    isWalking = true;
+    howAlive = 10000;
+    isZombie = true;
+    zombieType = "original";
+  }
+  
+  //zombie(boolean walk, int health, String type){
+    //isWalking = walk;
+    //howAlive = health;
+    //zombieType = type;
+  //}
+  void move(){
+    if (!eating && !pause){
+      x -= 1;
+=======
 
   void move(){
     if (!eating && !pause && !pause1 && !pause2){
+<<<<<<< HEAD
       x -= speed;
+=======
+      x -= 0.3;
+>>>>>>> main
+>>>>>>> b426367b7368be1ce0f903dc81b22323fa6d014d
     }
     
     if (pause) {
@@ -81,6 +106,7 @@ public class Zombie{
   
   boolean display(){
     if (howAlive > 0){
+<<<<<<< HEAD
       if (zombieType.equals("pailzom.png") && howAlive<10000){
         zb = loadImage("zom.png");
         zombieType = "zom.png";
@@ -113,11 +139,22 @@ public class Zombie{
         rect(x + 23, y - 20, (float) 30 * (20000 - howAlive) / 20000, 10);
       }
       
+=======
+<<<<<<< HEAD
+      noStroke();
+      zb.resize(80, 80);
+      image(zb, x, y);
+      if (isWalking && !eating){
+        move();
+      }
+=======
+>>>>>>> b426367b7368be1ce0f903dc81b22323fa6d014d
       zb.resize(100, 100);
       image(zb, x, y-15);
       
       if (isWalking) move();
       if (!pause && !pause1 && !pause2) eating = false;
+>>>>>>> main
       
       return true;
     }

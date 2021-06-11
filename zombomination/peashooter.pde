@@ -1,5 +1,6 @@
 ArrayList<Peashooter> peashooters;
 ArrayList<Peashooter> removePeashooters;
+boolean display;
 
 public class Peashooter{
   int howAlive;
@@ -11,10 +12,11 @@ public class Peashooter{
     this.x = x;
     this.y = y;
     attack = false;
-    howAlive = 300;
+    howAlive = 30;
   }
   
   boolean display() {
+    //void display(){
     if (howAlive > 0) {
       peashooter.resize(80, 80);
       image(peashooter, x, y);
