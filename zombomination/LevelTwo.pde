@@ -2,8 +2,8 @@ public class LevelTwo {
  
   public LevelTwo() {
     size(800, 700);
-    bg = loadImage("red.jpg");
-    bg.resize(1250, 700);
+    bg = loadImage("tempbg.png");
+    bg.resize(800, 700);
     image(bg, 0, 0);
 
     //setup
@@ -41,6 +41,9 @@ public class LevelTwo {
       rowHighlights.add(new rowHighlight(ygrid[i][0], xgrid[i][0], 720, 80, "zom.png"));
     }
 
+    //Stuy Kids
+    stuyKids = new ArrayList<stuyKid>();
+    removeStuyKid = new ArrayList<stuyKid>();
   
     //Pea + Peashooter
     peas = new ArrayList<Pea>();
@@ -69,17 +72,19 @@ public class LevelTwo {
     //Level One
     //zombies.add(new Zombie(600, 150));
     peashooters.add(new Peashooter(ygrid[1][1], xgrid[1][1]));
-    peashooters.add(new Peashooter(ygrid[3][2], xgrid[3][2]));
-    peashooters.add(new Peashooter(ygrid[2][1], xgrid[2][1]));
-    peashooters.add(new Peashooter(ygrid[0][0], xgrid[0][0]));
-    //mushrooms.add(new Mushroom(ygrid[4][1], xgrid[4][1]));
-    mushrooms.add(new Mushroom(ygrid[4][7], xgrid[4][7]));
-    //mushrooms.add(new Mushroom(ygrid[4][3], xgrid[4][3]));
-    potatos.add(new Potato(ygrid[3][7], xgrid[3][7]));
+    //peashooters.add(new Peashooter(ygrid[3][2], xgrid[3][2]));
+    //peashooters.add(new Peashooter(ygrid[2][1], xgrid[2][1]));
+    //peashooters.add(new Peashooter(ygrid[0][0], xgrid[0][0]));
+    ////mushrooms.add(new Mushroom(ygrid[4][1], xgrid[4][1]));
+    //mushrooms.add(new Mushroom(ygrid[4][7], xgrid[4][7]));
+    ////mushrooms.add(new Mushroom(ygrid[4][3], xgrid[4][3]));
+    //potatos.add(new Potato(ygrid[3][7], xgrid[3][7]));
     
+
     germs.add(new Germ(ygrid[1][2], xgrid[1][2], true));
     germs.add(new Germ(ygrid[1][2], xgrid[1][2], true));
     germs.add(new Germ(ygrid[1][2], xgrid[1][2]));
+
   }
   
   
@@ -154,8 +159,61 @@ public class LevelTwo {
      p.display();
    }
    
+
+   for (stuyKid jennifer: stuyKids){
+     jennifer.display();
+     for (Peashooter a : peashooters) {
+        if (a.getY() == jennifer.getY() && jennifer.getX() - a.getX() <= -30) {
+          boolean distancing = true;
+          jennifer.eating(true);
+          for (stuyKid xiaoshen : stuyKids){
+            if (jennifer != xiaoshen && jennifer.x == xiaoshen.x && jennifer.y == xiaoshen.y){
+              distancing = false;
+            }
+
+          }
+          if (!distancing){
+             jennifer.eating(false);
+          }
+        }
+      }
+      for (Mushroom b : mushrooms) {
+        if (b.getY() == jennifer.getY() && jennifer.getX() - b.getX() <= -30) {
+          jennifer.eating(true);
+
+          boolean distancing = true;
+          for (stuyKid xiaoshen : stuyKids){
+            if (jennifer != xiaoshen && jennifer.x == xiaoshen.x && jennifer.y == xiaoshen.y){
+              distancing = false;
+            }
+          }
+          if (!distancing){
+             jennifer.eating(false);
+          }
+        }
+      }
+      for (Potato c : potatos) {
+        if (c.getY() == jennifer.getY() && jennifer.getX() - c.getX() <= -30) {
+          jennifer.eating(true);
+
+          boolean distancing = true;
+          for (stuyKid xiaoshen : stuyKids){
+            if (jennifer != xiaoshen && jennifer.x == xiaoshen.x && jennifer.y == xiaoshen.y){
+              distancing = false;
+            }
+          }
+          if (!distancing){
+             jennifer.eating(false);
+          }
+
+        }
+      }
+     
+   }
+
    
-   //ZOMBIES-------
+    //ZOMBIES-------
+
     for (Zombie z : zombies){
       if (!z.display()) removeZombies.add(z);
       
@@ -197,6 +255,8 @@ public class LevelTwo {
     mushrooms.removeAll(removeMushrooms);
     potatos.removeAll(removePotatos);
     zombies.removeAll(removeZombies);
+    
+    
     
     
    

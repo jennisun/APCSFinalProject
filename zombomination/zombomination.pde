@@ -10,7 +10,7 @@ int[][] xgrid;
 int[][] ygrid;
 PImage bg;
 int tick = 0;
-int coronavirus = 500;
+int coronavirus;
 int pointer = 0;
 
 
@@ -20,8 +20,9 @@ void setup() {
   
   currPage = "zero";
   zero = new MenuPage(0);
-  one = new LevelOne();
   two = new LevelTwo();
+  one = new LevelOne();
+  
   
   lvl1 = new Button(100, 130, 180, 50, "LEVEL ONE");
   lvl2 = new Button(520, 130, 180, 50, "LEVEL TWO");
@@ -60,6 +61,10 @@ void draw() {
 
 
 void mousePressed() {
+  if (currPage.equals("one")) one.mousePressed();
+  if (currPage.equals("two")) one.mousePressed();
+  
+  
   if (lvl1.hover() && !lvl1.clickedOn()) {
     lvl1.clickedOn(false);
     currPage = "one";
@@ -68,16 +73,10 @@ void mousePressed() {
     lvl2.clickedOn(false);
     currPage = "two";
   }
-  
-  if (currPage.equals("one")) one.mousePressed();
-  if (currPage.equals("two")) one.mousePressed();
 }
 
 void keyPressed() {
   if (key == CODED) {
-    if (currPage.equals("zero")) {
-      if (keyCode == LEFT) currPage = "zero";
-    }
     
     if (currPage.equals("one")) {
       if (!one.update()) {
@@ -85,8 +84,9 @@ void keyPressed() {
       }
       else {
         if (keyCode == LEFT) currPage = "zero";
-        if (keyCode == RIGHT) currPage = "one";
+        if (keyCode == RIGHT) currPage = "two";
       }
+      one = new LevelOne();
     }
     
     if (currPage.equals("two")) {
@@ -95,8 +95,9 @@ void keyPressed() {
       }
       else {
         if (keyCode == LEFT) currPage = "zero";
-        if (keyCode == RIGHT) currPage = "two";
+        //if (keyCode == RIGHT) currPage = "two";
       }
+      two = new LevelTwo();
     }
     
     

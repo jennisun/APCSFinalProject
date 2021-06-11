@@ -5,6 +5,7 @@ public class LevelOne {
     bg = loadImage("tempbg.png");
     bg.resize(800, 700);
     image(bg, 0, 0);
+    coronavirus = 200;
 
     //setup
     xgrid = new int[5][9];
@@ -72,17 +73,15 @@ public class LevelOne {
     //Level One
     //zombies.add(new Zombie(600, 150));
     peashooters.add(new Peashooter(ygrid[1][1], xgrid[1][1]));
-    peashooters.add(new Peashooter(ygrid[3][2], xgrid[3][2]));
-    peashooters.add(new Peashooter(ygrid[2][1], xgrid[2][1]));
     peashooters.add(new Peashooter(ygrid[0][0], xgrid[0][0]));
-    //mushrooms.add(new Mushroom(ygrid[4][1], xgrid[4][1]));
     mushrooms.add(new Mushroom(ygrid[4][7], xgrid[4][7]));
-    //mushrooms.add(new Mushroom(ygrid[4][3], xgrid[4][3]));
-    potatos.add(new Potato(ygrid[3][7], xgrid[3][7]));
     
+
     germs.add(new Germ(ygrid[1][2], xgrid[1][2], true));
-    germs.add(new Germ(ygrid[1][2], xgrid[1][2], true));
-    germs.add(new Germ(ygrid[1][2], xgrid[1][2], true));
+    germs.add(new Germ(ygrid[3][5], xgrid[3][5], true));
+    germs.add(new Germ(ygrid[2][7], xgrid[2][7], true));
+    germs.add(new Germ(ygrid[4][1], xgrid[4][1], true));
+
     stuyKids.add(new stuyKid(ygrid[1][4], xgrid[1][4], "SK1.PNG"));
   }
   
@@ -279,8 +278,7 @@ public class LevelOne {
      }
     germs.removeAll(removeGerms);
     
-    if (tick == 200) pointer ++;
-    if (tick == 500) pointer ++;
+    if (tick % 1000 == 0) pointer ++;
     
    //stuff
     tick += 1;
@@ -329,13 +327,13 @@ public class LevelOne {
     for (Germ g: germs) {
       if (g.hover()) {
         g.clickedOn(true);
-        coronavirus += 50;
+        coronavirus += 25;
       }
     }
   }
   
   boolean update() {
-    if (peashooters.size() == 0 && mushrooms.size() == 0 && potatos.size()== 0)return true;
+    if (peashooters.size() == 0 && mushrooms.size() == 0 && potatos.size()== 0 && tick > 10) return true;
     return false;
   }
 
