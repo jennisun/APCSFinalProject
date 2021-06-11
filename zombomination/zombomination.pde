@@ -48,13 +48,29 @@ void draw() {
   }
   
   if (currPage.equals("one")) {
-    one.draw();
-    menu.update();
-    menu.display();
+    menu = new Button(10, 10, 120, 50, "Menu");
+    
+    if (!one.update()) {
+      one.draw();
+      menu.update();
+      menu.display();
+    }
+    else {
+      one.gameOver();
+      menu.update();
+      menu.display();
+      
+      fill(255);
+      textSize(15);
+      if (menu.hover()) text("hi", 20, 600);
+    }
+    
     
     fill(255);
     textSize(15);
-    text(currPage, 20, 610);
+    //text(one.update(), 20, 600);
+    //if (menu.hover()) text("hi", 20, 610);
+    //if (mousePressed) text("mouse", 20, 590);
   }
  
   if (currPage.equals("two")) {
@@ -66,13 +82,15 @@ void draw() {
 }
 
 void mousePressed() {
+  String change = currPage;
+  
   if (lvl1.hover() && !lvl1.clickedOn()) lvl1.clickedOn(true);
   if (lvl2.hover() && !lvl2.clickedOn()) lvl2.clickedOn(true);
   
   if (currPage.equals("one")) {
     one.mousePressed();
     if (menu.hover() && !menu.clickedOn()) {
-      currPage = "zero";
+      change = "zero";
       menu.clickedOn(false);
     }
   }
@@ -80,12 +98,8 @@ void mousePressed() {
     one.mousePressed();
     if (menu.hover() && !menu.clickedOn()) currPage = "zero";
   }
+  currPage = change;
 }
 
 void keyPressed() {
 }
-
-
-//void currPage(String hold) {
-//  currPage = hold;
-//}

@@ -115,9 +115,6 @@ public class LevelOne {
         }
       }
     }
-    //menu.update();
-    //menu.display();
-    
   
     //PLANTS-------
    
@@ -207,6 +204,12 @@ public class LevelOne {
     textSize(20);
     //text("FPS: " + pointer + " ",0,50);
   }
+  
+  void gameOver() {
+    bg = loadImage("tempbg.png");
+    bg.resize(800, 700);
+    image(bg, 0, 0);
+  }
 
   void keyPressed() {
   }
@@ -216,8 +219,6 @@ public class LevelOne {
       if (b.hover() && !b.clickedOn()) b.clickedOn(true);
       else if (b.hover() && b.clickedOn()) b.clickedOn(false);
     }
-    
-    //if (menu.hover() && menu.clickedOn()) currPage("zero");
     
     for (rowHighlight r: rowHighlights) {
       if (r.hover()) r.clickedOn(true);
@@ -230,8 +231,10 @@ public class LevelOne {
       }
     }
   }
+  
+  boolean update() {
+    return true;
+    //else return false;
+  }
 
-  //public String currPage() {
-  //  return curr;
-  //}
 }
