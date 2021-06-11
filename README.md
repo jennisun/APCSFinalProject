@@ -69,3 +69,5 @@ Xiaoshen: Added buttons and cost for cone zombies and pail zombies. Added some p
 
 #### 6/10 <br>
 Jennifer: Imported images and arrow icons, improved menu page and made an end game screen. Fixed bugs for travelling between pages, buttons replaced with arrows. <br>
+
+Xiaoshen: Fixed plants disappearing early problem, started implementing stuykids. Now working on making germs sprout from stuykids. <br>
