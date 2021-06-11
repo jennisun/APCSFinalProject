@@ -251,11 +251,8 @@ public class LevelOne {
   }
   
   boolean update() {
-    //for (Zombie z : zombies) {
-    //  if (z.getX() < 30) return true;
-    //}
-    //return false;
-    return true;
+    if (peashooters.size() == 0 && mushrooms.size() == 0 && potatos.size()== 0)return true;
+    return false;
   }
 
 }
