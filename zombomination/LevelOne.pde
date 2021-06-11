@@ -77,8 +77,9 @@ public class LevelOne {
     mushrooms.add(new Mushroom(ygrid[4][7], xgrid[4][7]));
     
     germs.add(new Germ(ygrid[1][2], xgrid[1][2]));
-    germs.add(new Germ(ygrid[1][2], xgrid[1][2]));
-    germs.add(new Germ(ygrid[1][2], xgrid[1][2]));
+    germs.add(new Germ(ygrid[3][5], xgrid[3][5]));
+    germs.add(new Germ(ygrid[2][7], xgrid[2][7]));
+    germs.add(new Germ(ygrid[4][1], xgrid[4][1]));
     stuyKids.add(new stuyKid(ygrid[1][4], xgrid[1][4], "SK1.PNG"));
   }
   
