@@ -1,3 +1,4 @@
+MenuPage instruc;
 MenuPage zero;
 LevelOne one;
 LevelTwo two;
@@ -20,7 +21,8 @@ void setup() {
   size(800, 700);
   background(16, 121, 99);
   
-  currPage = "zero";
+  currPage = "instruc";
+  instruc = new MenuPage(1);
   zero = new MenuPage(0);
   three = new LevelThree();
   two = new LevelTwo();
@@ -33,6 +35,13 @@ void setup() {
 }
 
 void draw() {
+  if (currPage.equals("instruc")) {
+    background(16, 121, 99);
+    
+    instruc.draw();
+  }
+  
+  
   if (currPage.equals("zero")) {
     background(16, 121, 99);
     zero.draw();
@@ -43,7 +52,6 @@ void draw() {
     lvl2.display();
     lvl3.update();
     lvl3.display();
-  
   }
   
   if (currPage.equals("one")) {
@@ -88,6 +96,10 @@ void mousePressed() {
 
 void keyPressed() {
   if (key == CODED) {
+    
+    if (currPage.equals("instruc")) {
+      if (keyCode == RIGHT) currPage = "zero";
+    }
     
     if (currPage.equals("one")) {
       if (one.update().equals("false")) {
