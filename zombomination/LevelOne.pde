@@ -327,7 +327,7 @@ public class LevelOne {
   }
   
   boolean update() {
-    if (peashooters.size() == 0 && mushrooms.size() == 0 && potatos.size()== 0)return true;
+    if (peashooters.size() == 0 && mushrooms.size() == 0 && potatos.size()== 0 && tick > 10) return true;
     return false;
   }
 
