@@ -2,6 +2,7 @@ MenuPage zero;
 LevelOne one;
 LevelTwo two;
 String currPage;
+//PFont font = createFont("Minecraftia", 30);
 PFont font;
 Button lvl1, lvl2;
 
@@ -18,7 +19,7 @@ void setup() {
   size(800, 700);
   background(16, 121, 99);
   
-  currPage = "one";
+  currPage = "zero";
   zero = new MenuPage(0);
   one = new LevelOne();
   two = new LevelTwo();

@@ -209,6 +209,24 @@ public class LevelOne {
     bg = loadImage("tempbg.png");
     bg.resize(800, 700);
     image(bg, 0, 0);
+    
+    PImage left = loadImage("left.png");
+    PImage right = loadImage("right.png");
+    image(left, 30, 560);
+    image(right, 630, 570);
+    
+    fill(0);
+    textSize(25);
+    text("MENU",160,650);
+    text("LEVEL TWO",487,652);
+    
+    textSize(70);
+    text("VICTORY", 232, 370);
+    PImage trophy = loadImage("trophy.png");
+    trophy.resize(120, 110);
+    image(trophy, 340, 370);
+    image(trophy, 230, 370);
+    image(trophy, 450, 370);
   }
 
   void keyPressed() {
@@ -233,8 +251,11 @@ public class LevelOne {
   }
   
   boolean update() {
+    //for (Zombie z : zombies) {
+    //  if (z.getX() < 30) return true;
+    //}
+    //return false;
     return true;
-    //else return false;
   }
 
 }
