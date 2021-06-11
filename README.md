@@ -66,3 +66,6 @@ Jennifer: Made variables in zombomination consistent and worked on fixing the me
 Jennifer: Implemented plant health!! Fixed bugs, resized potato.png and wrote potato.pde. Need to fix issue of plant disappearing too early (when zombies is still eating). Wrote Level 2. <br>
 
 Xiaoshen: Added buttons and cost for cone zombies and pail zombies. Added some parameters in zombie, rowhighlight, and button classes, so watch out! Gave up on inheritance zombie classes--making cone and pail zombie parameter instead. <br>
+
+#### 6/10 <br>
+Jennifer: Imported images and arrow icons, improved menu page and made an end game screen. Fixed bugs for travelling between pages, buttons replaced with arrows. <br>
