@@ -4,7 +4,6 @@ LevelTwo two;
 String currPage;
 PFont font;
 Button lvl1, lvl2;
-Button menu;
 
 //Level stuff
 int[][] xgrid;
@@ -26,7 +25,6 @@ void setup() {
   
   lvl1 = new Button(100, 130, 180, 50, "Level One");
   lvl2 = new Button(520, 130, 180, 50, "Level Two");
-  menu = new Button(10, 10, 120, 50, "Menu");
 }
 
 void draw() {
@@ -48,21 +46,13 @@ void draw() {
   }
   
   if (currPage.equals("one")) {
-    menu = new Button(10, 10, 120, 50, "Menu");
     
     if (!one.update()) {
       one.draw();
-      menu.update();
-      menu.display();
     }
     else {
       one.gameOver();
-      menu.update();
-      menu.display();
-      
-      fill(255);
-      textSize(15);
-      if (menu.hover()) text("hi", 20, 600);
+     
     }
     
     
@@ -75,31 +65,31 @@ void draw() {
  
   if (currPage.equals("two")) {
     one.draw();
-    menu.update();
-    menu.display();
   }
 
 }
 
 void mousePressed() {
-  String change = currPage;
   
   if (lvl1.hover() && !lvl1.clickedOn()) lvl1.clickedOn(true);
   if (lvl2.hover() && !lvl2.clickedOn()) lvl2.clickedOn(true);
   
   if (currPage.equals("one")) {
     one.mousePressed();
-    if (menu.hover() && !menu.clickedOn()) {
-      change = "zero";
-      menu.clickedOn(false);
-    }
+    
   }
   if (currPage.equals("two")) {
     one.mousePressed();
-    if (menu.hover() && !menu.clickedOn()) currPage = "zero";
   }
-  currPage = change;
 }
 
 void keyPressed() {
+  if (key == CODED) {
+    if (keyCode == LEFT) {
+      currPage = "zero";
+    }
+    if (keyCode == RIGHT) {
+      currPage = "one";
+    }
+  }
 }
