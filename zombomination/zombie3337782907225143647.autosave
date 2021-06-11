@@ -44,9 +44,13 @@ public class Zombie{
     //zombieType = "original";
   }
 
+
   void move(){
     if (!eating && !pause && !pause1 && !pause2){
-      x -= 0.3;
+
+      x -= speed;
+
+
     }
     
     if (pause) {
@@ -81,6 +85,7 @@ public class Zombie{
   
   boolean display(){
     if (howAlive > 0){
+
       if (zombieType.equals("pailzom.png") && howAlive<10000){
         zb = loadImage("zom.png");
         zombieType = "zom.png";
@@ -112,7 +117,8 @@ public class Zombie{
         fill(255, 255, 255);
         rect(x + 23, y - 20, (float) 30 * (20000 - howAlive) / 20000, 10);
       }
-      
+
+
 
 
       zb.resize(100, 100);
