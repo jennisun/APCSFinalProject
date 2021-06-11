@@ -4,13 +4,12 @@ LevelTwo two;
 String currPage;
 PFont font;
 Button lvl1, lvl2;
-Button menu;
 
 //Level stuff
 int[][] xgrid;
 int[][] ygrid;
-int tick = 0;
 PImage bg;
+int tick = 0;
 int coronavirus = 500;
 int pointer = 0;
 
@@ -24,9 +23,8 @@ void setup() {
   one = new LevelOne();
   two = new LevelTwo();
   
-  lvl1 = new Button(100, 130, 180, 50, "Level One");
-  lvl2 = new Button(520, 130, 180, 50, "Level Two");
-  menu = new Button(10, 10, 120, 50, "Menu");
+  lvl1 = new Button(100, 130, 180, 50, "LEVEL ONE");
+  lvl2 = new Button(520, 130, 180, 50, "LEVEL TWO");
 }
 
 void draw() {
@@ -39,46 +37,68 @@ void draw() {
     lvl2.update();
     lvl2.display();
     
-    if (lvl1.clickedOn) {
-      currPage = "one";
-    }
-    if (lvl2.clickedOn) {
-      currPage = "two";
-    }
+    //if (lvl1.clickedOn) currPage = "one";
+    //if (lvl2.clickedOn) currPage = "two";
   }
   
   if (currPage.equals("one")) {
-    one.draw();
-    menu.update();
-    menu.display();
+    if (!one.update()) one.draw();
+    else one.gameOver();
   }
+    
+    
+    fill(255);
+    textSize(15);
+    //text(one.update(), 20, 600);
  
   if (currPage.equals("two")) {
-    one.draw();
-    menu.update();
-    menu.display();
+    if (!two.update()) two.draw();
+    else two.gameOver();
   }
-
+  
 }
 
+
 void mousePressed() {
-  if (lvl1.hover() && !lvl1.clickedOn()) lvl1.clickedOn(true);
-  if (lvl2.hover() && !lvl2.clickedOn()) lvl2.clickedOn(true);
+  if (lvl1.hover() && !lvl1.clickedOn()) {
+    lvl1.clickedOn(false);
+    currPage = "one";
+  }
+  if (lvl2.hover() && !lvl2.clickedOn()) {
+    lvl2.clickedOn(false);
+    currPage = "two";
+  }
   
-  if (currPage.equals("one")) {
-    one.mousePressed();
-    if (menu.hover() && menu.clickedOn()) currPage = "zero";
-  }
-  if (currPage.equals("two")) {
-    one.mousePressed();
-    if (menu.hover() && menu.clickedOn()) currPage = "zero";
-  }
+  if (currPage.equals("one")) one.mousePressed();
+  if (currPage.equals("two")) one.mousePressed();
 }
 
 void keyPressed() {
+  if (key == CODED) {
+    if (currPage.equals("zero")) {
+      if (keyCode == LEFT) currPage = "zero";
+    }
+    
+    if (currPage.equals("one")) {
+      if (!one.update()) {
+        if (keyCode == LEFT) currPage = "zero";
+      }
+      else {
+        if (keyCode == LEFT) currPage = "zero";
+        if (keyCode == RIGHT) currPage = "one";
+      }
+    }
+    
+    if (currPage.equals("two")) {
+      if (!one.update()) {
+        if (keyCode == LEFT) currPage = "zero";
+      }
+      else {
+        if (keyCode == LEFT) currPage = "zero";
+        if (keyCode == RIGHT) currPage = "two";
+      }
+    }
+    
+    
+  }
 }
-
-
-//void currPage(String hold) {
-//  currPage = hold;
-//}

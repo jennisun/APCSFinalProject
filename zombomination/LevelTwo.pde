@@ -2,8 +2,8 @@ public class LevelTwo {
  
   public LevelTwo() {
     size(800, 700);
-    bg = loadImage("tempbg.png");
-    bg.resize(800, 700);
+    bg = loadImage("red.jpg");
+    bg.resize(1250, 700);
     image(bg, 0, 0);
 
     //setup
@@ -117,9 +117,6 @@ public class LevelTwo {
         }
       }
     }
-    //menu.update();
-    //menu.display();
-    
   
     //PLANTS-------
    
@@ -222,7 +219,31 @@ public class LevelTwo {
     tick += 1;
     fill(0);
     textSize(20);
-    text("FPS: " + pointer + " ",0,50);
+    //text("FPS: " + pointer + " ",0,50);
+  }
+  
+  void gameOver() {
+    bg = loadImage("tempbg.png");
+    bg.resize(800, 700);
+    image(bg, 0, 0);
+    
+    PImage left = loadImage("left.png");
+    PImage right = loadImage("right.png");
+    image(left, 30, 560);
+    image(right, 630, 570);
+    
+    fill(0);
+    textSize(25);
+    text("MENU",160,650);
+    text("LEVEL TWO",487,652);
+    
+    textSize(70);
+    text("VICTORY", 232, 370);
+    PImage trophy = loadImage("trophy.png");
+    trophy.resize(120, 110);
+    image(trophy, 340, 370);
+    image(trophy, 230, 370);
+    image(trophy, 450, 370);
   }
 
   void keyPressed() {
@@ -233,8 +254,6 @@ public class LevelTwo {
       if (b.hover() && !b.clickedOn()) b.clickedOn(true);
       else if (b.hover() && b.clickedOn()) b.clickedOn(false);
     }
-    
-    //if (menu.hover() && menu.clickedOn()) currPage("zero");
     
     for (rowHighlight r: rowHighlights) {
       if (r.hover()) r.clickedOn(true);
@@ -247,8 +266,10 @@ public class LevelTwo {
       }
     }
   }
+  
+  boolean update() {
+    if (peashooters.size() == 0 && mushrooms.size() == 0 && potatos.size()== 0)return true;
+    return false;
+  }
 
-  //public String currPage() {
-  //  return curr;
-  //}
 }

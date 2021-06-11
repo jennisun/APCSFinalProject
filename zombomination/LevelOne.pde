@@ -40,6 +40,7 @@ public class LevelOne {
     for (int i = 0; i < 5; i ++) {
       rowHighlights.add(new rowHighlight(ygrid[i][0], xgrid[i][0], 720, 80, "zom.png"));
     }
+
     //Stuy Kids
     stuyKids = new ArrayList<stuyKid>();
     removeStuyKid = new ArrayList<stuyKid>();
@@ -120,9 +121,6 @@ public class LevelOne {
         }
       }
     }
-    //menu.update();
-    //menu.display();
-    
   
     //PLANTS-------
    
@@ -160,6 +158,7 @@ public class LevelOne {
      p.display();
    }
    
+
    for (stuyKid jennifer: stuyKids){
      jennifer.display();
      for (Peashooter a : peashooters) {
@@ -170,6 +169,7 @@ public class LevelOne {
             if (jennifer != xiaoshen && jennifer.x == xiaoshen.x && jennifer.y == xiaoshen.y){
               distancing = false;
             }
+
           }
           if (!distancing){
              jennifer.eating(false);
@@ -179,6 +179,7 @@ public class LevelOne {
       for (Mushroom b : mushrooms) {
         if (b.getY() == jennifer.getY() && jennifer.getX() - b.getX() <= -30) {
           jennifer.eating(true);
+
           boolean distancing = true;
           for (stuyKid xiaoshen : stuyKids){
             if (jennifer != xiaoshen && jennifer.x == xiaoshen.x && jennifer.y == xiaoshen.y){
@@ -193,6 +194,7 @@ public class LevelOne {
       for (Potato c : potatos) {
         if (c.getY() == jennifer.getY() && jennifer.getX() - c.getX() <= -30) {
           jennifer.eating(true);
+
           boolean distancing = true;
           for (stuyKid xiaoshen : stuyKids){
             if (jennifer != xiaoshen && jennifer.x == xiaoshen.x && jennifer.y == xiaoshen.y){
@@ -202,11 +204,15 @@ public class LevelOne {
           if (!distancing){
              jennifer.eating(false);
           }
+
         }
       }
      
    }
-   //ZOMBIES-------
+
+   
+    //ZOMBIES-------
+
     for (Zombie z : zombies){
       if (!z.display()) removeZombies.add(z);
       
@@ -250,6 +256,8 @@ public class LevelOne {
     zombies.removeAll(removeZombies);
     
     
+    
+    
    
    //GERMS-------
      for (Germ g: germs) {
@@ -270,7 +278,31 @@ public class LevelOne {
     tick += 1;
     fill(0);
     textSize(20);
-    text("FPS: " + pointer + " ",0,50);
+    //text("FPS: " + pointer + " ",0,50);
+  }
+  
+  void gameOver() {
+    bg = loadImage("tempbg.png");
+    bg.resize(800, 700);
+    image(bg, 0, 0);
+    
+    PImage left = loadImage("left.png");
+    PImage right = loadImage("right.png");
+    image(left, 30, 560);
+    image(right, 630, 570);
+    
+    fill(0);
+    textSize(25);
+    text("MENU",160,650);
+    text("LEVEL TWO",487,652);
+    
+    textSize(70);
+    text("VICTORY", 232, 370);
+    PImage trophy = loadImage("trophy.png");
+    trophy.resize(120, 110);
+    image(trophy, 340, 370);
+    image(trophy, 230, 370);
+    image(trophy, 450, 370);
   }
 
   void keyPressed() {
@@ -281,8 +313,6 @@ public class LevelOne {
       if (b.hover() && !b.clickedOn()) b.clickedOn(true);
       else if (b.hover() && b.clickedOn()) b.clickedOn(false);
     }
-    
-    //if (menu.hover() && menu.clickedOn()) currPage("zero");
     
     for (rowHighlight r: rowHighlights) {
       if (r.hover()) r.clickedOn(true);
@@ -295,8 +325,10 @@ public class LevelOne {
       }
     }
   }
+  
+  boolean update() {
+    if (peashooters.size() == 0 && mushrooms.size() == 0 && potatos.size()== 0)return true;
+    return false;
+  }
 
-  //public String currPage() {
-  //  return curr;
-  //}
 }

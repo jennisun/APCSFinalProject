@@ -1,28 +1,33 @@
 public class MenuPage {
   PImage hand = loadImage("zombiehand.png");
+  PImage soil = loadImage("soil.png");
+  PImage moon = loadImage("moon.png");
   int pageNum;
   PFont font = createFont("Minecraftia", 30);
   
   public MenuPage(int page){
     pageNum = page;
     
+    moon.resize(800, 600);
+    image(moon, 0, 0);
     //background
-    fill(23, 29, 72);
-    rect(0, 550, 800, 150);
+    image(soil, 0, 550);
+    image(soil, 350, 550);
     
     hand.resize(325, 500);
     image(hand, 220, 235);
   }
   
   public void draw() {
+    image(moon, 0, 0);
+    image(soil, 0, 550);
+    image(soil, 350, 550);
+    image(hand, 220, 235);
+    
     textFont(font);
     fill(255);
-    text("zombomination", 300, 60);
-
-    fill(23, 29, 72);
-    rect(0, 550, 800, 150);
-    
-    image(hand, 220, 235);
+    textSize(40);
+    text("zombomination", 220, 80);
   }
 
 }
