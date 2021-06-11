@@ -86,11 +86,20 @@ void mousePressed() {
 
 void keyPressed() {
   if (key == CODED) {
-    if (keyCode == LEFT) {
-      currPage = "zero";
+    if (currPage.equals("zero")) {
+      if (keyCode == LEFT) currPage = "zero";
+      if (keyCode == RIGHT) currPage = "one";
     }
-    if (keyCode == RIGHT) {
-      currPage = "one";
+    if (currPage.equals("one")) {
+      if (!one.update()) {
+        if (keyCode == LEFT) currPage = "zero";
+      }
+      else {
+        if (keyCode == LEFT) currPage = "zero";
+        if (keyCode == RIGHT) currPage = "one";
+      }
     }
+    
+    
   }
 }
