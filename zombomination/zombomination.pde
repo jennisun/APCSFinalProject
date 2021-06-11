@@ -15,13 +15,14 @@ int tick = 0;
 int coronavirus;
 int pointer = 0;
 int totalTime = 0;
+int wait =0;
 
 
 void setup() {
   size(800, 700);
   background(16, 121, 99);
   
-  currPage = "zero";
+  currPage = "instruc";
   instruc = new MenuPage(1);
   zero = new MenuPage(0);
   three = new LevelThree();

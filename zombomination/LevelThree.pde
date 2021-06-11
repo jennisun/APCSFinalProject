@@ -8,6 +8,7 @@ public class LevelThree {
     image(bg, 0, 0);
     coronavirus = 1000;
     totalTime = 7000;
+    int wait = 0;
 
     //setup
     xgrid = new int[5][9];
@@ -283,6 +284,10 @@ public class LevelThree {
     fill(0);
     textSize(20);
     //text("FPS: " + pointer + " ",0,50);
+    for (Zombie hello: zombies) {
+      wait += 1;
+      if (wait % 800 == 0 && hello.zombieType.equals("SK1.PNG") || hello.zombieType.equals("SK2.PNG")) coronavirus += 10;
+    }
   }
   
   void win() {

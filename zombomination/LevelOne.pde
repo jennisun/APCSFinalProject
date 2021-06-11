@@ -8,6 +8,7 @@ public class LevelOne {
     image(bg, 0, 0);
     coronavirus = 1000;
     totalTime = 7500;
+    int wait = 0;
 
     //setup
     xgrid = new int[5][9];
@@ -287,6 +288,11 @@ public class LevelOne {
     fill(0);
     textSize(20);
     //text(totalTime + pointer + " ",0,70);
+    
+    for (Zombie hello: zombies) {
+      wait += 1;
+      if (wait % 800 == 0 && hello.zombieType.equals("SK1.PNG") || hello.zombieType.equals("SK2.PNG")) coronavirus += 10;
+    }
   }
   
   void win() {
