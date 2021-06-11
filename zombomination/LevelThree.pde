@@ -3,7 +3,7 @@ public class LevelThree {
   public LevelThree() {
     tick = 0;
     size(800, 700);
-    bg = loadImage("tempbg.png");
+    bg = loadImage("red.jpg");
     bg.resize(800, 700);
     image(bg, 0, 0);
     coronavirus = 1000;
